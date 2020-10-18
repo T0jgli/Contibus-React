@@ -1,0 +1,106 @@
+@media (max-width: 992px) {
+  .tablesor {
+  display:flex;
+  flex-flow:column wrap;
+  text-align:center;
+  }
+  
+  thead {
+  display:none;
+  }
+  
+  .thumbnailkep {
+  width:50%;
+  margin-top:10px;
+  margin-bottom:5px;
+  }
+  
+  .dijaktext {
+  text-align:center;
+  }
+  
+  .middletd {
+  text-align:center;
+  }
+  
+  .th {
+  padding-top:0;
+  padding-bottom:0;
+  }
+  }
+  
+  @media (min-width: 992px) {
+  .middletd {
+  width:60%;
+  }
+  
+  .thumbnailkep {
+  width:75%;
+  }
+  
+  .dijaktext {
+  text-align:right;
+  }
+  
+  .seatsphotos {
+  width:70%;
+  }
+  
+  .keprow {
+  width:20%;
+  }
+  }
+  
+  .thumbnailkep {
+  transition:all .5s ease;
+  -moz-transition:all .5s;
+  -webkit-transition:all .5s;
+  }
+  
+  .thumbnailkep:hover {
+  -moz-transform:scale(1.05,1.05);
+  -webkit-transform:scale(1.05,1.05);
+  transform:scale(1.05,1.05);
+  }
+  
+  .muzeumcardbody {
+  position:absolute;
+  width:100%;
+  height:100%;
+  top:0;
+  overflow:hidden;
+  background-color:#fff;
+  transition:all 1s;
+  cursor:pointer;
+  }
+  
+  .muzeumcardbody.close {
+  top:100%;
+  transition:all 1s;
+  height:4rem;
+  margin-top:-4rem;
+  border-bottom-left-radius:.6rem!important;
+  border-bottom-right-radius:.6rem!important;
+  opacity:.85;
+  }
+  
+  .muzeumbtn {
+  transition:all .5s ease;
+  -moz-transition:all .5s;
+  -webkit-transition:all .5s;
+  }
+  
+  .muzeumbtn:hover {
+  -moz-transform:scale(1.09,1.09);
+  -webkit-transform:scale(1.09,1.09);
+  transform:scale(1.09,1.09);
+  }
+
+  .busimg{
+    transition:all .5s ease;
+    -moz-transition:all .5s;
+    -webkit-transition:all .5s;  
+  }
+  .busimg:hover{
+    opacity: 0.9;
+  }
