@@ -36,17 +36,17 @@ const Carousel = () => {
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5 fadeInUp animated">
                                     <h1 className="mb-4">
-                                        <strong className="font-weight-bold">{language === "eng" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
+                                        <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
                                     </h1>
                                     <p className="mb-4 d-block">
                                         <strong>
-                                            <MDBIcon icon="check" className="px-2" />{language === "eng" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
+                                            <MDBIcon icon="check" className="px-2" />{language === "en" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
                                             <MDBIcon icon="check" className="px-2" />
                                         </strong>
                                     </p>
                                     {location.pathname === "/" ? (<h5 className="font-weight-bold animated fadeIn mb-4">
                                         <MDBIcon icon="exclamation" size={"2x"} className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "eng" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") : 
+                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") : 
                                         ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyesügyintézés ideje alatt maszkot viseljenek")} 
                                         <MDBIcon icon="exclamation" size={"2x"}
                                             className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
@@ -54,7 +54,7 @@ const Carousel = () => {
                                     }
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                         className="btn btn-outline-white btn-lg rounded font-weight-bold kapcsolatbtn"><span
-                                            className="pr-2">{language === "eng" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
+                                            className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
                                         <MDBIcon fab icon="facebook-square" />
                                     </a>
                                 </div>
@@ -66,17 +66,17 @@ const Carousel = () => {
                             <MDBMask overlay="black-light" className="flex-center">
                                 <div className="text-center white-text mx-5 fadeInUp animated">
                                     <h1 className="mb-4">
-                                        <strong className="font-weight-bold">{language === "eng" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
+                                        <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
                                     </h1>
                                     <p className="mb-4 d-block">
-                                        <strong><MDBIcon icon="check" className="px-2" /> {language === "eng" ? ("Safety") : ("Biztonság")}
-                                            <MDBIcon icon="check" className="px-2" />{language === "eng" ? ("Comfort") : ("Kényelem")}
-                                            <MDBIcon icon="check" className="px-2" />{language === "eng" ? ("Standards") : ("Színvonal")}
+                                        <strong><MDBIcon icon="check" className="px-2" /> {language === "en" ? ("Safety") : ("Biztonság")}
+                                            <MDBIcon icon="check" className="px-2" />{language === "en" ? ("Comfort") : ("Kényelem")}
+                                            <MDBIcon icon="check" className="px-2" />{language === "en" ? ("Standards") : ("Színvonal")}
                                             <MDBIcon icon="check" className="px-2" /></strong>
                                     </p>
                                     {location.pathname === "/" ? (<h5 className="font-weight-bold animated fadeIn mb-4">
                                         <MDBIcon icon="exclamation" size={"2x"} className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "eng" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
                                             ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyesügyintézés ideje alatt maszkot viseljenek")}
                                         <MDBIcon icon="exclamation" size={"2x"}
                                             className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
@@ -85,7 +85,7 @@ const Carousel = () => {
                                     }
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                         className="btn btn-outline-white btn-lg rounded font-weight-bold kapcsolatbtn"><span
-                                            className="pr-2">{language === "eng" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
+                                            className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
                                         <MDBIcon fab icon="facebook-square" />
                                     </a>
                                 </div>
@@ -98,17 +98,17 @@ const Carousel = () => {
 
                                 <div className="text-center white-text mx-5 fadeInUp animated">
                                     <h1 className="mb-4">
-                                        <strong className="font-weight-bold">{language === "eng" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
+                                        <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
                                     </h1>
                                     <p className="mb-4 d-block">
                                         <strong>
-                                            <MDBIcon icon="check" className="px-2" />{language === "eng" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
+                                            <MDBIcon icon="check" className="px-2" />{language === "en" ? ("We offer culture and experience") : ("Kultúrát és élményt adunk")}
                                             <MDBIcon icon="check" className="px-2" />
                                         </strong>
                                     </p>
                                     {location.pathname === "/" ? (<h5 className="font-weight-bold animated fadeIn mb-4">
                                         <MDBIcon icon="exclamation" size={"2x"} className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "eng" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
                                             ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyesügyintézés ideje alatt maszkot viseljenek")}
                                         <MDBIcon icon="exclamation" size={"2x"}
                                             className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
@@ -116,7 +116,7 @@ const Carousel = () => {
                                     }
                                     <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
                                         className="btn btn-outline-white btn-lg rounded font-weight-bold kapcsolatbtn"><span
-                                            className="pr-2">{language === "eng" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
+                                            className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
                                         <MDBIcon fab icon="facebook-square" />
                                     </a>
                                 </div>

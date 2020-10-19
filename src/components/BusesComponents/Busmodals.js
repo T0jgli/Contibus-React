@@ -31,7 +31,7 @@ const Busmodals = ({ data, toggler, settoggler}) => {
             <MDBModal fade isOpen={toggler[data.id - 1].pict} toggle={() => { newarr[data.id - 1].pict = !newarr[data.id - 1].pict; settoggler(newarr) }} size="lg" className="rounded">
                 <MDBModalHeader className="rounded calendar" titleClass="heading lead font-weight-bolder"
                     toggle={() => { newarr[data.id - 1].pict = !newarr[data.id - 1].pict; settoggler(newarr) }}>
-                    {language === "eng" ? ("Pictures") : ("Képek")}
+                    {language === "en" ? ("Pictures") : ("Képek")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     <MDBContainer>
@@ -41,7 +41,7 @@ const Busmodals = ({ data, toggler, settoggler}) => {
                 <MDBCard className="rounded">
                     <MDBCardFooter>
                         <MDBBtn color="dark" outline className="float-right rounded" onClick={() => { newarr[data.id - 1].pict = !newarr[data.id - 1].pict; settoggler(newarr) }}>
-                            {language === "eng" ? ("Close") : ("Bezárás")}
+                            {language === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

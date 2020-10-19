@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
@@ -8,14 +8,12 @@ import {
 import { Button, Snackbar, SnackbarContent } from '@material-ui/core';
 
 import Calendar from './Calendar';
-import { setCookie } from "../../features/Cookiehelper"
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
 
 
 const Navbar = () => {
     let location = useLocation();
-    let history = useHistory();
 
     const language = useSelector(selectlanguage)
 
@@ -56,26 +54,26 @@ const Navbar = () => {
                         <MDBNavbarNav left>
                             <MDBNavItem active={location.pathname === "" ? (true) : location.pathname === "/" ? (true) : (false)}>
                                 <MDBNavLink to="/" className="rounded">
-                                    {language === "eng" ? ("Home") : ("Kezdőlap")}</MDBNavLink>
+                                    {language === "en" ? ("Home") : ("Kezdőlap")}</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem active={location.pathname === "/offer" ? (true) : (false)}>
                                 <MDBNavLink to="/offer" className="rounded">
-                                    {language === "eng" ? ("Get an offer") : ("Ajánlatkérés")}</MDBNavLink>
+                                    {language === "en" ? ("Get an offer") : ("Ajánlatkérés")}</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem active={location.pathname === "/buses" ? (true) : (false)}>
                                 <MDBNavLink to="/buses" className="rounded">
-                                    {language === "eng" ? ("Our buses") : ("Autóbuszok")}</MDBNavLink>
+                                    {language === "en" ? ("Our buses") : ("Autóbuszok")}</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBDropdown size="lg">
                                     <MDBDropdownToggle className="rounded" nav caret>
-                                        <span><MDBIcon icon="suitcase-rolling" className="pr-1" />{language === "eng" ? (" Travels") : (" Utazásaink")} </span>
+                                        <span><MDBIcon icon="suitcase-rolling" className="pr-1" />{language === "en" ? (" Travels") : (" Utazásaink")} </span>
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu basic className="rounded z-depth-1 p-0">
-                                        <MDBDropdownItem onClick={() => setcalendaropen(!calendaropen)} className="p-4">{language === "eng" ? ("Calendar") : ("Naptár")} »</MDBDropdownItem>
+                                        <MDBDropdownItem onClick={() => setcalendaropen(!calendaropen)} className="p-4">{language === "en" ? ("Calendar") : ("Naptár")} »</MDBDropdownItem>
                                         <MDBDropdownItem divider></MDBDropdownItem>
                                         <MDBDropdownItem href="https://www.facebook.com/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315/events"
-                                            target="_blank" className="p-4">{language === "eng" ? ("Facebook events") : ("Facebook eseményeink")} »</MDBDropdownItem>
+                                            target="_blank" className="p-4">{language === "en" ? ("Facebook events") : ("Facebook eseményeink")} »</MDBDropdownItem>
                                     </MDBDropdownMenu>
                                 </MDBDropdown>
                             </MDBNavItem>
@@ -85,8 +83,8 @@ const Navbar = () => {
                                 <MDBCol className="flex-center">
                                     <MDBRow className="">
                                         <div className="img-fluid pr-2">
-                                            <img src="/img/hu.png" width="30px" className={language !== "eng" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
-                                                onClick={() => { setCookie("language", "hu", 3650); setlangtoast(true); counterinterval()}} alt="" />
+                                            <img src="/img/hu.png" width="30px" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                                                onClick={() => {localStorage.setItem("language", "hu"); setlangtoast(true); counterinterval()}} alt="" />
                                         </div>
                                     </MDBRow>
                                 </MDBCol>
@@ -95,8 +93,8 @@ const Navbar = () => {
                                 <MDBCol className="flex-center">
                                     <MDBRow className="">
                                         <div className="img-fluid pr-2">
-                                            <img src="/img/uk.png" width="30px" className={language === "eng" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
-                                                onClick={() => { setCookie("language", "eng", 3650); setlangtoast(true); counterinterval() }} alt="" />
+                                            <img src="/img/uk.png" width="30px" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
+                                                onClick={() => { localStorage.setItem("language", "en"); setlangtoast(true); counterinterval() }} alt="" />
                                         </div>
                                     </MDBRow>
                                 </MDBCol>
@@ -104,7 +102,7 @@ const Navbar = () => {
                             <MDBNavItem id="ticketbtn" onClick={() => setIsOpen(!isOpen)} className="rounded">
                                 <a href="http://kalandozastravel.hu/cgi-bin/view2020" target="_blank" rel="noopener noreferrer"
                                     className="nav-link border border-light rounded text-center"> <MDBIcon icon="calendar-check" className="pr-1" />
-                                    {language === "eng" ? (" Tickets") : (" Jegyfoglalás")}</a>
+                                    {language === "en" ? (" Tickets") : (" Jegyfoglalás")}</a>
                             </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
@@ -112,9 +110,9 @@ const Navbar = () => {
             </MDBNavbar>
 
             <Snackbar open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
-                <SnackbarContent message={language === "eng" ? ("Language set...") : ("Nyelv sikeresen beállítva...")}
+                <SnackbarContent message={language === "en" ? ("Language set...") : ("Nyelv sikeresen beállítva...")}
                     action={<Button variant="contained" style={{ color: "white", fontWeight: "bold", backgroundColor: "#424242", margin: "5px" }}
-                        onClick={() => { window.location.reload(false) }}>{language === "eng" ? ("Reload " + counter) : ("Újratöltés " + counter)}</Button>} />
+                        onClick={() => { window.location.reload(false) }}>{language === "en" ? ("Reload " + counter) : ("Újratöltés " + counter)}</Button>} />
             </Snackbar>
 
             <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} setisOpen={setIsOpen} />

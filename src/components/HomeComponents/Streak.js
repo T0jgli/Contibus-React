@@ -32,7 +32,7 @@ const Streak = () => {
                 <MDBContainer className="py-5">
                     <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
                         <h3 className="text-center mb-5 pb-4 white-text font-weight-bold">
-                            <strong>{language === "eng" ? ("Some facts about us") : ("Néhány tény rólunk")}</strong>
+                            <strong>{language === "en" ? ("Some facts about us") : ("Néhány tény rólunk")}</strong>
                         </h3>
                     </ScrollAnimation>
 
@@ -49,7 +49,7 @@ const Streak = () => {
                                             </VisibilitySensor>
                                         )}
                                     </CountUp></h1>
-                                <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "eng" ? ("Happy clients") : ("Elégedett ügyfél")}</p>
+                                <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "en" ? ("Happy clients") : ("Elégedett ügyfél")}</p>
                             </ScrollAnimation>
                         </MDBCol>
                         <MDBCol md="3" className="mb-2">
@@ -65,7 +65,7 @@ const Streak = () => {
                                         )}
 
                                     </CountUp></h1>
-                                <p className="white-text text-uppercase mt-3 font-weight-bold" >{language === "eng" ? ("Projects completed") : ("Sikeres projekt")}</p>
+                                <p className="white-text text-uppercase mt-3 font-weight-bold" >{language === "en" ? ("Projects completed") : ("Sikeres projekt")}</p>
                             </ScrollAnimation>
                         </MDBCol>
                         <MDBCol md="3" className="mb-2">
@@ -81,7 +81,7 @@ const Streak = () => {
                                         )}
 
                                     </CountUp></h1>
-                                <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "eng" ? ("Destinations") : ("Úticél")}</p>
+                                <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "en" ? ("Destinations") : ("Úticél")}</p>
                             </ScrollAnimation>
                         </MDBCol>
                         <MDBCol md="3" className="mb-2">
@@ -97,7 +97,7 @@ const Streak = () => {
                                         )}
 
                                     </CountUp></h1>
-                                <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "eng" ? ("Visited country") : ("Meglátogatott ország")}</p>
+                                <p className="white-text text-uppercase mt-3 font-weight-bold">{language === "en" ? ("Visited country") : ("Meglátogatott ország")}</p>
                             </ScrollAnimation>
                         </MDBCol>
 

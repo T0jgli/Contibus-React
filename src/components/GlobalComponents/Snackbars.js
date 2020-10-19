@@ -16,19 +16,19 @@ const Snackbars = ({success, setsuccess, error, seterror, accepterror, setaccept
         <>
             <Snackbar open={success} autoHideDuration={3000} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setsuccess(false) }}>
                 <Alert onClose={(event, reason) => { if (reason === "clickaway") { return; }; setsuccess(false) }}
-                    severity="success">{language === "eng" ? ("Successfully sent!") : ("Sikeresen elküldve!")}
+                    severity="success">{language === "en" ? ("Successfully sent!") : ("Sikeresen elküldve!")}
                 </Alert>
             </Snackbar>
 
             <Snackbar open={accepterror} autoHideDuration={5000} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setaccepterror(false) }}>
                 <Alert onClose={(event, reason) => { if (reason === "clickaway") { return; }; setaccepterror(false) }}
-                    severity="error">{language === "eng" ? ("You need to accept the privacy policy!") : ("El kell fogadnia az adatvédelmi nyilatkozatot!")}
+                    severity="error">{language === "en" ? ("You need to accept the privacy policy!") : ("El kell fogadnia az adatvédelmi nyilatkozatot!")}
                 </Alert>
             </Snackbar>
 
-            <Snackbar open={error.state} autoHideDuration={3000} onClose={(event, reason) => { if (reason === "clickaway") { return; }; seterror({state: false}) }}>
-                <Alert onClose={(event, reason) => { if (reason === "clickaway") { return; }; seterror({state: false}) }}
-                    severity="error">{language === "eng" ? ("There was some error: " + error.msg) : ("Hiba történt: "+ error.msg)}
+            <Snackbar open={error.state} autoHideDuration={5000} onClose={(event, reason) => { if (reason === "clickaway") { return; }; seterror({...error, state: false}) }}>
+                <Alert onClose={(event, reason) => { if (reason === "clickaway") { return; }; seterror({...error, state: false}) }}
+                    severity="error">{language === "en" ? ("There was some error: " + error.msg) : ("Hiba történt: "+ error.msg)}
                 </Alert>
             </Snackbar>
 

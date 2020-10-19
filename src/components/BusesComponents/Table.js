@@ -15,11 +15,11 @@ import Fslightboxes from './Fslightboxes';
 
 const Table = ({ tablazat, settablazat }) => {
     const language = useSelector(selectlanguage)
-    
+
     let togglers = []
     let idd = 0
     for (let index = 0; index < Buses.Buses.length; index++) {
-        togglers.push({pict: false})
+        togglers.push({ pict: false })
     }
 
     const [toggler, settoggler] = useState(togglers)
@@ -32,15 +32,21 @@ const Table = ({ tablazat, settablazat }) => {
             <div className="fadeIn animated">
 
                 <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
-                    <h3 className="text-center text-muted my-4">{language === "eng" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
+                    <h3 className="text-center text-muted my-4">{language === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
                 </ScrollAnimation>
 
                 <ScrollAnimation animateIn="fadeInUp" animateOnce offset={window.innerHeight}>
                     <MDBBtnGroup className="m-2">
-                        <MDBBtn disabled={tablazat ? (false) : (true)} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => settablazat(!tablazat)}>
+                        <MDBBtn disabled={tablazat ? (false) : (true)} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => {
+                            settablazat(!tablazat)
+                            localStorage.setItem("defaultBusView", "card")
+                        }}>
                             <ViewAgendaIcon fontSize="small" />
                         </MDBBtn>
-                        <MDBBtn disabled={tablazat ? (true) : (false)} color="elegant" style={{ borderRadius: "0 10px 10px 0" }} onClick={() => settablazat(!tablazat)}>
+                        <MDBBtn disabled={tablazat ? (true) : (false)} color="elegant" style={{ borderRadius: "0 10px 10px 0" }} onClick={() => {
+                            settablazat(!tablazat)
+                            localStorage.setItem("defaultBusView", "table")
+                        }}>
                             <TableChartIcon fontSize="small" />
                         </MDBBtn>
                     </MDBBtnGroup>
@@ -54,7 +60,6 @@ const Table = ({ tablazat, settablazat }) => {
                                 <ScrollAnimation key={idd} animateIn="fadeIn" animateOnce offset={window.innerHeight}>
                                     <Carddeck settablazat={settablazat} idd={idd} item={item} nextnextitem={array[index + 2]} nextitem={array[index + 1]} what={"Table"} />
                                 </ScrollAnimation>
-
                             )
                         }
                         else {
@@ -68,13 +73,13 @@ const Table = ({ tablazat, settablazat }) => {
                         <MDBTableHead className="z-depth-1">
                             <tr className="text-center z-depth-1">
                                 <th>
-                                    <span className="font-weight-bolder">{language === "eng" ? ("Vehicles") : ("Járműveink")}</span>
+                                    <span className="font-weight-bolder">{language === "en" ? ("Vehicles") : ("Járműveink")}</span>
                                 </th>
                                 <th>
 
                                 </th>
                                 <th className="pr-3 text-right">
-                                    <span className="font-weight-bolder">{language === "eng" ? ("Prices") : ("Árak")}</span>
+                                    <span className="font-weight-bolder">{language === "en" ? ("Prices") : ("Árak")}</span>
                                 </th>
                             </tr>
                         </MDBTableHead>
@@ -83,7 +88,7 @@ const Table = ({ tablazat, settablazat }) => {
                                 return (
                                     <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler} settoggler={settoggler}
                                         language={language} toggler={toggler} data={item} key={item.id}
-                                        />
+                                    />
                                 )
                             })}
                         </MDBTableBody>
@@ -97,7 +102,7 @@ const Table = ({ tablazat, settablazat }) => {
                             <Busmodals language={language} settoggler={settoggler} toggler={toggler} data={item} key={item.id} />
                         )
                     })}
-                <Fslightboxes setimgtoggler={setimgtoggler} data={Buses} imgtoggler={imgtoggler}/>
+                    <Fslightboxes setimgtoggler={setimgtoggler} data={Buses} imgtoggler={imgtoggler} />
                 </>
             )}
         </>

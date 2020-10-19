@@ -28,24 +28,24 @@ const Footer = () => {
                                 </div>}
                             </MDBCol>
                             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-1">
-                                <h6 className="text-uppercase font-weight-bold">{language === "eng" ? ("Others") : ("Egyéb")}</h6>
+                                <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Others") : ("Egyéb")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p onClick={() => setelveszett(!elveszett)} style={{ cursor: "pointer" }}>
-                                    {language === "eng" ? ("Lost items") : ("Elvesztett tárgyak")}
+                                    {language === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                                 </p>
                                 <p>
-                                    <a href="#!">{language === "eng" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
+                                    <a href="#!">{language === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
                                 </p>
                                 <p>
-                                    <a href="#!">{language === "eng" ? ("Order form") : ("Megrendelőlap")}</a>
+                                    <a href="#!">{language === "en" ? ("Order form") : ("Megrendelőlap")}</a>
                                 </p>
                                 <p>
-                                    <a href="#!">{language === "eng" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
+                                    <a href="#!">{language === "en" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
                                 </p>
                             </MDBCol>
 
                             <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-xl-1">
-                                <h6 className="text-uppercase font-weight-bold">{language === "eng" ? ("Contact") : ("Kapcsolat")}</h6>
+                                <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
                                     <MDBIcon icon="home" className="mr-3"/>1075 Budapest, Síp utca 4.</p>

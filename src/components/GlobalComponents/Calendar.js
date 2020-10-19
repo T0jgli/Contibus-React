@@ -18,13 +18,13 @@ import {GoogleCalendarKey} from "../../features/GoogleKey"
 
 const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
     const language = useSelector(selectlanguage)
-
+    
     return (
         <>
             <MDBModal fade isOpen={calendaropen} toggle={() => setcalendaropen(!calendaropen)} size="lg" className="rounded">
                 <MDBModalHeader className="rounded calendar" titleClass="heading lead font-weight-bolder"
                     toggle={() => { setcalendaropen(!calendaropen); setisOpen(false) }}>
-                    {language === "eng" ? ("Calendar") : ("Naptár")}
+                    {language === "en" ? ("Calendar") : ("Naptár")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     <MDBContainer className="p-0">
@@ -47,7 +47,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                                             eventClick={(arg) => {arg.jsEvent.preventDefault(); window.open(arg.event.url, '_blank', 'width=700,height=600');}}
                                             initialView='listMonth'
                                             googleCalendarApiKey={GoogleCalendarKey}
-                                            locale={language === "eng" ? null : (huLocale)}
+                                            locale={language === "en" ? null : (huLocale)}
                                             eventSources={
                                                 [
                                                     {
@@ -75,7 +75,7 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                 <MDBCard className="rounded">
                     <MDBCardFooter>
                         <MDBBtn color="dark" outline className="float-right rounded" onClick={() => { setcalendaropen(!calendaropen); setisOpen(false) }}>
-                            {language === "eng" ? ("Close") : ("Bezárás")}
+                            {language === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

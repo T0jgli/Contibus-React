@@ -34,7 +34,7 @@ const Gallery = () => {
                 <MDBCol>
                     <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
                         <h3 className="font-weight-bold dark-grey-text pb-2 mb-0 text-center" id="gallerytext">
-                            {language === "eng" ? ("Gallery") : ("Galéria")}
+                            {language === "en" ? ("Gallery") : ("Galéria")}
                         </h3>
 
                     </ScrollAnimation>

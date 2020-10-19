@@ -14,7 +14,7 @@ const Home = () => {
     const language = useSelector(selectlanguage)
 
     useEffect(() => {
-        if (language === "eng") {
+        if (language === "en") {
             document.title = "Contibus - Home";
         }
         else {

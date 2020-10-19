@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import db from "./../../firebase/firebase"
 import firebase from "firebase/app"
@@ -33,13 +33,11 @@ const Lostitems = ({ elveszett, setelveszett }) => {
     const [error, seterror] = useState({ state: false, msg: "" })
     const [accept, setaccept] = useState(false)
     const [accepterror, setaccepterror] = useState(false)
-    const lostitemsref = useRef(null)
 
     const handlesubmit = (e) => {
         e.preventDefault();
         if (accept) {
             setstate({ ...state, loading: true })
-
             db.collection("lostitemusers").add({
                 name: state.name,
                 phone: state.phone,
@@ -51,7 +49,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
             })
 
-            if (state.newsletter) {
+            if (state.newsletterlost) {
                 db.collection("newsletterusers").doc(state.email).set({
                     name: state.name,
                     phone: state.phone,
@@ -68,14 +66,14 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                 setstate({ ...state, loading: false })
                 if (response.data.status === 'success') {
                     setsuccess(true)
+                    setstate({})
                     setelveszett(!elveszett)
-                    lostitemsref.current.reset()
                     window.scrollTo(0, 0)
                 } else if (response.data.status === 'fail') {
                     console.log(response.data)
                     seterror({ state: true, msg: response.data })
+                    setstate({})
                     setelveszett(!elveszett)
-                    lostitemsref.current.reset()
                     window.scrollTo(0, 0)
                 }
             })
@@ -87,7 +85,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
         <>
             <MDBModal cascading className="lostmodal rounded" fade modalStyle="danger" isOpen={elveszett} toggle={() => setelveszett(!elveszett)} size="lg">
                 <MDBModalHeader className="rounded" titleClass="heading lead font-weight-bolder" toggle={() => setelveszett(!elveszett)}>
-                    {language === "eng" ? ("Lost items") : ("Elvesztett tárgyak")}
+                    {language === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     <MDBCard>
@@ -105,47 +103,47 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                             A megtalált tárgyakat 3 hónapig őrizzük.
                         </MDBCardHeader>
                         <MDBCardBody>
-                            <form ref={lostitemsref} onSubmit={handlesubmit} className="mx-2">
+                            <form onSubmit={handlesubmit} className="mx-2">
                                 <div className="form-row my-2">
                                     <MDBCol>
-                                        <MDBInput label={language === "eng" ? ("Name *") : ("Utas neve *")}
+                                        <MDBInput label={language === "en" ? ("Name *") : ("Utas neve *")}
                                             icon="user" name="name" value={state.name} onChange={e => setstate({ ...state, name: e.target.value })} required />
                                     </MDBCol>
                                     <MDBCol>
-                                        <MDBInput label={language === "eng" ? ("Date of travel *") : ("Utazás dátuma *")}
+                                        <MDBInput label={language === "en" ? ("Date of travel *") : ("Utazás dátuma *")}
                                             icon="calendar-week" name="date" value={state.date} onChange={e => setstate({ ...state, date: e.target.value })} required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
-                                        <MDBInput label={language === "eng" ? ("Which bus did you travel on? *") : ("Melyik autóbusszal utazott? *")}
+                                        <MDBInput label={language === "en" ? ("Which bus did you travel on? *") : ("Melyik autóbusszal utazott? *")}
                                             value={state.bus} name="bus" onChange={e => setstate({ ...state, bus: e.target.value })} icon="bus" required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
                                         <MDBInput label=
-                                            {language === "eng" ? ("Description of the lost item *") : ("Az elveszett tárgy leírása *")}
+                                            {language === "en" ? ("Description of the lost item *") : ("Az elveszett tárgy leírása *")}
                                             value={state.desc} name="desc" onChange={e => setstate({ ...state, desc: e.target.value })} icon="briefcase" required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
-                                        <MDBInput label={language === "eng" ? ("Phone number") : ("Telefonszám")}
+                                        <MDBInput label={language === "en" ? ("Phone number") : ("Telefonszám")}
                                             type="tel" name="phone" value={state.phone} onChange={e => setstate({ ...state, phone: e.target.value })} icon="phone-alt" />
                                     </MDBCol>
                                     <MDBCol>
-                                        <MDBInput label={language === "eng" ? ("Email address *") : ("Email cím *")}
+                                        <MDBInput label={language === "en" ? ("Email address *") : ("Email cím *")}
                                             type="email" name="email" value={state.email} onChange={e => setstate({ ...state, email: e.target.value })} icon="envelope" required />
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
                                     <MDBCol>
-                                        <MDBInput label={language === "eng" ? ("Comment") : ("Egyéb közlendő")}
+                                        <MDBInput label={language === "en" ? ("Comment") : ("Egyéb közlendő")}
                                             type="textarea" name="comment" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="4" icon="comment" />
                                     </MDBCol>
                                 </div>
-                                <div className="form-row my-3">
+{/*                                 <div className="form-row my-3">
                                     <MDBCol>
                                         <div className="input-group">
                                             <div className="input-group-prepend">
@@ -163,21 +161,21 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                         setstate({ ...state, file: e.target.files[0] })
                                                     }}
                                                 />
-                                                <label className="custom-file-label" htmlFor="inputGroupFile01" data-browse={language === "eng" ? ("Browse") : ("Tallózás")}>
-                                                    {state.file ? (state.file.name) : language === "eng" ? ("Choose file") : ("Fájl csatolása")}
+                                                <label className="custom-file-label" htmlFor="inputGroupFile01" data-browse={language === "en" ? ("Browse") : ("Tallózás")}>
+                                                    {state.file ? (state.file.name) : language === "en" ? ("Choose file") : ("Fájl csatolása")}
                                                 </label>
                                             </div>
                                         </div>
                                     </MDBCol>
                                 </div>
-                                <div className="form-row my-4">
+ */}                                <div className="form-row my-4">
                                     <FormGroup className="px-md-3 px-2">
                                         <FormControlLabel
                                             control={
                                                 <Checkbox color="primary" style={{ color: "black" }} checked={state.newsletterlost}
                                                     onChange={() => setstate({ ...state, newsletterlost: !state.newsletterlost })} />
                                             }
-                                            label={language === "eng" ? ("Subscribe to newsletter") : ("Feliratkozás a hírlevélre")}
+                                            label={language === "en" ? ("Subscribe to newsletter") : ("Feliratkozás a hírlevélre")}
                                         />
                                     </FormGroup>
                                 </div>
@@ -188,7 +186,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                 <Checkbox color="primary" style={{ color: "black" }} checked={accept}
                                                     onChange={() => setaccept(!accept)} />
                                             }
-                                            label={language === "eng" ? (
+                                            label={language === "en" ? (
                                                 <>I accept the <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
                                                     privacy policy</a>!
                                                         <ArrowLeftIcon className={accepterror ? ("visible") : ("invisible")} style={{ color: "red" }} />
@@ -207,7 +205,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                 <span className="sr-only">Loading...</span>
                                             </div>
                                         </div>
-                                    ) : language === "eng" ? ("Send") : ("Küldés")}
+                                    ) : language === "en" ? ("Send") : ("Küldés")}
                                 </MDBBtn>
                             </form>
                         </MDBCardBody>
@@ -216,7 +214,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                 <MDBCard className="rounded">
                     <MDBCardFooter>
                         <MDBBtn color="danger" outline className="float-right rounded closetext" onClick={() => setelveszett(!elveszett)}>
-                            {language === "eng" ? ("Close") : ("Bezárás")}
+                            {language === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>
                 </MDBCard>

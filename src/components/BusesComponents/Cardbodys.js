@@ -1,18 +1,16 @@
 import React from 'react'
 import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact"
+import { useState } from 'react'
 
 const Cardbodys = ({ item, what, settablazat }) => {
 
-    const handleclick = (e) => {
-        e.currentTarget.childNodes[1].classList.toggle("close")
-        e.currentTarget.childNodes[1].classList.toggle("rounded")
-    }
+    const [click, setclick] = useState(false)
 
     return (
-        <MDBCard className="rounded z-depth-1-half kartya muzeumbusz" onClick={handleclick}>
+        <MDBCard className="rounded z-depth-1-half kartya muzeumbusz" onClick={() => {setclick(!click)}}>
             <img src={what === "Muzeum" ? (`/img/muzeum/${item.id}.jpg`) : what === "Table" ? (`/img/${item.id}_img/1.jpg`) : (null)}
                 alt="Kép lesz majd" className="img-fluid rounded" />
-            <MDBCardBody className="close text-center muzeumcardbody d-md-block">
+            <MDBCardBody className={click ? ("rounded text-center muzeumcardbody d-md-block") : ("close text-center muzeumcardbody d-md-block")}>
                 <h4 className='card-title font-weight-bold pb-2'>
                     {item.bus}
                 </h4>

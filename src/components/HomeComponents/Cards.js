@@ -38,7 +38,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0"><MDBIcon icon="sort-up" /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "eng" ? ("Price table") : ("Ártáblázat")}</h4>
+                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Price table") : ("Ártáblázat")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -52,13 +52,13 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0"><MDBIcon icon="sort-up" /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "eng" ? ("Driving time") : ("Vezetési idő")}</h4>
+                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Driving time") : ("Vezetési idő")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
                             <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100">
                                 <MDBView className="roundedimg overlay zoom z-depth-1 waves-effect waves-light" style={{ cursor: "pointer" }}>
-                                    <MDBCardImage src={language === "eng" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} waves />
+                                    <MDBCardImage src={language === "en" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} waves />
                                     <MDBMask onClick={() => setallasajanlat(!allasajanlat)} overlay="black-light" className="flex-center">
                                         <p className="white-text"><MDBIcon icon="sort-up" /></p>
                                     </MDBMask>
@@ -66,7 +66,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0"><MDBIcon icon="sort-up" /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "eng" ? ("Job offer") : ("Állásajánlataink")}</h4>
+                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Job offer") : ("Állásajánlataink")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -88,7 +88,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0"><MDBIcon icon="sort-up" /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "eng" ? ("Luggage store") : ("Csomagmegőrzés")}</h4>
+                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("Luggage store") : ("Csomagmegőrzés")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -102,7 +102,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0"><MDBIcon icon="sort-up" /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "eng" ? ("GLS ParcelShop") : ("GLS Csomagpont")}</h4>
+                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("GLS ParcelShop") : ("GLS Csomagpont")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 
@@ -116,7 +116,7 @@ const Cards = () => {
                                 <MDBCardBody>
                                     <p className="text-center pb-0 mb-0"><MDBIcon icon="sort-up" /></p>
                                     <hr className="mt-0" style={{ width: "50%" }} />
-                                    <h4 className="card-title text-center mb-1">{language === "eng" ? ("DPD ParcelShop") : ("DPD csomagpont")}</h4>
+                                    <h4 className="card-title text-center mb-1">{language === "en" ? ("DPD ParcelShop") : ("DPD csomagpont")}</h4>
                                 </MDBCardBody>
                             </MDBCard>
 

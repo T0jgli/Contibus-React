@@ -15,7 +15,7 @@ const Buses = () => {
   const language = useSelector(selectlanguage)
 
   useEffect(() => {
-    if (language === "eng") {
+    if (language === "en") {
       document.title = "Contibus - Our buses";
     }
     else {

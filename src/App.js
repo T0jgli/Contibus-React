@@ -14,7 +14,6 @@ import Scrolltopbutton from './components/GlobalComponents/Scrolltopbutton';
 import Cookie from './components/GlobalComponents/Cookie';
 
 import ReactGA from 'react-ga';
-import { getCookie } from "./features/Cookiehelper"
 
 const createHistory = require("history").createBrowserHistory
 
@@ -30,10 +29,10 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (getCookie("language") === "eng" && language !== "eng") {
-      dispatch(setlanguage({ language: "eng" }))
+    if (localStorage.getItem("language") === "en" && language !== "en") {
+      dispatch(setlanguage({ language: "en" }))
     }
-    
+    window.document.documentElement.lang = language
   }, [dispatch, language])
 
   return (

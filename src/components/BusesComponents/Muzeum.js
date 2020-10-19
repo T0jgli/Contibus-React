@@ -13,7 +13,7 @@ const Muzeum = () => {
     return (
         <div className="fadeIn animated">
                 <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
-                <h3 className="text-center text-muted my-4">{language === "eng" ? ("Our museum"): ("Múzeumunk")}</h3>
+                <h3 className="text-center text-muted my-4">{language === "en" ? ("Our museum"): ("Múzeumunk")}</h3>
                 </ScrollAnimation>
                 {Muzeumjson.Muzeum.map((item, index, array) => {
                     if (item.id % 2 !== 0) {
