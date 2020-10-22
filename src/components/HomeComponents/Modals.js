@@ -2,11 +2,10 @@ import React from 'react'
 import {
     MDBContainer, MDBBtn,
     MDBModal, MDBModalBody, MDBRow, MDBTable, MDBTableBody, MDBTableHead, MDBCol, MDBCard,
-    MDBCardHeader, MDBCardBody, MDBIframe, MDBCardFooter, MDBCloseIcon, MDBModalHeader
+    MDBCardHeader, MDBCardBody, MDBCardFooter, MDBCloseIcon, MDBModalHeader
 } from 'mdbreact';
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
-import {GoogleMapsKey} from "../../features/GoogleKey"
 
 
 const Modals = (props) => {
@@ -41,15 +40,6 @@ const Modals = (props) => {
                                             </a>
                                         </MDBCol>
                                     </MDBRow>
-                                    <MDBRow className="h-75">
-                                        <MDBCol className="mx-auto d-block float-center">
-                                            <div id="map-container-google-2" className="mt-3 mb-3 p-0 pb-0 map-container">
-                                                <MDBIframe className="w-100" height={75} 
-                                                src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key="+ GoogleMapsKey} />
-                                            </div>
-                                        </MDBCol>
-                                    </MDBRow>
-
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBRow>
@@ -94,15 +84,6 @@ const Modals = (props) => {
                                             </a>
                                         </MDBCol>
                                     </MDBRow>
-                                    <MDBRow className="h-75">
-                                        <MDBCol className="mx-auto d-block float-center">
-                                            <div id="map-container-google-2" className="mt-3 mb-3 p-0 pb-0 map-container">
-                                                <MDBIframe className="w-100" height={75} 
-                                                src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key="+ GoogleMapsKey} />
-                                                </div>
-                                        </MDBCol>
-                                    </MDBRow>
-
                                 </MDBCardBody>
                             </MDBCard>
                         </MDBRow>

@@ -12,15 +12,19 @@ import Carddeck from "./Carddeck";
 import Datatable from './Datatable';
 import Busmodals from './Busmodals';
 import Fslightboxes from './Fslightboxes';
+import { Tooltip } from '@material-ui/core';
 
 const Table = ({ tablazat, settablazat }) => {
     const language = useSelector(selectlanguage)
 
-    let togglers = []
+    const ids = Array.from({ length: Buses.Buses.length }, (_, i) => i + 1)
     let idd = 0
-    for (let index = 0; index < Buses.Buses.length; index++) {
-        togglers.push({ pict: false })
-    }
+
+    const togglers = Array.from({ length: Buses.Buses.length }, (_, i) => {
+        return (
+            { pict: false }
+        )
+    })
 
     const [toggler, settoggler] = useState(togglers)
     const [imgtoggler, setimgtoggler] = useState({
@@ -39,15 +43,19 @@ const Table = ({ tablazat, settablazat }) => {
                     <MDBBtnGroup className="m-2">
                         <MDBBtn disabled={tablazat ? (false) : (true)} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => {
                             settablazat(!tablazat)
-                            localStorage.setItem("defaultBusView", "card")
+                            localStorage.removeItem("defaultBusView")
                         }}>
-                            <ViewAgendaIcon fontSize="small" />
+                            <Tooltip title={language === "en" ? ("Cards") : ("Kártyák")}>
+                                <ViewAgendaIcon fontSize="small" />
+                            </Tooltip>
                         </MDBBtn>
                         <MDBBtn disabled={tablazat ? (true) : (false)} color="elegant" style={{ borderRadius: "0 10px 10px 0" }} onClick={() => {
                             settablazat(!tablazat)
                             localStorage.setItem("defaultBusView", "table")
                         }}>
-                            <TableChartIcon fontSize="small" />
+                            <Tooltip title={language === "en" ? ("Table") : ("Táblázat")}>
+                                <TableChartIcon fontSize="small" />
+                            </Tooltip>
                         </MDBBtn>
                     </MDBBtnGroup>
                 </ScrollAnimation>
@@ -58,7 +66,10 @@ const Table = ({ tablazat, settablazat }) => {
                             idd++;
                             return (
                                 <ScrollAnimation key={idd} animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-                                    <Carddeck settablazat={settablazat} idd={idd} item={item} nextnextitem={array[index + 2]} nextitem={array[index + 1]} what={"Table"} />
+                                    <Carddeck
+                                        settablazat={settablazat} length={array.length} idd={idd} item={item}
+                                        nextnextitem={array[index + 2]} nextnextitemid={ids[index + 2]} nextitemid={ids[index + 1]} nextitem={array[index + 1]}
+                                        what={"Table"} />
                                 </ScrollAnimation>
                             )
                         }
@@ -69,7 +80,7 @@ const Table = ({ tablazat, settablazat }) => {
                 ) : null}
 
                 {tablazat && (
-                    <MDBTable striped hover responsive className="w-100 mt-4 animated fadeIn">
+                    <MDBTable striped hover responsive className="w-100 mt-4 animated fadeIn busestable">
                         <MDBTableHead className="z-depth-1">
                             <tr className="text-center z-depth-1">
                                 <th>
@@ -84,10 +95,11 @@ const Table = ({ tablazat, settablazat }) => {
                             </tr>
                         </MDBTableHead>
                         <MDBTableBody>
-                            {Buses.Buses.map((item) => {
+                            {Buses.Buses.map((item, index) => {
                                 return (
                                     <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler} settoggler={settoggler}
-                                        language={language} toggler={toggler} data={item} key={item.id}
+                                        dataid={ids[index]}
+                                        language={language} toggler={toggler} data={item} key={ids[index]}
                                     />
                                 )
                             })}
@@ -97,9 +109,9 @@ const Table = ({ tablazat, settablazat }) => {
             </div>
             {tablazat && (
                 <>
-                    {Buses.Buses.map((item) => {
+                    {Buses.Buses.map((item, index) => {
                         return (
-                            <Busmodals language={language} settoggler={settoggler} toggler={toggler} data={item} key={item.id} />
+                            <Busmodals language={language} settoggler={settoggler} toggler={toggler} data={item} key={(400 + index)} dataid={ids[index]} />
                         )
                     })}
                     <Fslightboxes setimgtoggler={setimgtoggler} data={Buses} imgtoggler={imgtoggler} />

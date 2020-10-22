@@ -8,6 +8,7 @@ import Carddeck from './Carddeck';
 
 const Muzeum = () => {
     const language = useSelector(selectlanguage)
+    const ids = Array.from({length: Muzeumjson.Muzeum.length}, (_, i) => i + 1)
 
     let idd = 0;
     return (
@@ -16,11 +17,11 @@ const Muzeum = () => {
                 <h3 className="text-center text-muted my-4">{language === "en" ? ("Our museum"): ("Múzeumunk")}</h3>
                 </ScrollAnimation>
                 {Muzeumjson.Muzeum.map((item, index, array) => {
-                    if (item.id % 2 !== 0) {
+                    if (ids[index] % 2 !== 0) {
                         idd++
                         return (
                             <ScrollAnimation key={idd} animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-                                <Carddeck idd={idd} item={item} nextitem={array[index+1]} what={"Muzeum"}/>
+                                <Carddeck idd={idd} itemid={ids[index]} item={item} nextitemid={ids[index+1]} nextitem={array[index+1]} what={"Muzeum"}/>
                             </ScrollAnimation>
                         )
                     }

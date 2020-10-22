@@ -8,9 +8,11 @@ import Gallery from './GlobalComponents/Gallery';
 import Carousel from './GlobalComponents/Carousel';
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion';
 
 const Home = () => {
     ReactGA.pageview(window.location.pathname)
+
     const language = useSelector(selectlanguage)
 
     useEffect(() => {
@@ -21,6 +23,7 @@ const Home = () => {
             document.title = "Contibus - Főoldal";
         }
     }, [language])
+
 
     return (
         <>

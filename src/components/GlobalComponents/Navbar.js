@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBCol, MDBRow
 } from "mdbreact";
-import { Button, Snackbar, SnackbarContent } from '@material-ui/core';
+import { Button, Snackbar, SnackbarContent, Tooltip } from '@material-ui/core';
 
 import Calendar from './Calendar';
 import { selectlanguage } from '../../features/AppSlice'
@@ -43,7 +43,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <MDBNavbar className="fadeInDown animated" fixed="top" dark scrolling transparent expand="md">
+            <MDBNavbar className="" fixed="top" dark scrolling transparent expand="md">
                 <div className="container pr-2 pl-2 py-1">
                     <MDBNavbarBrand>
                         <MDBIcon icon="bus" />
@@ -70,7 +70,8 @@ const Navbar = () => {
                                         <span><MDBIcon icon="suitcase-rolling" className="pr-1" />{language === "en" ? (" Travels") : (" Utazásaink")} </span>
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu basic className="rounded z-depth-1 p-0">
-                                        <MDBDropdownItem onClick={() => setcalendaropen(!calendaropen)} className="p-4">{language === "en" ? ("Calendar") : ("Naptár")} »</MDBDropdownItem>
+                                        <MDBDropdownItem onClick={() => setcalendaropen(!calendaropen)} className="p-4">{language === "en" ? ("Calendar") : ("Naptár")} »
+                                        </MDBDropdownItem>
                                         <MDBDropdownItem divider></MDBDropdownItem>
                                         <MDBDropdownItem href="https://www.facebook.com/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315/events"
                                             target="_blank" className="p-4">{language === "en" ? ("Facebook events") : ("Facebook eseményeink")} »</MDBDropdownItem>
@@ -83,8 +84,14 @@ const Navbar = () => {
                                 <MDBCol className="flex-center">
                                     <MDBRow className="">
                                         <div className="img-fluid pr-2">
-                                            <img src="/img/hu.png" width="30px" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
-                                                onClick={() => {localStorage.setItem("language", "hu"); setlangtoast(true); counterinterval()}} alt="" />
+                                            <Tooltip title="Hungarian"
+                                                disableHoverListener={language !== "en" ? (true) : (false)}
+                                                disableFocusListener={language !== "en" ? (true) : (false)}
+                                                disableTouchListener={language !== "en" ? (true) : (false)}
+                                            >
+                                                <img src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                                                    onClick={() => { localStorage.setItem("language", "hu"); setlangtoast(true); counterinterval() }} alt="" />
+                                            </Tooltip>
                                         </div>
                                     </MDBRow>
                                 </MDBCol>
@@ -93,16 +100,25 @@ const Navbar = () => {
                                 <MDBCol className="flex-center">
                                     <MDBRow className="">
                                         <div className="img-fluid pr-2">
-                                            <img src="/img/uk.png" width="30px" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
-                                                onClick={() => { localStorage.setItem("language", "en"); setlangtoast(true); counterinterval() }} alt="" />
+                                            <Tooltip title="Angol"
+                                                disableHoverListener={language === "en" ? (true) : (false)}
+                                                disableFocusListener={language === "en" ? (true) : (false)}
+                                                disableTouchListener={language === "en" ? (true) : (false)}
+                                            >
+                                                <img src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
+                                                    onClick={() => { localStorage.setItem("language", "en"); setlangtoast(true); counterinterval() }} alt="" />
+                                            </Tooltip>
                                         </div>
+
                                     </MDBRow>
                                 </MDBCol>
                             </MDBNavItem>
                             <MDBNavItem id="ticketbtn" onClick={() => setIsOpen(!isOpen)} className="rounded">
                                 <a href="http://kalandozastravel.hu/cgi-bin/view2020" target="_blank" rel="noopener noreferrer"
-                                    className="nav-link border border-light rounded text-center"> <MDBIcon icon="calendar-check" className="pr-1" />
-                                    {language === "en" ? (" Tickets") : (" Jegyfoglalás")}</a>
+                                    className="nav-link border border-light rounded text-center">
+                                    <MDBIcon icon="calendar-check" className="pr-1" />
+                                    {language === "en" ? (" Tickets") : (" Jegyfoglalás")}
+                                </a>
                             </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>

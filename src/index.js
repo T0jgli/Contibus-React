@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './src/app/store';
+import { BrowserRouter as Router } from "react-router-dom";
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
@@ -14,10 +15,10 @@ import './css/index.css';
 ReactGA.initialize('UA-177271904-2')
 
 ReactDOM.render(
-  <>
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <App />
-    </Provider>
-  </>,
+    </Router>
+  </Provider>,
   document.getElementById('index')
 );

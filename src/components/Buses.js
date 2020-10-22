@@ -9,6 +9,7 @@ import Busesbody from "./BusesComponents/Busesbody"
 
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion';
 
 const Buses = () => {
   ReactGA.pageview(window.location.pathname)
@@ -22,11 +23,11 @@ const Buses = () => {
       document.title = "Contibus - Autóbuszaink";
     }
   }, [language])
-  
+
   return (
     <>
-        <Carousel />
-        <Busesbody />
+      <Carousel />
+      <Busesbody />
     </>
   )
 }

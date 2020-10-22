@@ -1,85 +1,71 @@
 {
     "Muzeum" : [
         {
-            "id": 1,
             "bus" : "Neoplan N 122 L -N3313 SHD",
             "title" : "72+2 személyes luxusautóbusz VIP CLASS",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes döntheto ülések, lábtartó, mini bár / hutött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó"
         },
         {
-            "id": 2,
             "bus" : "Neoplan N 122 L",
             "title" : "79+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 3,
             "bus" : "Neoplan N 122 L",
             "title" : "78+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 4,
             "bus" : "Neoplan N 122 L",
             "title" : "74+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 5,
             "bus" : "Neoplan N 122 L",
             "title" : "70+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 6,
             "bus" : "Neoplan N 122 L",
             "title" : "68+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 7,
             "bus" : "Mercedes 404",
             "title" : "51+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 8,
             "bus" : "SETRA S 315 HDH",
             "title" : "49+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes döntheto ülések, lábtartó, mini bár / hutött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 9,
             "bus" : "MAN",
             "title" : "49+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 10,
             "bus" : "Neoplan Cityliner N116",
             "title" : "48+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 11,
             "bus" : "MAN Temsa Opalin",
             "title" : "28+2 személyes luxusautóbusz",
             "desc" : "légkondicionáló berendezés, tv-video-audio, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó."
         },
         {
-            "id": 12,
             "bus" : "Ford Tranzit Long",
             "title" : "14+1 személyes autóbusz",
             "desc" : "légkondicionáló berendezés, audio, mikrofon, nemzetközi vizsga, utánfutó."
         },
         {
-            "id": 13,
             "bus" : "Mercedes Vito",
             "title" : "8+1 személyes autóbusz",
             "desc" : "légkondicionáló berendezés, audio, igény szerint utánfutó."
         },
         {
-            "id": 14,
             "bus" : "FORD TRANSIT FAD",
             "title" : "8+1 személyes autóbusz",
             "desc" : "légkondicionáló berendezés, audio, igény szerint utánfutó."

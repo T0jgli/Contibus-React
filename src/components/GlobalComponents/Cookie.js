@@ -20,9 +20,13 @@ const Cookie = () => {
             <MDBContainer className="cookiealert-container">
                 <MDBRow className="justify-content-center align-items-center text-center">
                     <p className=" font-weight-bolder white-text text-center pt-3"><span aria-labelledby="cookie" role="img">&#x1F36A;
-                    </span>{language === "en" ? (" We use cookies to ensure you get the best experience on our website. By browsing this site, you accept it.") :
-                            ("Az oldal sütiket használ a felhasználói élmény fokozása céljából. A weblap további böngészésével elfogadja ezt.")}</p>
-                    <MDBBtn color="dark-green" size="md" className="font-weight-bolder acceptcookies d-block" onClick={(e) => {
+                    </span>{language === "en" ? (<span> We use cookies to ensure you get the best experience on our website. By browsing this site, you accept the
+                            <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder"> privacy policy</a>.</span>) :
+                            (<span> Az oldal sütiket használ a felhasználói élmény fokozása céljából.
+                            A weblap további böngészésével elfogadja az
+                                <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder"> adatvédelmi nyilatkozatot</a>.
+                            </span>)}</p>
+                    <MDBBtn color="dark-green" size="md" className="font-weight-bolder acceptcookies d-block" onClick={() => {
                         setshow(false)
                         localStorage.setItem("EnableCookies", "true")
                     }}>

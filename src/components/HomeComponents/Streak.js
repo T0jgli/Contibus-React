@@ -19,7 +19,7 @@ const Streak = () => {
 
     useEffect(() => {
         const ramdom = Math.floor(Math.random() * (3 - 1 + 1));
-        const images = ["/img/carousel_1.jpg", "/img/carousel_2.jpg", "/img/carousel_3.jpg"]
+        const images = ["/img/carousel_1_.jpg", "/img/carousel_2_.jpg", "/img/carousel_3_.jpg"]
         setstyle({
             backgroundImage: "url(" + images[ramdom] + ")",
             backgroundAttachment: "fixed"

@@ -28,13 +28,13 @@ const Carousel = () => {
                 length={3}
                 showControls={true}
                 showIndicators={true}
-                className={location.pathname !== "/" ? "carousel carouselup z-depth-1" : "carousel z-depth-1"}
+                className={location.pathname !== "/" ? "carousel carouselup z-depth-1 " : "carousel headerclip z-depth-1"}
             >
                 <MDBCarouselInner className="carousel-inner">
                     <MDBCarouselItem className="carousel-item" itemId="1">
                         <MDBView id={carids[0]} className={location.pathname !== "/" ? "h-100" : ""}>
-                            <MDBMask overlay="black-light" className="flex-center">
-                                <div className="text-center white-text mx-5 fadeInUp animated">
+                            <MDBMask overlay="black-light" className="flex-center fadeIn animated">
+                                <div className="text-center white-text mx-5">
                                     <h1 className="mb-4">
                                         <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
                                     </h1>
@@ -44,27 +44,30 @@ const Carousel = () => {
                                             <MDBIcon icon="check" className="px-2" />
                                         </strong>
                                     </p>
-                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated fadeIn mb-4">
-                                        <MDBIcon icon="exclamation" size={"2x"} className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") : 
-                                        ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyesügyintézés ideje alatt maszkot viseljenek")} 
+                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated mb-4">
+                                        <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
                                         <MDBIcon icon="exclamation" size={"2x"}
-                                            className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                            className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
                                     </h5>) : (null)
                                     }
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
-                                        className="btn btn-outline-white btn-lg rounded font-weight-bold kapcsolatbtn"><span
-                                            className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
-                                        <MDBIcon fab icon="facebook-square" />
-                                    </a>
+                                    {location.pathname !== "/" ? (null) : (
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
+                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-3"><span
+                                                className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
+                                            <MDBIcon fab icon="facebook-square" />
+                                        </a>
+
+                                    )}
                                 </div>
                             </MDBMask>
                         </MDBView>
                     </MDBCarouselItem>
                     <MDBCarouselItem className="carousel-item" itemId="2">
                         <MDBView id={carids[1]} className={location.pathname !== "/" ? "h-100" : ""}>
-                            <MDBMask overlay="black-light" className="flex-center">
-                                <div className="text-center white-text mx-5 fadeInUp animated">
+                            <MDBMask overlay="black-light" className="flex-center fadeIn animated">
+                                <div className="text-center white-text mx-5">
                                     <h1 className="mb-4">
                                         <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
                                     </h1>
@@ -74,29 +77,33 @@ const Carousel = () => {
                                             <MDBIcon icon="check" className="px-2" />{language === "en" ? ("Standards") : ("Színvonal")}
                                             <MDBIcon icon="check" className="px-2" /></strong>
                                     </p>
-                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated fadeIn mb-4">
-                                        <MDBIcon icon="exclamation" size={"2x"} className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated mb-4">
+                                        <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
                                         {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
-                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyesügyintézés ideje alatt maszkot viseljenek")}
+                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
                                         <MDBIcon icon="exclamation" size={"2x"}
-                                            className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                            className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
 
                                     </h5>) : (null)
                                     }
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
-                                        className="btn btn-outline-white btn-lg rounded font-weight-bold kapcsolatbtn"><span
-                                            className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
-                                        <MDBIcon fab icon="facebook-square" />
-                                    </a>
+                                    {location.pathname !== "/" ? (null) : (
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
+                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-3"><span
+                                                className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
+                                            <MDBIcon fab icon="facebook-square" />
+                                        </a>
+
+
+                                    )}
                                 </div>
                             </MDBMask>
                         </MDBView>
                     </MDBCarouselItem>
                     <MDBCarouselItem className="carousel-item" itemId="3">
                         <MDBView id={carids[2]} className={location.pathname !== "/" ? "h-100" : ""}>
-                            <MDBMask overlay="black-light" className="flex-center">
+                            <MDBMask overlay="black-light" className="flex-center fadeIn animated">
 
-                                <div className="text-center white-text mx-5 fadeInUp animated">
+                                <div className="text-center white-text mx-5">
                                     <h1 className="mb-4">
                                         <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
                                     </h1>
@@ -106,19 +113,22 @@ const Carousel = () => {
                                             <MDBIcon icon="check" className="px-2" />
                                         </strong>
                                     </p>
-                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated fadeIn mb-4">
-                                        <MDBIcon icon="exclamation" size={"2x"} className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated mb-4">
+                                        <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
                                         {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
-                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyesügyintézés ideje alatt maszkot viseljenek")}
+                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
                                         <MDBIcon icon="exclamation" size={"2x"}
-                                            className="d-block d-xl-inline pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                            className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
                                     </h5>) : (null)
                                     }
-                                    <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
-                                        className="btn btn-outline-white btn-lg rounded font-weight-bold kapcsolatbtn"><span
-                                            className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
-                                        <MDBIcon fab icon="facebook-square" />
-                                    </a>
+                                    {location.pathname !== "/" ? (null) : (
+                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
+                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-3"><span
+                                                className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
+                                            <MDBIcon fab icon="facebook-square" />
+                                        </a>
+
+                                    )}
                                 </div>
                             </MDBMask>
                         </MDBView>

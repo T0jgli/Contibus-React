@@ -16,9 +16,9 @@ const Gallery = () => {
         let galleryimages = []
         for (let index = id; index < id + 4; index++) {
             galleryimages.push(
-                <MDBCol key={index} md="3" className="mb-1">
-                    <MDBCard >
-                        <MDBCardImage waves className="img-fluid rounded z-depth-2" id="gal1" alt="Kép lesz majd 1"
+                <MDBCol key={index} md="3" className="my-2 rounded kartya">
+                    <MDBCard className="rounded">
+                        <MDBCardImage waves className="img-fluid rounded" alt={`Kép lesz majd ${index}`}
                             src={gallery[index]} />
                         <MDBMask className="rounded" overlay="black-light" />
                     </MDBCard>
@@ -29,7 +29,7 @@ const Gallery = () => {
     }
 
     return (
-        <MDBContainer className="z-depth-1 rounded" id="gallerycontainer">
+        <MDBContainer className="z-depth-1 rounded" id="gallerycontainer" style={{ backgroundColor: "#fafafa" }}>
             <MDBRow className="pt-5 pb-4">
                 <MDBCol>
                     <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>

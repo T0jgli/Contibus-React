@@ -6,7 +6,7 @@ import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
 
 import {
-    MDBCol, MDBModal, MDBModalBody, MDBBtn, MDBCard, MDBCardFooter, MDBCardHeader, MDBCardBody, MDBIcon, MDBInput, MDBModalHeader
+    MDBCol, MDBModal, MDBModalBody, MDBBtn, MDBCard, MDBCardFooter, MDBCardHeader, MDBCardBody, MDBInput, MDBModalHeader
 } from "mdbreact";
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';

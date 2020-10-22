@@ -38,8 +38,8 @@ const Formoffer = () => {
     const handlesubmit = (e) => {
         e.preventDefault();
         if (accept) {
-            if(new Date(state.indulas).toLocaleDateString() > new Date().toLocaleDateString() && new Date(state.erkezes).toLocaleDateString() > new Date().toLocaleDateString()){
-                if(new Date(state.indulas).toLocaleDateString() < new Date(state.erkezes).toLocaleDateString()) {
+            if (new Date(state.indulas).toLocaleDateString() > new Date().toLocaleDateString() && new Date(state.erkezes).toLocaleDateString() > new Date().toLocaleDateString()) {
+                if (new Date(state.indulas).toLocaleDateString() < new Date(state.erkezes).toLocaleDateString()) {
                     setstate({ ...state, loading: true })
                     db.collection("formofferusers").add({
                         name: state.name,
@@ -53,7 +53,7 @@ const Formoffer = () => {
                         comment: state.comment,
                         timestamp: firebase.firestore.FieldValue.serverTimestamp()
                     })
-        
+
                     if (state.newsletter) {
                         db.collection("newsletterusers").doc(state.email).set({
                             name: state.name,
@@ -62,7 +62,7 @@ const Formoffer = () => {
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         })
                     }
-        
+
                     axios({
                         method: "POST",
                         url: "https://contibus-backend.herokuapp.com/offer",
@@ -83,18 +83,18 @@ const Formoffer = () => {
 
 
                 }
-                else seterror({state: true, msg: "Nem lehet nagyobb az érkezés az indulásnál!"})
+                else seterror({ state: true, msg: "Nem lehet nagyobb az érkezés az indulásnál!" })
 
             }
-            else seterror({state: true, msg: "A dátum nem lehet kisebb mint a jelenlegi!"})
+            else seterror({ state: true, msg: "A dátum nem lehet kisebb mint a jelenlegi!" })
         }
         else setaccepterror(true)
     }
     return (
-        <>
-            <MDBContainer className="py-4" >
+        <div>
+            <MDBContainer className="py-2" >
                 <MDBRow className="rounded" >
-                    <MDBCol className="mb-4 card pr-0 pl-0 rounded" style={{ backgroundColor: "rgb(250, 250, 250)" }}>
+                    <MDBCol className="mb-4 card pr-0 pl-0 rounded" style={{ backgroundColor: "#fafafa" }}>
                         <MDBCardHeader className="unique-color-dark roundedimg white-text text-center py-4">
                             <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
                                 <h4 className="mb-0"><MDBIcon icon="caret-down" className="px-2" />{language === "en" ? ("BUS OFFER REQUEST") : ("AUTÓBUSZ AJÁNLAT KÉRÉS")}<MDBIcon className="px-2" icon="caret-down" /></h4>
@@ -148,7 +148,7 @@ const Formoffer = () => {
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="indulasdate">{language === "en" ? ("Departure day *") : ("Indulás napja *")}</label>
                                             <input type="date" name="indulasdate"
-                                                className="form-control z-depth-1" value={state.indulas} onChange={e => {setstate({ ...state, indulas: e.target.value }); }} required />
+                                                className="form-control z-depth-1" value={state.indulas} onChange={e => { setstate({ ...state, indulas: e.target.value }); }} required />
                                         </MDBCol>
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="erkezesdate">{language === "en" ? ("Date of arrival *") : ("Érkezés napja *")}</label>
@@ -199,7 +199,7 @@ const Formoffer = () => {
                                         </MDBCol>
                                     </div>
                                 </ScrollAnimation>
-{/*                                 <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                {/*                                 <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <div className="input-group z-depth-1">
@@ -267,7 +267,7 @@ const Formoffer = () => {
                 </MDBRow>
             </MDBContainer>
             <Snackbars accepterror={accepterror} setaccepterror={setaccepterror} success={success} setsuccess={setsuccess} error={error} seterror={seterror} />
-        </>
+        </div>
     )
 }
 

@@ -15,14 +15,14 @@ const Busesbody = () => {
     const [tablazat, settablazat] = useState(false)
 
     useEffect(() => {
-        if(localStorage.getItem("defaultBusView") === "table") {
+        if (localStorage.getItem("defaultBusView") === "table") {
             settablazat(true)
         }
     }, [])
 
     return (
         <>
-            <div className="text-center py-5" style={{ backgroundColor: "#f7f7f7" }}>
+            <div className="text-center py-4" id="main" style={{ backgroundColor: "#f7f7f7" }}>
                 <MDBContainer>
                     <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
                         <h5 className="font-weight-bold pb-3">{language === "en" ? ("Other informations:") : ("Egyéb tudnivalók:")}</h5>
@@ -65,7 +65,7 @@ const Busesbody = () => {
                     <hr className="w-25 mb-2" />
                 </ScrollAnimation>
 
-                {showmuzeum ? <Muzeum/> : <Table tablazat={tablazat} settablazat={settablazat} />}
+                {showmuzeum ? <Muzeum /> : <Table tablazat={tablazat} settablazat={settablazat} />}
             </MDBContainer>
         </>
     )

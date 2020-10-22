@@ -20,10 +20,10 @@ const Cards = () => {
 
     return (
         <div>
-            <hr className="mt-4 mb-0 d-none" />
+             <hr className="mt-4 mb-0 d-none" />
             <div id="main" className="pt-5 z-depth-1">
                 <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-                    <MDBRow className="justify-content-center d-flex w-100">
+                    <MDBRow className="justify-content-center d-flex mx-auto">
                         <div className="card-deck h-100">
 
                             <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100">
@@ -56,7 +56,7 @@ const Cards = () => {
                                 </MDBCardBody>
                             </MDBCard>
 
-                            <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100">
+                            <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100 ">
                                 <MDBView className="roundedimg overlay zoom z-depth-1 waves-effect waves-light" style={{ cursor: "pointer" }}>
                                     <MDBCardImage src={language === "en" ? ("/img/allas_eng.jpg") : ("/img/allas_k.png")} waves />
                                     <MDBMask onClick={() => setallasajanlat(!allasajanlat)} overlay="black-light" className="flex-center">
@@ -76,7 +76,7 @@ const Cards = () => {
                 </ScrollAnimation>
 
                 <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-                    <MDBRow className="pb-5 mt-3 justify-content-center d-flex w-100">
+                    <MDBRow className="pb-5 mt-3 justify-content-center d-flex mx-auto">
                         <div className="card-deck h-100">
                             <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100">
                                 <MDBView className="roundedimg overlay zoom z-depth-1 waves-effect waves-light" style={{ cursor: "pointer" }}>

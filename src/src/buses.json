@@ -1,168 +1,166 @@
-
 {
     "Buses": [
         {
-            "id": 1,
             "bus": "Setra 431 DT",
+            "id": "setra431dt",
             "title": "83 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, 2 db feljáró, 2 db napfénytető, síkoffer, igény szerint utánfutó. Extra biztonsági felszerelések.",
             "kmdij": 550,
             "oradij": 15000,
-            "imgs" : 3
+            "imgs": 3
         },
         {
-            "id": 2,
             "bus": "Setra 431 DT",
+            "id": "setra431dt2",
             "title": "76 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, 2 db feljáró, 2 db napfénytető, síkoffer, igény szerint utánfutó. Extra biztonsági felszerelések.",
             "kmdij": 550,
             "oradij": 15000,
-            "imgs" : 2
+            "imgs": 2
         },
         {
-            "id": 3,
             "bus": "Setra 431 DT",
+            "id": "setra431dt3",
             "title": "83 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, 2 db feljáró, 2 db napfénytető, síkoffer, igény szerint utánfutó. Extra biztonsági felszerelések.",
             "kmdij": 550,
             "oradij": 15000,
-            "imgs" : 6
+            "imgs": 6
         },
         {
-            "id": 4,
             "bus": "SETRA",
+            "id": "setra",
             "title": "70 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, / földszinten 2 db asztal, síkoffer, igény szerint utánfutó.",
             "kmdij": 530,
             "oradij": 14000,
-            "imgs" : 4
+            "imgs": 4
         },
         {
-            "id": 5,
             "bus": "Bova Magiq",
+            "id": "bovamagiq",
             "title": "59 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 400,
             "oradij": 10000,
-            "imgs" : 2
+            "imgs": 2
         },
         {
-            "id": 6,
             "bus": "Bova Futura",
+            "id": "bovafutura",
             "title": "59 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 3
+            "imgs": 3
         },
         {
-            "id": 7,
             "bus": "MAN R08 LIONS COACH",
+            "id": "manr08lions",
             "title": "59 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 2
+            "imgs": 2
         },
         {
-            "id": 8,
             "bus": "MAN LIONS COACH L",
+            "id": "manlions",
             "title": "57 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 2
+            "imgs": 2
         },
         {
-            "id": 9,
             "bus": "Temsa Safari HD 13",
+            "id": "temsasafarihd",
             "title": "55 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 4
+            "imgs": 4
         },
         {
-            "id": 10,
             "bus": "Temsa Safari HD 13",
+            "id": "temsasafarihd2",
             "title": "55 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 6
+            "imgs": 6
         },
         {
-            "id": 11,
             "bus": "MAN R09 LIONS COACH",
+            "id": "manr09lions",
             "title": "52 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 4
+            "imgs": 4
         },
         {
-            "id": 12,
             "bus": "MAN R09 LIONS COACH",
+            "id": "manr09lions2",
             "title": "52 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, TV, DVD, audio, toalett, kényelmes dönthető ülések, lábtartó. Igény szerint :minibár /hűtött italok, kávé, capuccino, kakaó, tea,levesek, virsli,/ síkoffer,utánfutó.",
             "kmdij": 380,
             "oradij": 9000,
-            "imgs" : 4
+            "imgs": 4
         },
         {
-            "id": 13,
             "bus": "Neoplan Euroliner N316 SHD",
+            "id": "neoplann316",
             "title": "59 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, tv-video-audio, toalett, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó.",
             "kmdij": 380,
             "oradij": 8500,
-            "imgs" : 1
+            "imgs": 1
         },
         {
-            "id": 14,
             "bus": "MAN Temsa Opalin",
+            "id": "mantemsaopalin",
             "title": "28 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, tv-video-audio, kényelmes dönthető ülések, lábtartó, mini bár / hűtött italok, kávé, capuccino, kakaó, tea, levesek, virsli, síkoffer, igény szerint utánfutó.",
             "kmdij": 320,
             "oradij": 7500,
-            "imgs" : 2
+            "imgs": 2
         },
         {
-            "id": 15,
             "bus": "Mercedes Sprinter",
+            "id": "mercedessprinter",
             "title": "22 + 2 személyes luxusautóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, dönthető ülések.",
             "kmdij": 260,
             "oradij": 6500,
-            "imgs" : 2
+            "imgs": 2
         },
         {
-            "id": 16,
             "bus": "Mercedes Sprinter",
+            "id": "mercedessprinter2",
             "title": "21 + 1 személyes autóbusz",
             "desc": "Felszereltsége: légkondicionáló, audio berendezés, kényelmes, dönthető ülések, lábtartó, igény szerint utánfutó.",
             "kmdij": 250,
             "oradij": 6500,
-            "imgs" : 3
+            "imgs": 3
         },
         {
-            "id": 17,
             "bus": "Ford FRD Tranzit",
+            "id": "fordfrdtransit",
             "title": "17 + 1 személyes autóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, audio, nemzetközi vizsga, utánfutó.",
             "kmdij": 250,
             "oradij": 6500,
-            "imgs" : 3
+            "imgs": 3
         },
         {
-            "id": 18,
             "bus": "FORD TRANSIT FAD",
+            "id": "fordtransitfad",
             "title": "8 + 2 személyes autóbusz",
             "desc": "Felszereltsége: légkondicionáló berendezés, audio, igény szerint utánfutó.",
             "kmdij": 200,
             "oradij": 5200,
-            "imgs" : 4
+            "imgs": 4
         }
-        
     ]
 }

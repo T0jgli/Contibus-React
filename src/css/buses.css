@@ -5,8 +5,8 @@
   text-align:center;
   }
   
-  thead {
-  display:none;
+  .busestable > thead {
+    display:none;
   }
   
   .thumbnailkep {
@@ -50,13 +50,7 @@
   width:20%;
   }
   }
-  
-  .thumbnailkep {
-  transition:all .5s ease;
-  -moz-transition:all .5s;
-  -webkit-transition:all .5s;
-  }
-  
+    
   .thumbnailkep:hover {
   -moz-transform:scale(1.05,1.05);
   -webkit-transform:scale(1.05,1.05);
@@ -77,30 +71,21 @@
   .muzeumcardbody.close {
   top:100%;
   transition:all 1s;
+  -moz-transition:all 1s;
+  -webkit-transition:all 1s;
   height:4rem;
   margin-top:-4rem;
   border-bottom-left-radius:.6rem!important;
   border-bottom-right-radius:.6rem!important;
   opacity:.85;
   }
-  
-  .muzeumbtn {
-  transition:all .5s ease;
-  -moz-transition:all .5s;
-  -webkit-transition:all .5s;
-  }
-  
+    
   .muzeumbtn:hover {
   -moz-transform:scale(1.09,1.09);
   -webkit-transform:scale(1.09,1.09);
   transform:scale(1.09,1.09);
   }
 
-  .busimg{
-    transition:all .5s ease;
-    -moz-transition:all .5s;
-    -webkit-transition:all .5s;  
-  }
   .busimg:hover{
-    opacity: 0.9;
+    opacity: 0.92;
   }
