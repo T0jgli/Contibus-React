@@ -310,3 +310,9 @@
 .page-footer {
   background-color:#1C2331;
 }
+
+@media (max-width: 991px) and (min-width: 769px) {
+  .fa-calendar-check {
+    display: none !important;
+  }
+}

@@ -2,9 +2,9 @@ import React from 'react'
 import {
     MDBContainer, MDBMask, MDBRow, MDBCol, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBCard, MDBCardImage
 } from "mdbreact";
+import Fade from 'react-reveal/Fade';
 
 import gallery from "../../src/gallery.json"
-import ScrollAnimation from 'react-animate-on-scroll';
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
 
@@ -32,13 +32,11 @@ const Gallery = () => {
         <MDBContainer className="z-depth-1 rounded" id="gallerycontainer" style={{ backgroundColor: "#fafafa" }}>
             <MDBRow className="pt-5 pb-4">
                 <MDBCol>
-                    <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
+                    <Fade top>
                         <h3 className="font-weight-bold dark-grey-text pb-2 mb-0 text-center" id="gallerytext">
                             {language === "en" ? ("Gallery") : ("Galéria")}
                         </h3>
-
-                    </ScrollAnimation>
-
+                    </Fade>
                     <MDBCarousel activeItem={1}
                         length={3}
                         showControls={true}

@@ -89,3 +89,22 @@
   .busimg:hover{
     opacity: 0.92;
   }
+
+  @media (max-width: 1200px) and (min-width: 577px) {
+    .bustitle {
+      font-size: smaller !important;
+    }
+    .muzeumcardbody {
+      padding: 1rem !important;
+    }
+  }
+
+  @media (max-width: 767px) and (min-width: 577px) {
+    .muzeumcardbody {
+      padding: 0.5rem !important;
+    }
+    .muzeumcardbody.close {
+      height: 2rem !important;
+      margin-top: -2rem !important;
+    }
+  }

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import {
     MDBRow, MDBCard, MDBView, MDBCardImage, MDBMask, MDBCardBody, MDBIcon
 } from "mdbreact";
+import Fade from 'react-reveal/Fade';
 
-import ScrollAnimation from 'react-animate-on-scroll';
 import Modals from './Modals';
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
@@ -20,12 +20,11 @@ const Cards = () => {
 
     return (
         <div>
-             <hr className="mt-4 mb-0 d-none" />
+            <hr className="mt-4 mb-0 d-none" />
             <div id="main" className="pt-5 z-depth-1">
-                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-                    <MDBRow className="justify-content-center d-flex mx-auto">
+                <MDBRow className="justify-content-center d-flex mx-auto">
+                    <Fade>
                         <div className="card-deck h-100">
-
                             <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100">
                                 <MDBView className="roundedimg overlay zoom z-depth-1 waves-effect waves-light" style={{ cursor: "pointer" }}>
                                     <MDBCardImage src="/img/artablazat.png" waves />
@@ -71,12 +70,13 @@ const Cards = () => {
                             </MDBCard>
 
                         </div>
-                    </MDBRow>
 
-                </ScrollAnimation>
+                    </Fade>
+                </MDBRow>
 
-                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-                    <MDBRow className="pb-5 mt-3 justify-content-center d-flex mx-auto">
+
+                <MDBRow className="pb-5 mt-3 justify-content-center d-flex mx-auto">
+                    <Fade>
                         <div className="card-deck h-100">
                             <MDBCard className="rounded z-depth-1-half mb-4 kartya h-100">
                                 <MDBView className="roundedimg overlay zoom z-depth-1 waves-effect waves-light" style={{ cursor: "pointer" }}>
@@ -121,9 +121,9 @@ const Cards = () => {
                             </MDBCard>
 
                         </div>
-                    </MDBRow>
-                </ScrollAnimation>
 
+                    </Fade>
+                </MDBRow>
 
 
 
@@ -133,7 +133,7 @@ const Cards = () => {
                 setvezido={setvezido} setallasajanlat={setallasajanlat}
                 setcsomagmegorzes={setcsomagmegorzes} setgls={setgls}
                 setdpd={setdpd}
-                setnaptar={setnaptar}              
+                setnaptar={setnaptar}
                 vezido={vezido} allasajanlat={allasajanlat} csomagmegorzes={csomagmegorzes}
                 gls={gls} dpd={dpd}
                 naptar={naptar}

@@ -8,8 +8,8 @@ import {
 } from "mdbreact";
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
+import Fade from 'react-reveal/Fade';
 
-import ScrollAnimation from 'react-animate-on-scroll';
 import Snackbars from '../GlobalComponents/Snackbars';
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
@@ -96,14 +96,14 @@ const Formoffer = () => {
                 <MDBRow className="rounded" >
                     <MDBCol className="mb-4 card pr-0 pl-0 rounded" style={{ backgroundColor: "#fafafa" }}>
                         <MDBCardHeader className="unique-color-dark roundedimg white-text text-center py-4">
-                            <ScrollAnimation animateIn="fadeInDown" animateOnce offset={window.innerHeight}>
-                                <h4 className="mb-0"><MDBIcon icon="caret-down" className="px-2" />{language === "en" ? ("BUS OFFER REQUEST") : ("AUTÓBUSZ AJÁNLAT KÉRÉS")}<MDBIcon className="px-2" icon="caret-down" /></h4>
-                            </ScrollAnimation>
+                            <h4 className="mb-0"><MDBIcon icon="caret-down" className="px-2" />{language === "en" ? ("BUS OFFER REQUEST") : ("AUTÓBUSZ AJÁNLAT KÉRÉS")}
+                                <MDBIcon className="px-2" icon="caret-down" />
+                            </h4>
                         </MDBCardHeader>
 
                         <MDBCardBody className="rounded">
                             <form onSubmit={handlesubmit}>
-                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="name">{language === "en" ? ("Customer name *") : ("Megrendelő neve *")}</label>
@@ -116,8 +116,8 @@ const Formoffer = () => {
                                                 className="form-control z-depth-1" value={state.phone} onChange={e => setstate({ ...state, phone: e.target.value })} required />
                                         </MDBCol>
                                     </div>
-                                </ScrollAnimation>
-                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                </Fade>
+                                <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="email">{language === "en" ? ("Email address *") : ("Email cím *")}</label>
@@ -125,9 +125,9 @@ const Formoffer = () => {
                                                 className="form-control z-depth-1" value={state.email} onChange={e => setstate({ ...state, email: e.target.value })} required />
                                         </MDBCol>
                                     </div>
-                                </ScrollAnimation>
-                                <hr className="my-5 w-50 elegant-color-dark" />
-                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                    <hr className="my-5 w-50 elegant-color-dark" />
+                                </Fade>
+                                <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="uticel">{language === "en" ? ("Destination *") : ("Úticél *")}</label>
@@ -139,11 +139,9 @@ const Formoffer = () => {
                                             <input type="text" name="koltseg" value={state.koltseg} onChange={e => setstate({ ...state, koltseg: e.target.value })}
                                                 className="form-control z-depth-1" required />
                                         </MDBCol>
-
                                     </div>
-                                </ScrollAnimation>
-                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
-
+                                </Fade>
+                                <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="indulasdate">{language === "en" ? ("Departure day *") : ("Indulás napja *")}</label>
@@ -157,9 +155,9 @@ const Formoffer = () => {
                                         </MDBCol>
 
                                     </div>
-                                </ScrollAnimation>
-                                <hr className="my-5 w-50 elegant-color-dark" />
-                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                    <hr className="my-5 w-50 elegant-color-dark" />
+                                </Fade>
+                                <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="seatsselect">{language === "en" ? ("Seats *") : ("Férőhely *")}</label>
@@ -184,8 +182,8 @@ const Formoffer = () => {
                                             </select>
                                         </MDBCol>
                                     </div>
-                                </ScrollAnimation>
-                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                </Fade>
+                                <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="comment">{language === "en" ? ("Short description *") : ("Rövid leírás (hány nap, honnan/hova, utazás jellege) *")}</label>
@@ -198,8 +196,9 @@ const Formoffer = () => {
                                             </small>
                                         </MDBCol>
                                     </div>
-                                </ScrollAnimation>
-                                {/*                                 <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                </Fade>
+                                {/*
+                                    <Fade>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <div className="input-group z-depth-1">
@@ -216,8 +215,9 @@ const Formoffer = () => {
                                             </div>
                                         </MDBCol>
                                     </div>
-                                </ScrollAnimation>
- */}                                <ScrollAnimation animateIn="fadeIn" animateOnce offset={window.innerHeight}>
+                                    </Fade>
+ */}
+                                <Fade>
                                     <div className="form-row my-3">
                                         <FormGroup className="px-md-3 px-2">
                                             <FormControlLabel
@@ -229,6 +229,8 @@ const Formoffer = () => {
                                             />
                                         </FormGroup>
                                     </div>
+                                </Fade>
+                                <Fade>
                                     <div className="form-row my-3 pb-4">
                                         <FormGroup className="px-md-3 px-2">
                                             <FormControlLabel
@@ -248,9 +250,8 @@ const Formoffer = () => {
                                             />
                                         </FormGroup>
                                     </div>
-
-                                </ScrollAnimation>
-                                <ScrollAnimation animateIn="fadeInUp" animateOnce offset={window.innerHeight}>
+                                </Fade>
+                                <Fade bottom>
                                     <MDBBtn color="dark" outline disabled={state.loading}
                                         type="submit" className="rounded float-center mx-auto mt-3 mb-3 font-weight-bolder btn-block w-50">
                                         {state.loading ? (
@@ -259,8 +260,10 @@ const Formoffer = () => {
                                                     <span className="sr-only">Loading...</span>
                                                 </div>
                                             </div>
-                                        ) : language === "en" ? ("Get an offer") : ("Ajánlatot kérek")}</MDBBtn>
-                                </ScrollAnimation>
+                                        ) : language === "en" ? ("Get an offer") : ("Ajánlatot kérek")}
+                                    </MDBBtn>
+
+                                </Fade>
                             </form>
                         </MDBCardBody>
                     </MDBCol>

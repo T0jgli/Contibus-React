@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact"
-import { useState } from 'react'
 
 const Cardbodys = ({ item, what, settablazat, itemid }) => {
 
@@ -13,7 +12,7 @@ const Cardbodys = ({ item, what, settablazat, itemid }) => {
                     <img src={what === "Muzeum" ? (`/img/muzeum/${itemid}.jpg`) : what === "Table" ? (`/img/${item.id}_img/1.jpg`) : (null)}
                         alt="Kép lesz majd" className="img-fluid rounded" />
                     <MDBCardBody className={click ? ("rounded text-center muzeumcardbody d-md-block") : ("close text-center muzeumcardbody d-md-block")}>
-                        <h4 className='card-title font-weight-bold pb-2'>
+                        <h4 className='card-title font-weight-bold pb-2 bustitle'>
                             {item?.bus}
                         </h4>
                         <p className='card-text mt-3'>
@@ -25,6 +24,7 @@ const Cardbodys = ({ item, what, settablazat, itemid }) => {
                                 <MDBBtn color="dark" className="rounded mt-3 muzeumbtn" outline onClick={() => settablazat(true)}>Tovább »</MDBBtn></div>)}
                     </MDBCardBody>
                 </MDBCard>
+
 
             ) : (
                     <MDBCard className="invisible" />
