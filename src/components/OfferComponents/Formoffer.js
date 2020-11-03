@@ -91,7 +91,7 @@ const Formoffer = () => {
         else setaccepterror(true)
     }
     return (
-        <div>
+        <>
             <MDBContainer className="py-2" >
                 <MDBRow className="rounded" >
                     <MDBCol className="mb-4 card pr-0 pl-0 rounded" style={{ backgroundColor: "#fafafa" }}>
@@ -270,7 +270,7 @@ const Formoffer = () => {
                 </MDBRow>
             </MDBContainer>
             <Snackbars accepterror={accepterror} setaccepterror={setaccepterror} success={success} setsuccess={setsuccess} error={error} seterror={seterror} />
-        </div>
+        </>
     )
 }
 

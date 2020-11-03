@@ -32,6 +32,7 @@ function App() {
       {sessionStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)}
       <Scrolltotop />
       <Navbar />
+
       <Switch key={location.pathname}>
         <Route path="/" exact component={() =>
           <Home />
@@ -45,9 +46,10 @@ function App() {
           <Buses />
         } />
       </Switch>
+
+      <Cookie />
       <Footer />
       <Scrolltopbutton />
-      <Cookie />
     </>
   );
 }

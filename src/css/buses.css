@@ -108,3 +108,12 @@
       margin-top: -2rem !important;
     }
   }
+
+  
+.ReactModal__Overlay {
+  z-index: 1031 !important;
+}
+
+.ril-caption {
+  justify-content: flex-end !important;
+}

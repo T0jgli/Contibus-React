@@ -35,7 +35,8 @@ const Fslightboxes = ({ imgtoggler, setimgtoggler, data }) => {
                             slide: (imgtoggler.slide + 1) % imgs.length
                         })
                     }
-                    imageCaption={(imgtoggler.slide + 1) + "/" + data?.Buses.length + " " + data?.Buses[imgtoggler.slide].bus}
+                    imageCaption={(imgtoggler.slide + 1) + "/" + data?.Buses.length}
+                    imageTitle={data?.Buses[imgtoggler.slide].bus}
                 />
             )}
         </>

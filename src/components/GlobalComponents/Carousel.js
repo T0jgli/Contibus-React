@@ -36,7 +36,9 @@ const Carousel = () => {
                             <MDBMask overlay="black-light" className="flex-center fadeIn animated">
                                 <div className="text-center white-text mx-5">
                                     <h1 className="mb-4">
-                                        <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
+                                        <strong className="font-weight-bold">{language === "en" ?
+                                            (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
+                                            (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
                                     </h1>
                                     <p className="mb-4 d-block">
                                         <strong>
@@ -69,7 +71,9 @@ const Carousel = () => {
                             <MDBMask overlay="black-light" className="flex-center fadeIn animated">
                                 <div className="text-center white-text mx-5">
                                     <h1 className="mb-4">
-                                        <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
+                                        <strong className="font-weight-bold">{language === "en" ?
+                                            (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
+                                            (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
                                     </h1>
                                     <p className="mb-4 d-block">
                                         <strong><MDBIcon icon="check" className="px-2" /> {language === "en" ? ("Safety") : ("Biztonság")}
@@ -105,7 +109,9 @@ const Carousel = () => {
 
                                 <div className="text-center white-text mx-5">
                                     <h1 className="mb-4">
-                                        <strong className="font-weight-bold">{language === "en" ? ("Contibus – Specialist Coach Travel") : ("Contibus – Az utazás szakértői")}</strong>
+                                        <strong className="font-weight-bold">{language === "en" ?
+                                            (<span>Contibus<span className="d-none d-md-inline"> – Specialist Coach Travel</span></span>) :
+                                            (<span>Contibus<span className="d-none d-md-inline"> – Az utazás szakértői</span></span>)}</strong>
                                     </h1>
                                     <p className="mb-4 d-block">
                                         <strong>

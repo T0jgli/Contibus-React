@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact"
+import { selectlanguage } from '../../features/AppSlice'
+import { useSelector } from 'react-redux'
 
 const Cardbodys = ({ item, what, settablazat, itemid }) => {
-
+    const language = useSelector(selectlanguage)
     const [click, setclick] = useState(false)
 
     return (
@@ -20,8 +22,12 @@ const Cardbodys = ({ item, what, settablazat, itemid }) => {
                         </p>
                         {what === "Muzeum" ? (<p className='card-text d-lg-inline d-md-none'>{item?.desc}</p>) :
                             (<div className="card-text font-weight-bolder">
-                                <p className="m-1 p-0">Km díj: {item?.kmdij} Ft / km</p><p className="m-1 p-0">Óra díj: {item?.oradij} Ft / óra</p>
-                                <MDBBtn color="dark" className="rounded mt-3 muzeumbtn" outline onClick={() => settablazat(true)}>Tovább »</MDBBtn></div>)}
+                                <p className="m-1 p-0">{language === "en" ? ("Km charge: ") : ("Km díj: ")}{item?.kmdij} Ft / km</p>
+                                <p className="m-1 p-0">
+                                    {language === "en" ? ("Hourly rate: ") : ("Óradíj: ")}{item?.oradij}{language === "en" ? (" Ft / hour") : (" Ft / óra")}
+                                </p>
+                                <MDBBtn color="dark" className="rounded mt-3 muzeumbtn" outline
+                                    onClick={() => settablazat(true)}>{language === "en" ? ("More »") : ("Bővebben »")} </MDBBtn></div>)}
                     </MDBCardBody>
                 </MDBCard>
 

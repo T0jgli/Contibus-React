@@ -15,11 +15,10 @@ const Footer = () => {
     return (
         <>
             <MDBFooter className="font-small z-depth-2 mt-4">
-
                 <MDBContainer className="text-center text-md-left pt-4">
                     <MDBRow className="pt-4">
                         <MDBCol md="5" lg="6" xl="5" className="mx-auto mb-1">
-                            {<div className="p-0 z-depth-2 map-container" style={{ height: "80%" }}>
+                            {<div className="p-0 map-container" style={{ height: "80%" }}>
                                 <MDBIframe
                                     src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key=" + GoogleMapsKey}
                                     frameborder="0" style={{ height: "80%" }} />
@@ -71,7 +70,6 @@ const Footer = () => {
                     className="fas fa-times"></i> </span><a href="https://www.instagram.com/kovalikadam/" rel="noopener noreferrer"
                         target="_blank">tojglee</a></span>
                 </div>
-
             </MDBFooter>
 
             <Lostitems elveszett={elveszett} setelveszett={setelveszett} />

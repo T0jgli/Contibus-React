@@ -143,7 +143,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                             type="textarea" name="comment" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="4" icon="comment" />
                                     </MDBCol>
                                 </div>
-{/*                                 <div className="form-row my-3">
+                                {/*                                 <div className="form-row my-3">
                                     <MDBCol>
                                         <div className="input-group">
                                             <div className="input-group-prepend">

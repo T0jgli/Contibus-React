@@ -12,7 +12,6 @@ import NumberFormat from 'react-number-format';
 const Datatable = ({ data, toggler, settoggler, imgtoggler, setimgtoggler, dataid }) => {
     const language = useSelector(selectlanguage)
 
-    let newarr = [...toggler];
     let seatimg;
     if (dataid < 4) {
         seatimg = `/seats/${data.id}_files/ules.png`
@@ -40,7 +39,11 @@ const Datatable = ({ data, toggler, settoggler, imgtoggler, setimgtoggler, datai
                 <hr className="mb-2 mt-2 mb-lg-3 mt-lg-3 d-none d-lg-block" />
                 <div className="d-flex mx-3 justify-content-between">
                     <Tooltip title={language === "en" ? ("Pictures") : ("Képek")}>
-                        <IconButton onClick={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }} aria-label="seats">
+                        <IconButton onClick={() => {
+                            let newarr = [...toggler];
+                            newarr[dataid - 1].pict = !newarr[dataid - 1].pict;
+                            settoggler(newarr)
+                        }} aria-label="seats">
                             <PhotoLibraryIcon />
                         </IconButton>
                     </Tooltip>
@@ -55,15 +58,14 @@ const Datatable = ({ data, toggler, settoggler, imgtoggler, setimgtoggler, datai
             </td>
             <td className="dijaktext">
                 <p className='m-0 pt-lg-5'>
-                    <NumberFormat suffix=" Ft / km" prefix="Km díj: " value={data.kmdij} displayType="text" />
-
+                    <NumberFormat suffix=" Ft / km" prefix={language === "en" ? ("Km charge: ") : ("Km díj: ")} value={data.kmdij} displayType="text" />
                 </p>
                 <p className='mb-2'>
-                    <NumberFormat suffix=" Ft / óra" prefix="Óra díj: " thousandSeparator=" " value={data.oradij} displayType="text" />
+                    <NumberFormat suffix={language === "en" ? (" Ft / hour") : (" Ft / óra")} prefix={language === "en" ? ("Hourly rate: ") : ("Óradíj: ")}
+                        thousandSeparator=" " value={data.oradij} displayType="text" />
                 </p>
             </td>
         </tr >
-
     )
 }
 

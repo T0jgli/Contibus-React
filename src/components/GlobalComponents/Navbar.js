@@ -42,7 +42,7 @@ const Navbar = () => {
     }, [location])
 
     return (
-        <div>
+        <>
             <MDBNavbar className="" fixed="top" dark scrolling transparent expand="md">
                 <div className="container pr-2 pl-2 py-1">
                     <MDBNavbarBrand>
@@ -58,7 +58,7 @@ const Navbar = () => {
                             </MDBNavItem>
                             <MDBNavItem active={location.pathname === "/offer" ? (true) : (false)}>
                                 <MDBNavLink to="/offer" className="rounded">
-                                    {language === "en" ? ("Get an offer") : ("Ajánlatkérés")}</MDBNavLink>
+                                    {language === "en" ? ("Offer request") : ("Ajánlatkérés")}</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem active={location.pathname === "/buses" ? (true) : (false)}>
                                 <MDBNavLink to="/buses" className="rounded">
@@ -89,7 +89,7 @@ const Navbar = () => {
                                                 disableFocusListener={language !== "en" ? (true) : (false)}
                                                 disableTouchListener={language !== "en" ? (true) : (false)}
                                             >
-                                                <img src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                                                <img width="30px" src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
                                                     onClick={() => { localStorage.setItem("language", "hu"); setlangtoast(true); counterinterval() }} alt="" />
                                             </Tooltip>
                                         </div>
@@ -105,7 +105,7 @@ const Navbar = () => {
                                                 disableFocusListener={language === "en" ? (true) : (false)}
                                                 disableTouchListener={language === "en" ? (true) : (false)}
                                             >
-                                                <img src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
+                                                <img width="30px" src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
                                                     onClick={() => { localStorage.setItem("language", "en"); setlangtoast(true); counterinterval() }} alt="" />
                                             </Tooltip>
                                         </div>
@@ -132,7 +132,7 @@ const Navbar = () => {
             </Snackbar>
 
             <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} setisOpen={setIsOpen} />
-        </div>
+        </>
     )
 }
 
