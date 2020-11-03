@@ -38,7 +38,7 @@ const Formoffer = () => {
     const handlesubmit = (e) => {
         e.preventDefault();
         if (accept) {
-            if (new Date(state.indulas).toLocaleDateString() > new Date().toLocaleDateString() && new Date(state.erkezes).toLocaleDateString() > new Date().toLocaleDateString()) {
+            if (state.seat !== "def") {
                 if (new Date(state.indulas).toLocaleDateString() < new Date(state.erkezes).toLocaleDateString()) {
                     setstate({ ...state, loading: true })
                     db.collection("formofferusers").add({
@@ -80,16 +80,14 @@ const Formoffer = () => {
                             setstate({})
                         }
                     })
-
-
                 }
-                else seterror({ state: true, msg: "Nem lehet nagyobb az érkezés az indulásnál!" })
-
+                else seterror({ state: true, msg: "Az érkezés dátuma nem lehet kisebb, mint az indulás!" })
             }
-            else seterror({ state: true, msg: "A dátum nem lehet kisebb mint a jelenlegi!" })
+            else seterror({ state: true, msg: "Kérjük válasszon férőhelyet!" })
         }
         else setaccepterror(true)
     }
+
     return (
         <>
             <MDBContainer className="py-2" >
@@ -145,12 +143,12 @@ const Formoffer = () => {
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="indulasdate">{language === "en" ? ("Departure day *") : ("Indulás napja *")}</label>
-                                            <input type="date" name="indulasdate"
+                                            <input type="date" name="indulasdate" min={new Date().toLocaleDateString().split(".").join("").split(" ").join("-")}
                                                 className="form-control z-depth-1" value={state.indulas} onChange={e => { setstate({ ...state, indulas: e.target.value }); }} required />
                                         </MDBCol>
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="erkezesdate">{language === "en" ? ("Date of arrival *") : ("Érkezés napja *")}</label>
-                                            <input type="date" name="erkezesdate"
+                                            <input type="date" name="erkezesdate" min={new Date().toLocaleDateString().split(".").join("").split(" ").join("-")}
                                                 className="form-control z-depth-1" value={state.erkezes} onChange={e => setstate({ ...state, erkezes: e.target.value })} required />
                                         </MDBCol>
 
