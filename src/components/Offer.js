@@ -6,7 +6,6 @@ import Gallery from './GlobalComponents/Gallery'
 import Formoffer from './OfferComponents/Formoffer';
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
-import { motion } from 'framer-motion';
 
 const Offer = () => {
     ReactGA.pageview(window.location.pathname)

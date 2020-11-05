@@ -56,7 +56,7 @@ const Modals = (props) => {
 
 
 
-            <MDBModal cascading fade modalStyle="danger" isOpen={props.dpd} toggle={() => props.setdpd(!props.dpd)} size="lg" className="rounded">
+            <MDBModal cascading modalStyle="danger" isOpen={props.dpd} toggle={() => props.setdpd(!props.dpd)} size="lg" className="rounded">
                 <MDBModalHeader className="rounded" titleClass="heading lead font-weight-bolder" toggle={() => props.setdpd(!props.dpd)}>
                     {language === "en" ? ("DPD Parcelshop") : ("DPD Csomagpont")}
                 </MDBModalHeader>
@@ -99,7 +99,7 @@ const Modals = (props) => {
             </MDBModal>
 
 
-            <MDBModal cascading fade modalStyle="danger" isOpen={props.allasajanlat} toggle={() => props.setallasajanlat(!props.allasajanlat)} size="lg" className="rounded">
+            <MDBModal cascading modalStyle="danger" isOpen={props.allasajanlat} toggle={() => props.setallasajanlat(!props.allasajanlat)} size="lg" className="rounded">
                 <MDBModalHeader className="rounded" titleClass="heading lead font-weight-bolder" toggle={() => props.setallasajanlat(!props.allasajanlat)}>
                     {language === "en" ? ("Current job offers") : ("Aktuális állásajánlataink")}
                 </MDBModalHeader>
@@ -121,7 +121,7 @@ const Modals = (props) => {
                             <p className="pb-0 mb-0">{language === "en" ? ("Our expectations") : ("Elvárásaink:")}</p>
                             <ul>
                                 <li>{language === "en" ? ("politeness") : ("udvariasság")}</li>
-                                <li>{language === "en" ? ("well-groomed, cultured look") : ("ápolt, kulturált megjelenés")}</li>
+                                <li>{language === "en" ? ("cultured look") : ("ápolt, kulturált megjelenés")}</li>
                             </ul>
                             <p className="pb-0 mb-0">{language === "en" ? ("Advantage but not condition:") : ("Előny, de nem feltétel:")}</p>
                             <ul>
@@ -160,7 +160,7 @@ const Modals = (props) => {
                 </MDBCard>
             </MDBModal>
 
-            <MDBModal cascading fade modalStyle="info" isOpen={props.vezido} toggle={() => props.setvezido(!props.vezido)} size="lg" className="rounded">
+            <MDBModal cascading modalStyle="info" isOpen={props.vezido} toggle={() => props.setvezido(!props.vezido)} size="lg" className="rounded">
                 <MDBModalHeader className="rounded" titleClass="heading lead font-weight-bolder" toggle={() => props.setvezido(!props.vezido)}>
                     {language === "en" ? ("Driving time") : ("Vezetési idő")}
                 </MDBModalHeader>
@@ -181,7 +181,7 @@ const Modals = (props) => {
                 </MDBCard>
             </MDBModal>
 
-            <MDBModal cascading fade modalStyle="success" isOpen={props.csomagmegorzes} toggle={() => props.setcsomagmegorzes(!props.csomagmegorzes)} size="lg" className="rounded">
+            <MDBModal cascading modalStyle="success" isOpen={props.csomagmegorzes} toggle={() => props.setcsomagmegorzes(!props.csomagmegorzes)} size="lg" className="rounded">
                 <div className="rounded modal-header">
                     <h5 className="heading lead font-weight-bolder">{language === "en" ? ("Luggage store") : ("Csomagmegőrzés")}</h5>
                     <MDBCloseIcon onClick={() => props.setcsomagmegorzes(!props.csomagmegorzes)} />

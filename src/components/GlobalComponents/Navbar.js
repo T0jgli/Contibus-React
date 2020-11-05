@@ -43,8 +43,8 @@ const Navbar = () => {
 
     return (
         <>
-            <MDBNavbar className="" fixed="top" dark scrolling transparent expand="md">
-                <div className="container pr-2 pl-2 py-1">
+            <MDBNavbar className="w-100 fadeInDown animated" fixed="top" dark scrolling transparent expand="md">
+                <div className="container px-2 py-1">
                     <MDBNavbarBrand>
                         <MDBIcon icon="bus" />
                         <strong> ContiBUS</strong>

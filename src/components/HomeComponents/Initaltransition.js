@@ -63,7 +63,7 @@ const InitialTransition = () => {
                 }
                 }
             >
-                <motion.svg variants={textContainer} className="position-absolute w-100 d-flex" style={{ zIndex: "1036" }}>
+                <motion.svg variants={textContainer} className="position-absolute w-100 d-flex" style={{ zIndex: "1029" }}>
                     <pattern
                         id="pattern"
                         patternUnits="userSpaceOnUse"

@@ -6,7 +6,7 @@ import { MDBTableBody, MDBTable, MDBTableHead, MDBBtn, MDBBtnGroup } from 'mdbre
 import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
 import TableChartIcon from '@material-ui/icons/TableChart';
 import Buses from "../../src/buses.json"
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 import Carddeck from "./Carddeck";
 import Datatable from './Datatable';
@@ -33,10 +33,10 @@ const Table = ({ tablazat, settablazat }) => {
     })
     return (
         <>
-            <Fade top>
+            <Fade triggerOnce direction="down">
                 <h3 className="text-center text-muted my-4">{language === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
             </Fade>
-            <Fade bottom>
+            <Fade triggerOnce direction="up">
                 <MDBBtnGroup className="m-2">
                     <MDBBtn disabled={tablazat ? (false) : (true)} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => {
                         settablazat(!tablazat)
@@ -62,7 +62,7 @@ const Table = ({ tablazat, settablazat }) => {
                     if (index % 3 === 0) {
                         idd++;
                         return (
-                            <Fade>
+                            <Fade key={index} triggerOnce>
                                 <Carddeck
                                     settablazat={settablazat} length={array.length} idd={idd} item={item}
                                     nextnextitem={array[index + 2]} nextnextitemid={ids[index + 2]} nextitemid={ids[index + 1]} nextitem={array[index + 1]}
@@ -77,31 +77,34 @@ const Table = ({ tablazat, settablazat }) => {
             ) : null}
 
             {tablazat && (
-                <MDBTable striped hover responsive className="w-100 mt-4 fadeIn animated busestable">
-                    <MDBTableHead className="z-depth-1">
-                        <tr className="text-center z-depth-1">
-                            <th>
-                                <span className="font-weight-bolder">{language === "en" ? ("Vehicles") : ("Járműveink")}</span>
-                            </th>
-                            <th>
+                <Fade triggeronce>
+                    <MDBTable striped hover responsive className="w-100 mt-4 busestable">
+                        <MDBTableHead className="z-depth-1">
+                            <tr className="text-center z-depth-1">
+                                <th>
+                                    <span className="font-weight-bolder">{language === "en" ? ("Vehicles") : ("Járműveink")}</span>
+                                </th>
+                                <th>
 
-                            </th>
-                            <th className="pr-3 text-right">
-                                <span className="font-weight-bolder">{language === "en" ? ("Prices") : ("Árak")}</span>
-                            </th>
-                        </tr>
-                    </MDBTableHead>
-                    <MDBTableBody>
-                        {Buses.Buses.map((item, index) => {
-                            return (
-                                <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler} settoggler={settoggler}
-                                    dataid={ids[index]}
-                                    language={language} toggler={toggler} data={item} key={ids[index]}
-                                />
-                            )
-                        })}
-                    </MDBTableBody>
-                </MDBTable>
+                                </th>
+                                <th className="pr-3 text-right">
+                                    <span className="font-weight-bolder">{language === "en" ? ("Prices") : ("Árak")}</span>
+                                </th>
+                            </tr>
+                        </MDBTableHead>
+                        <MDBTableBody>
+                            {Buses.Buses.map((item, index) => {
+                                return (
+                                    <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler} settoggler={settoggler}
+                                        dataid={ids[index]}
+                                        language={language} toggler={toggler} data={item} key={ids[index]}
+                                    />
+                                )
+                            })}
+                        </MDBTableBody>
+                    </MDBTable>
+                </Fade>
+
             )}
             {tablazat && (
                 <>

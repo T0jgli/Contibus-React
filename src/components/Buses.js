@@ -9,7 +9,6 @@ import Busesbody from "./BusesComponents/Busesbody"
 
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
-import { motion } from 'framer-motion';
 
 const Buses = () => {
   ReactGA.pageview(window.location.pathname)

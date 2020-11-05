@@ -49,7 +49,9 @@ function App() {
 
       <Cookie />
       <Footer />
-      <Scrolltopbutton />
+      <div className="d-none d-md-block">
+        <Scrolltopbutton />
+      </div>
     </>
   );
 }

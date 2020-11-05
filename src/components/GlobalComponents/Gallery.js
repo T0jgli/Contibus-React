@@ -2,7 +2,7 @@ import React from 'react'
 import {
     MDBContainer, MDBMask, MDBRow, MDBCol, MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBCard, MDBCardImage
 } from "mdbreact";
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 import gallery from "../../src/gallery.json"
 import { selectlanguage } from '../../features/AppSlice'
@@ -32,7 +32,7 @@ const Gallery = () => {
         <MDBContainer className="z-depth-1 rounded" id="gallerycontainer" style={{ backgroundColor: "#fafafa" }}>
             <MDBRow className="pt-5 pb-4">
                 <MDBCol>
-                    <Fade top>
+                    <Fade triggerOnce direction="down">
                         <h3 className="font-weight-bold dark-grey-text pb-2 mb-0 text-center" id="gallerytext">
                             {language === "en" ? ("Gallery") : ("Galéria")}
                         </h3>

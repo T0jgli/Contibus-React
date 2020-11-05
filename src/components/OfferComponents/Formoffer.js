@@ -8,7 +8,7 @@ import {
 } from "mdbreact";
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 import Snackbars from '../GlobalComponents/Snackbars';
 import { selectlanguage } from '../../features/AppSlice'
@@ -101,7 +101,7 @@ const Formoffer = () => {
 
                         <MDBCardBody className="rounded">
                             <form onSubmit={handlesubmit}>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="name">{language === "en" ? ("Customer name *") : ("Megrendelő neve *")}</label>
@@ -115,7 +115,7 @@ const Formoffer = () => {
                                         </MDBCol>
                                     </div>
                                 </Fade>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="email">{language === "en" ? ("Email address *") : ("Email cím *")}</label>
@@ -125,7 +125,7 @@ const Formoffer = () => {
                                     </div>
                                     <hr className="my-5 w-50 elegant-color-dark" />
                                 </Fade>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="uticel">{language === "en" ? ("Destination *") : ("Úticél *")}</label>
@@ -139,7 +139,7 @@ const Formoffer = () => {
                                         </MDBCol>
                                     </div>
                                 </Fade>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="indulasdate">{language === "en" ? ("Departure day *") : ("Indulás napja *")}</label>
@@ -155,7 +155,7 @@ const Formoffer = () => {
                                     </div>
                                     <hr className="my-5 w-50 elegant-color-dark" />
                                 </Fade>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="seatsselect">{language === "en" ? ("Seats *") : ("Férőhely *")}</label>
@@ -181,7 +181,7 @@ const Formoffer = () => {
                                         </MDBCol>
                                     </div>
                                 </Fade>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="comment">{language === "en" ? ("Short description *") : ("Rövid leírás (hány nap, honnan/hova, utazás jellege) *")}</label>
@@ -196,7 +196,7 @@ const Formoffer = () => {
                                     </div>
                                 </Fade>
                                 {/*
-                                    <Fade>
+                                    <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <div className="input-group z-depth-1">
@@ -215,7 +215,7 @@ const Formoffer = () => {
                                     </div>
                                     </Fade>
  */}
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3">
                                         <FormGroup className="px-md-3 px-2">
                                             <FormControlLabel
@@ -228,7 +228,7 @@ const Formoffer = () => {
                                         </FormGroup>
                                     </div>
                                 </Fade>
-                                <Fade>
+                                <Fade triggerOnce>
                                     <div className="form-row my-3 pb-4">
                                         <FormGroup className="px-md-3 px-2">
                                             <FormControlLabel
@@ -249,7 +249,7 @@ const Formoffer = () => {
                                         </FormGroup>
                                     </div>
                                 </Fade>
-                                <Fade bottom>
+                                <Fade direction="up">
                                     <MDBBtn color="dark" outline disabled={state.loading}
                                         type="submit" className="rounded float-center mx-auto mt-3 mb-3 font-weight-bolder btn-block w-50">
                                         {state.loading ? (

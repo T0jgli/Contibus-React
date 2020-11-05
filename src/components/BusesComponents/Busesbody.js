@@ -6,7 +6,7 @@ import Muzeum from "./Muzeum"
 import Table from "./Table"
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 const Busesbody = () => {
     const language = useSelector(selectlanguage)
@@ -24,7 +24,7 @@ const Busesbody = () => {
         <>
             <div className="text-center py-4" id="main" style={{ backgroundColor: "#f7f7f7" }}>
                 <MDBContainer>
-                    <Fade>
+                    <Fade triggerOnce>
                         <section>
                             <h5 className="font-weight-bold pb-3">{language === "en" ? ("Other informations:") : ("Egyéb tudnivalók:")}</h5>
                             <p className="font-weight-bolder">{language === "en" ?
@@ -56,7 +56,7 @@ const Busesbody = () => {
 
             <MDBContainer className="text-center mb-5 mt-4">
                 <hr className="w-25 mt-4 " />
-                <Fade>
+                <Fade triggerOnce>
                     <MDBBtn color="dark" outline onClick={() => setshowmuzeum(!showmuzeum)} className="my-1 rounded muzeumbtn">
                         {showmuzeum ? language === "en" ? ("« Current buses") : ("« Jelenlegi autóbuszaink") : language === "en" ? ("Autobus museum »") : ("Autóbusz múzeumunk »")}
                     </MDBBtn>

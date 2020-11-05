@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectlanguage } from '../../features/AppSlice';
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 import Muzeumjson from "../../src/muzeum.json"
 import Carddeck from './Carddeck';
@@ -13,7 +13,7 @@ const Muzeum = () => {
     let idd = 0;
     return (
         <div className="fadeIn animated">
-            <Fade top>
+            <Fade triggerOnce direction="down">
                 <h3 className="text-center text-muted my-4">{language === "en" ? ("Our museum") : ("Múzeumunk")}</h3>
             </Fade>
             {Muzeumjson.Muzeum.map((item, index, array) => {

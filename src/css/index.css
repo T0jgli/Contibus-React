@@ -14,7 +14,6 @@
   margin-bottom:5px;
   padding-top:3px;
 }
-
 .modal-content {
   border-radius:1rem!important;
 }
@@ -59,14 +58,6 @@
   -webkit-transform:scale(1.05,1.05);
   transform:scale(1.05,1.05);
 }
-.carousel-control-prev, .carousel-control-next {
-  transition:all 1.5s;
-  -moz-transition:all 1.5s;
-  -webkit-transition:all 1.5s;
-}
-.carousel-control-prev:hover, .carousel-control-next:hover {
-  background-color:rgba(0, 0, 0, 0.05);
-}
 @media (min-width: 768px) {
   .carousel-multi-item-2 .col-md-3 {
       float:left;
@@ -82,22 +73,23 @@
       background-color:#1C2331;
  }
 }
-.flag:hover {
+.flag:hover, .controls-top > a:hover > i {
   -moz-transform:scale(1.17,1.17);
   -webkit-transform:scale(1.17,1.17);
   transform:scale(1.17,1.17);
 }
-.flag, .dropdown-item, .kartya, .logo, .streak, .thumbnailkep, .muzeumbtn, .busimg {
+.flag, .dropdown-item, .kartya, .logo, .controls-top > a > i, .streak, .thumbnailkep, .muzeumbtn, .busimg {
   transition:all .5s !important;
   -moz-transition:all .5s !important;
   -webkit-transition:all .5s !important;
 }
-.sections {
-  padding-top:50px;
-  margin-top:-50px;
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  background-color:rgba(0, 0, 0, 0.05);
 }
-.wow {
-  visibility:hidden;
+.carousel-control-prev, .carousel-control-next {
+  transition:all 1.5s !important;
+  -moz-transition:all 1.5s !important;
+  -webkit-transition:all 1.5s !important;
 }
 .dropdown-menu {
   top:50px!important;

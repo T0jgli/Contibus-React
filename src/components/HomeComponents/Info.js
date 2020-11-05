@@ -2,7 +2,7 @@ import React from 'react'
 import {
     MDBContainer, MDBRow, MDBCol
 } from "mdbreact";
-import Fade from 'react-reveal/Fade';
+import { Fade } from "react-awesome-reveal";
 
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
@@ -14,12 +14,12 @@ const Info = () => {
         <MDBContainer>
             <MDBRow className="pt-5">
                 <MDBCol md="6" className="mb-4">
-                    <Fade>
+                    <Fade triggerOnce>
                         <img src="/img/3.jpg" className="img-fluid mx-auto d-block logo" alt="logo" />
                     </Fade>
                 </MDBCol>
                 <MDBCol md="6" className="mb-4">
-                    <Fade>
+                    <Fade triggerOnce>
                         <section>
                             <h3 className="h3 mb-3">{language === "en" ? ("Who we are?") : ("Kik is vagyunk mi?")}</h3>
                             <hr />
