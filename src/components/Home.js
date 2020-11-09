@@ -8,6 +8,9 @@ import Gallery from './GlobalComponents/Gallery';
 import Carousel from './GlobalComponents/Carousel';
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion';
+import { pageVariants } from './GlobalComponents/Initaltransition';
+
 
 const Home = () => {
     ReactGA.pageview(window.location.pathname)
@@ -25,13 +28,16 @@ const Home = () => {
 
 
     return (
-        <>
+        <motion.div initial="initial"
+            animate="animate"
+            variants={pageVariants}
+        >
             <Carousel />
             <Info />
             <Cards />
             <Streak />
             <Gallery />
-        </>
+        </motion.div>
     )
 }
 

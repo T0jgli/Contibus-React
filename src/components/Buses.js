@@ -9,6 +9,8 @@ import Busesbody from "./BusesComponents/Busesbody"
 
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
+import { motion } from 'framer-motion';
+import { pageVariants } from './GlobalComponents/Initaltransition';
 
 const Buses = () => {
   ReactGA.pageview(window.location.pathname)
@@ -24,10 +26,12 @@ const Buses = () => {
   }, [language])
 
   return (
-    <>
+    <motion.section initial="initial"
+      animate="animate"
+      variants={pageVariants}>
       <Carousel />
       <Busesbody />
-    </>
+    </motion.section>
   )
 }
 

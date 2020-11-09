@@ -45,7 +45,7 @@ const Navbar = () => {
         <>
             <MDBNavbar className="w-100 fadeInDown animated" fixed="top" dark scrolling transparent expand="md">
                 <div className="container px-2 py-1">
-                    <MDBNavbarBrand>
+                    <MDBNavbarBrand onClick={() => window.location.reload(false)} style={{ cursor: "pointer" }}>
                         <MDBIcon icon="bus" />
                         <strong> ContiBUS</strong>
                     </MDBNavbarBrand>

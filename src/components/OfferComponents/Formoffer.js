@@ -6,7 +6,8 @@ import firebase from "firebase/app"
 import {
     MDBContainer, MDBRow, MDBCol, MDBCardHeader, MDBCardBody, MDBBtn, MDBIcon
 } from "mdbreact";
-import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
+import ArrowDropUp from '@material-ui/icons/ArrowDropUp';
+
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 import { Fade } from "react-awesome-reveal";
 
@@ -229,7 +230,7 @@ const Formoffer = () => {
                                     </div>
                                 </Fade>
                                 <Fade triggerOnce>
-                                    <div className="form-row my-3 pb-4">
+                                    <div className="form-row my-3">
                                         <FormGroup className="px-md-3 px-2">
                                             <FormControlLabel
                                                 control={
@@ -239,13 +240,12 @@ const Formoffer = () => {
                                                 label={language === "en" ? (
                                                     <>I accept the <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
                                                         privacy policy</a>!
-                                                        <ArrowLeftIcon className={accepterror ? ("visible") : ("invisible")} style={{ color: "red" }} />
                                                     </>) : (
                                                         <>Elfogadom az <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
                                                             adatvédelmi nyilatkozatot</a>!
-                                                            <ArrowLeftIcon className={accepterror ? ("visible") : ("invisible")} style={{ color: "red" }} />
                                                         </>)}
                                             />
+                                            <ArrowDropUp className={accepterror ? ("visible pr-1") : ("invisible pr-1")} style={{ color: "red" }} />
                                         </FormGroup>
                                     </div>
                                 </Fade>

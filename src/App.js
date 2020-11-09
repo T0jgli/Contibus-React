@@ -7,12 +7,14 @@ import { useSelector } from 'react-redux'
 import Home from './components/Home'
 import Offer from './components/Offer'
 import Buses from './components/Buses'
-import InitialTransition from './components/HomeComponents/Initaltransition';
+import InitialTransition from './components/GlobalComponents/Initaltransition';
 import Navbar from './components/GlobalComponents/Navbar'
 import Footer from './components/GlobalComponents/Footer'
 import Scrolltotop from './components/GlobalComponents/Scrolltotop';
 import Scrolltopbutton from './components/GlobalComponents/Scrolltopbutton';
 import Cookie from './components/GlobalComponents/Cookie';
+import { AnimatePresence } from 'framer-motion';
+import Notfound from './components/Notfound';
 
 function App() {
   const language = useSelector(selectlanguage)
@@ -33,19 +35,25 @@ function App() {
       <Scrolltotop />
       <Navbar />
 
-      <Switch key={location.pathname}>
-        <Route path="/" exact component={() =>
-          <Home />
-        } />
+      <AnimatePresence exitBeforeEnter>
+        <Switch key={location.pathname}>
+          <Route path="/" exact component={() =>
+            <Home />
+          } />
 
-        <Route path="/offer" component={() =>
-          <Offer />
-        } />
+          <Route path="/offer" component={() =>
+            <Offer />
+          } />
 
-        <Route path="/buses" component={() =>
-          <Buses />
-        } />
-      </Switch>
+          <Route path="/buses" component={() =>
+            <Buses />
+          } />
+
+          <Route component={() =>
+            <Notfound />
+          } />
+        </Switch>
+      </AnimatePresence>
 
       <Cookie />
       <Footer />

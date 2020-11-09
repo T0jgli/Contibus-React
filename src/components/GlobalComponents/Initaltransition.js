@@ -3,6 +3,19 @@ import { motion } from "framer-motion";
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
 
+
+export const pageVariants = {
+    initial: { y: -20, opacity: 0 },
+    animate: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 1,
+            ease: [0.6, -0.05, 0.01, 0.99],
+        },
+    },
+}
+
 const blackBox = {
     initial: {
         height: "100%",

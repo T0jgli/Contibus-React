@@ -6,6 +6,8 @@ import Gallery from './GlobalComponents/Gallery'
 import Formoffer from './OfferComponents/Formoffer';
 import { selectlanguage } from '../features/AppSlice'
 import { useSelector } from 'react-redux'
+import { pageVariants } from './GlobalComponents/Initaltransition';
+import { motion } from 'framer-motion';
 
 const Offer = () => {
     ReactGA.pageview(window.location.pathname)
@@ -21,11 +23,13 @@ const Offer = () => {
     }, [language])
 
     return (
-        <>
+        <motion.div initial="initial"
+            animate="animate"
+            variants={pageVariants}>
             <Carousel />
             <Formoffer />
             <Gallery />
-        </>
+        </motion.div>
     )
 }
 
