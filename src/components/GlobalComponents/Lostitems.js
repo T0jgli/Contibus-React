@@ -192,7 +192,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                                         <ArrowLeftIcon className={accepterror ? ("visible") : ("invisible")} style={{ color: "red" }} />
                                                 </>) : (
                                                     <>Elfogadom az <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
-                                                        adatvédelmi nyilatkozatot</a>!
+                                                        adatvédelmi tájékoztatót</a>!
                                                             <ArrowLeftIcon className={accepterror ? ("visible") : ("invisible")} style={{ color: "red" }} />
                                                     </>)}
                                         />

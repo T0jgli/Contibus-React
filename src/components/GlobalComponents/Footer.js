@@ -33,7 +33,7 @@ const Footer = () => {
                                     {language === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                                 </p>
                                 <p>
-                                    <a href="#!">{language === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
+                                    <a href="/files/utazasi-szerzodes-2020.pdf" target="_blank">{language === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
                                 </p>
                                 <p>
                                     <a href="#!">{language === "en" ? ("Order form") : ("Megrendelőlap")}</a>

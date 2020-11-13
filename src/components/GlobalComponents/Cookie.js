@@ -24,9 +24,9 @@ const Cookie = () => {
                             <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder"> privacy policy</a>.</span>) :
                             (<span> Az oldal sütiket használ a felhasználói élmény fokozása céljából.
                             A weblap további böngészésével elfogadja az
-                                <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder"> adatvédelmi nyilatkozatot</a>.
+                                <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder"> adatvédelmi tájékoztatót</a>.
                             </span>)}</p>
-                    <MDBBtn color="dark-green" size="md" className="font-weight-bolder acceptcookies d-block" onClick={() => {
+                    <MDBBtn color="dark-green" size="md" className="font-weight-bolder rounded acceptcookies d-block" onClick={() => {
                         setshow(false)
                         localStorage.setItem("EnableCookies", "true")
                     }}>

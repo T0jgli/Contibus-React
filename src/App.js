@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import Home from './components/Home'
 import Offer from './components/Offer'
 import Buses from './components/Buses'
+import Notfound from './components/Notfound';
 import InitialTransition from './components/GlobalComponents/Initaltransition';
 import Navbar from './components/GlobalComponents/Navbar'
 import Footer from './components/GlobalComponents/Footer'
@@ -14,9 +15,8 @@ import Scrolltotop from './components/GlobalComponents/Scrolltotop';
 import Scrolltopbutton from './components/GlobalComponents/Scrolltopbutton';
 import Cookie from './components/GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
-import Notfound from './components/Notfound';
 
-function App() {
+function App () {
   const language = useSelector(selectlanguage)
   const location = useLocation()
   const dispatch = useDispatch()

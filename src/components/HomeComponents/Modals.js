@@ -189,15 +189,15 @@ const Modals = (props) => {
                 <MDBModalBody>
                     <MDBContainer className="">
                         <MDBRow className="d-block">
-                            <p className="text-center font-weight-bold mt-4">{language === "en" ? ("Monday to Friday") : ("Hétfőtől - Péntekig")}</p>
+                            <p className="text-center font-weight-bold mt-3">{language === "en" ? ("Monday to Friday") : ("Hétfőtől - Péntekig")}</p>
                             <p className="d-block text-center">{language === "en" ? ("8:30 AM - 5:00 PM") : ("8:30 - 17:00")}</p>
                             <hr className="flex-center" style={{ width: "30%" }} />
 
-                            <MDBTable hover className="mx-auto text-center">
+                            <MDBTable hover className="text-center">
                                 <MDBTableHead>
                                     <tr>
-                                        <th>
-                                            <h5 className=" font-weight-bolder m-0 p-0">
+                                        <th className="w-50">
+                                            <h5 className="font-weight-bolder m-0 p-0">
                                                 {language === "en" ? ("Price") : ("Ár")}
                                             </h5>
 
@@ -205,7 +205,7 @@ const Modals = (props) => {
                                         <th>
 
                                         </th>
-                                        <th>
+                                        <th className="w-50">
                                             <h5 className="m-0 p-0 font-weight-bolder">
                                                 {language === "en" ? ("Time of the day") : ("Napszak")}
                                             </h5>

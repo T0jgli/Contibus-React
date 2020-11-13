@@ -155,7 +155,7 @@
   vertical-align:baseline;
 }
 ::-webkit-scrollbar {
-  width:12px;
+  width:11px;
 }
 ::-webkit-scrollbar-track {
   background-color:#F5F5F5;
@@ -286,6 +286,10 @@
 }
 .MuiSnackbarContent-root {
   border-radius: .6rem !important;
+  background-color:rgba(0,0,0,0.8) !important;
+}
+.MuiSnackbarContent-message {
+  font-weight: 500 !important;
 }
 .MuiAlert-root {
   border-radius: .6rem !important;
@@ -308,3 +312,12 @@
     display: none !important;
   }
 }
+
+#kalandozastravel {
+  opacity: 0.8;
+  transition: 0.5s;
+}
+#kalandozastravel:hover {
+  opacity: 1;
+}
+

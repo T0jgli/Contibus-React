@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    MDBModal, MDBCard, MDBModalHeader, MDBBtn, MDBModalBody, MDBRow, MDBContainer, MDBCardFooter, MDBCol, MDBCardBody
+    MDBModal, MDBCard, MDBModalHeader, MDBBtn, MDBModalBody, MDBRow, MDBContainer, MDBCardFooter, MDBCol, MDBCardBody, MDBAlert
 } from "mdbreact";
 
 import FullCalendar from '@fullcalendar/react'
@@ -30,7 +30,18 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                     <MDBRow className="p-0">
                         <MDBCol>
                             <MDBCard>
-                                <MDBCardBody className="p-4 m-1">
+                                <MDBCardBody className="px-4">
+                                    <MDBAlert color="warning" className="mb-4 rounded">
+                                        <p className="text-muted text-center m-0">
+                                            <span className="font-weight-bolder d-block">
+                                                Kedves Utasaink!
+                                            </span> Az újabb korlátozások bevezetései miatt a novemberi és december eleji utazásokat sajnos nem tudjuk elindítani!
+                                        Ezeket az utazásokat későbbi időpontokban megvalósítjuk (2021), melyek megtalálhatóak a <a className="text-muted" id="kalandozastravel"
+                                                href="http://kalandozastravel.hu/cgi-bin/view2021" target="_blank">kalandozastravel.hu</a> honlapon.
+                                        Akinek volt ezekben az időpontokban foglalása, e-mailban tájékoztatjuk.
+                                    </p>
+                                    </MDBAlert>
+
                                     <FullCalendar plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin, listplugin, googleCalendarPlugin]}
                                         headerToolbar={
                                             {
@@ -73,7 +84,11 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
             </MDBModalBody>
             <MDBCard className="rounded">
                 <MDBCardFooter>
-                    <MDBBtn color="dark" outline className="float-right rounded" onClick={() => { setcalendaropen(!calendaropen); setisOpen(false) }}>
+                    <MDBBtn color="dark" outline className="float-right rounded" onClick={() => {
+                        setcalendaropen(!calendaropen)
+                        if (window.innerWidth < 767)
+                            setisOpen(false)
+                    }}>
                         {language === "en" ? ("Close") : ("Bezárás")}
                     </MDBBtn>
                 </MDBCardFooter>

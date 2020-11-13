@@ -242,7 +242,7 @@ const Formoffer = () => {
                                                         privacy policy</a>!
                                                     </>) : (
                                                         <>Elfogadom az <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
-                                                            adatvédelmi nyilatkozatot</a>!
+                                                            adatvédelmi tájékoztatót</a>!
                                                         </>)}
                                             />
                                             <ArrowDropUp className={accepterror ? ("visible pr-1") : ("invisible pr-1")} style={{ color: "red" }} />

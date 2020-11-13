@@ -114,11 +114,14 @@ const Navbar = () => {
                                 </MDBCol>
                             </MDBNavItem>
                             <MDBNavItem id="ticketbtn" onClick={() => setIsOpen(!isOpen)} className="rounded">
-                                <a href="http://kalandozastravel.hu/cgi-bin/view2020" target="_blank" rel="noopener noreferrer"
-                                    className="nav-link border border-light rounded text-center">
-                                    <MDBIcon icon="calendar-check" className="pr-1" />
-                                    {language === "en" ? (" Tickets") : (" Jegyfoglalás")}
-                                </a>
+                                <Tooltip title={language === "en" ? ("Unfortunately we will only have travels in 2021.") :
+                                    ("Sajnos már csak a 2021-es évben lesznek utazásaink.")}>
+                                    <a href="http://kalandozastravel.hu/cgi-bin/view2021" target="_blank" rel="noopener noreferrer"
+                                        className="nav-link border border-light rounded text-center">
+                                        <MDBIcon icon="calendar-check" className="pr-1" />
+                                        {language === "en" ? (" Tickets") : (" Jegyfoglalás")}
+                                    </a>
+                                </Tooltip>
                             </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
@@ -127,7 +130,7 @@ const Navbar = () => {
 
             <Snackbar open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
                 <SnackbarContent message={language === "en" ? ("Language set...") : ("Nyelv sikeresen beállítva...")}
-                    action={<Button variant="contained" style={{ color: "white", fontWeight: "bold", backgroundColor: "#424242", margin: "5px" }}
+                    action={<Button variant="contained" className="rounded" style={{ color: "white", fontWeight: "bold", backgroundColor: "rgba(66, 66, 66, 0.8)", margin: "5px" }}
                         onClick={() => { window.location.reload(false) }}>{language === "en" ? ("Reload " + counter) : ("Újratöltés " + counter)}</Button>} />
             </Snackbar>
 
