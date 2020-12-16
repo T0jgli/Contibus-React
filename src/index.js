@@ -12,7 +12,7 @@ import ReactGA from 'react-ga';
 import App from './App';
 import './css/index.css';
 
-ReactGA.initialize('UA-177271904-2')
+ReactGA.initialize(process.env.REACT_APP_GOOGLE_GAID)
 
 ReactDOM.render(
   <Provider store={store}>
