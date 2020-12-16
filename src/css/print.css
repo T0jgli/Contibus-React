@@ -1,0 +1,32 @@
+@media print {
+    .navbar, .carousel-fade, #gallerycontainer, #scrolltopbutton, #map-div, #footer-links, #footer-social, #buses-btngroup{
+        display: none !important;
+    }
+    #footer-contact {
+        flex: 1 !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        color: black !important;
+    }
+    #form-container, #deck3, #deckmuzeum2, #deckmuzeum5 {
+        page-break-after: always;
+    }
+    .page-footer {
+        box-shadow: none !important;
+    }
+    #contibus-logo {
+        display: block !important;
+    }
+    .footer-copyright {
+        background: none !important;
+        position:fixed !important;
+        padding-bottom: 0 !important;
+        margin-left: 38% !important;
+        margin-right: 38% !important;
+        bottom:0 !important;
+    } 
+    #buses-text {
+        margin-bottom: 40px !important;
+    }
+
+}

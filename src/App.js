@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import { selectlanguage, setlanguage } from './features/AppSlice'
 import { useSelector } from 'react-redux'
 
+import './css/print.css'
+
 import Home from './components/Home'
 import Offer from './components/Offer'
 import Buses from './components/Buses'
@@ -31,7 +33,7 @@ function App () {
 
   return (
     <>
-      {sessionStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)}
+      {localStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)}
       <Scrolltotop />
       <Navbar />
 

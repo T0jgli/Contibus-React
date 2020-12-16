@@ -6,7 +6,6 @@ import {
 import Lostitems from './Lostitems';
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
-import { GoogleMapsKey } from "../../features/GoogleKey"
 import { Fade } from "react-awesome-reveal";
 
 const Footer = () => {
@@ -19,14 +18,14 @@ const Footer = () => {
                 <Fade triggerOnce>
                     <MDBContainer className="text-center text-md-left pt-4">
                         <MDBRow className="pt-4">
-                            <MDBCol md="5" lg="6" xl="5" className="mx-auto mb-1">
+                            <MDBCol md="5" lg="6" xl="5" className="mx-auto mb-1" id="map-div">
                                 {<div className="p-0 map-container" style={{ height: "80%" }}>
                                     <MDBIframe
-                                        src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key=" + GoogleMapsKey}
+                                        src={"https://www.google.com/maps/embed/v1/place?q=place_id:ChIJcZcmwULcQUcRbO4wF14ieDg&key=" + process.env.REACT_APP_GOOGLE_MAPSKEY}
                                         frameborder="0" style={{ height: "80%" }} />
                                 </div>}
                             </MDBCol>
-                            <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-1">
+                            <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-1" id="footer-links">
                                 <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Others") : ("Egyéb")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p onClick={() => setelveszett(!elveszett)} style={{ cursor: "pointer" }}>
@@ -43,7 +42,7 @@ const Footer = () => {
                                 </p>
                             </MDBCol>
 
-                            <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-xl-1">
+                            <MDBCol md="4" lg="3" xl="3" className="mx-auto mb-md-0 mb-xl-1" id="footer-contact">
                                 <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
@@ -57,7 +56,7 @@ const Footer = () => {
 
                             </MDBCol>
                         </MDBRow>
-                        <MDBCol className="mx-auto flex-center mt-2 mb-4">
+                        <MDBCol className="mx-auto flex-center mt-2 mb-4" id="footer-social">
                             <a className="fb-ic flag" target="_blank" rel="noopener noreferrer"
                                 href="https://www.facebook.com/pg/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315">
                                 <MDBIcon fab icon="facebook-f" size="lg" className="pr-2" />

@@ -14,7 +14,7 @@ const Muzeum = () => {
     return (
         <div className="fadeIn animated">
             <Fade triggerOnce direction="down">
-                <h3 className="text-center text-muted my-4">{language === "en" ? ("Our museum") : ("Múzeumunk")}</h3>
+                <h3 className="text-center text-muted my-4" id="buses-text">{language === "en" ? ("Our museum") : ("Múzeumunk")}</h3>
             </Fade>
             {Muzeumjson.Muzeum.map((item, index, array) => {
                 if (ids[index] % 2 !== 0) {

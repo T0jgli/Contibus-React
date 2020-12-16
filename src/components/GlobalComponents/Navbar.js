@@ -130,7 +130,7 @@ const Navbar = () => {
 
             <Snackbar open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
                 <SnackbarContent message={language === "en" ? ("Language set...") : ("Nyelv sikeresen beállítva...")}
-                    action={<Button variant="contained" className="rounded" style={{ color: "white", fontWeight: "bold", backgroundColor: "rgba(66, 66, 66, 0.8)", margin: "5px" }}
+                    action={<Button variant="contained" className="rounded white-text font-weight-bold" style={{ backgroundColor: "rgba(66, 66, 66, 0.8)", margin: "5px" }}
                         onClick={() => { window.location.reload(false) }}>{language === "en" ? ("Reload " + counter) : ("Újratöltés " + counter)}</Button>} />
             </Snackbar>
 

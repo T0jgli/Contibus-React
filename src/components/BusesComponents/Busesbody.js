@@ -22,6 +22,7 @@ const Busesbody = () => {
 
     return (
         <>
+            <img src="/img/3.jpg" className="img-fluid mx-auto d-none logo" width="220px" id="contibus-logo" alt="logo" />
             <div className="text-center py-4" id="main" style={{ backgroundColor: "#f7f7f7" }}>
                 <MDBContainer>
                     <Fade triggerOnce>
@@ -54,7 +55,7 @@ const Busesbody = () => {
 
             </div>
 
-            <MDBContainer className="text-center mb-5 mt-4">
+            <MDBContainer className="text-center mb-5 mt-4" id="buses-container">
                 <hr className="w-25 mt-4 " />
                 <Fade triggerOnce>
                     <MDBBtn color="dark" outline onClick={() => setshowmuzeum(!showmuzeum)} className="my-1 rounded muzeumbtn">

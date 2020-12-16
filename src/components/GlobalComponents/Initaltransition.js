@@ -62,17 +62,21 @@ const InitialTransition = () => {
     return (
         <>
             <motion.div
-                className="position-absolute d-flex justify-content-center align-items-center w-100 p-0 m-0"
+                className="position-absolute animdiv d-flex justify-content-center align-items-center w-100 p-0 m-0"
                 style={{ zIndex: "1031", backgroundColor: "black" }}
                 initial="initial"
                 animate="animate"
                 variants={blackBox}
                 onAnimationStart={() => {
+                    window.scrollTo(0, 0);
                     document.body.classList.add("overflow-hidden");
                 }}
                 onAnimationComplete={() => {
                     document.body.classList.remove("overflow-hidden");
-                    sessionStorage.setItem("InitalTransition", false)
+                    const animdiv = document.querySelector(".animdiv")
+                    animdiv.classList.toggle("d-flex")
+                    animdiv.classList.add("d-none")
+                    localStorage.setItem("InitalTransition", false)
                 }
                 }
             >

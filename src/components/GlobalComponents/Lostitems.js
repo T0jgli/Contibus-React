@@ -60,7 +60,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
 
             axios({
                 method: "POST",
-                url: "https://contibus-backend.herokuapp.com/lostitems",
+                url: process.env.REACT_APP_CONTIBUS_LOSTITEMSURL,
                 data: state
             }).then((response) => {
                 setstate({ ...state, loading: false })
@@ -168,7 +168,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                         </div>
                                     </MDBCol>
                                 </div>
- */}                                <div className="form-row my-4">
+ */}                             <div className="form-row my-2">
                                     <FormGroup className="px-md-3 px-2">
                                         <FormControlLabel
                                             control={
@@ -179,7 +179,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                         />
                                     </FormGroup>
                                 </div>
-                                <div className="form-row my-3 pb-4">
+                                <div className="form-row my-2">
                                     <FormGroup className="px-md-3 px-2">
                                         <FormControlLabel
                                             control={
@@ -198,7 +198,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                         />
                                     </FormGroup>
                                 </div>
-                                <MDBBtn color="danger" type="submit" disabled={state.loading} outline className="float-center rounded mx-auto d-block mt-1 mb-3 font-weight-bolder">
+                                <MDBBtn color="danger" type="submit" disabled={state.loading} outline className="float-center rounded mx-auto d-block mt-3 mb-3 font-weight-bolder">
                                     {state.loading ? (
                                         <div className="d-flex p-0 m-0 justify-content-center animated zoomIn">
                                             <div className="spinner-border p-0 m-0" role="status">

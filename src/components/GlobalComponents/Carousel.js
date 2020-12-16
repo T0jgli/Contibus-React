@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom"
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon } from "mdbreact";
 import { selectlanguage } from '../../features/AppSlice'
 import { useSelector } from 'react-redux'
-import { Parallax } from 'react-parallax';
 
 const Carousel = () => {
     let location = useLocation();
@@ -12,7 +11,7 @@ const Carousel = () => {
 
     const carids = ["carr11", "carr22", "carr33"];
 
-    function shuffleArray(array) {
+    function shuffleArray (array) {
         for (let i = array.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
             let temp = array[i];

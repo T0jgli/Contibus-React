@@ -66,7 +66,7 @@ const Formoffer = () => {
 
                     axios({
                         method: "POST",
-                        url: "https://contibus-backend.herokuapp.com/offer",
+                        url: process.env.REACT_APP_CONTIBUS_OFFERURL,
                         data: state
                     }).then((response) => {
                         setstate({ ...state, loading: false })
@@ -82,16 +82,26 @@ const Formoffer = () => {
                         }
                     })
                 }
-                else seterror({ state: true, msg: "Az érkezés dátuma nem lehet kisebb, mint az indulás!" })
+                else {
+                    seterror({
+                        state: true, msg: language === "en" ? ("Do you really want to get back sooner than you leave?") :
+                            ("Tényleg hamarabb akar visszaérkezni, mint elindulni?")
+                    })
+                    setstate({ ...state, indulas: "", erkezes: "" })
+                }
             }
-            else seterror({ state: true, msg: "Kérjük válasszon férőhelyet!" })
+            else seterror({ state: true, msg: language === "en" ? ("Please select suitable seats!") : ("Kérjük válasszon férőhelyet!") })
         }
-        else setaccepterror(true)
+        else {
+            seterror({ state: true, msg: language === "en" ? ("You need to accept the privacy policy!") : ("El kell fogadnia az adatvédelmi szerződést!") })
+            setaccepterror(true)
+        }
     }
 
     return (
         <>
-            <MDBContainer className="py-2" >
+            <img src="/img/3.jpg" className="img-fluid mx-auto d-none logo" width="220px" id="contibus-logo" alt="logo" />
+            <MDBContainer className="py-2" id="form-container">
                 <MDBRow className="rounded" >
                     <MDBCol className="mb-4 card pr-0 pl-0 rounded" style={{ backgroundColor: "#fafafa" }}>
                         <MDBCardHeader className="unique-color-dark roundedimg white-text text-center py-4">
@@ -162,7 +172,7 @@ const Formoffer = () => {
                                             <label htmlFor="seatsselect">{language === "en" ? ("Seats *") : ("Férőhely *")}</label>
                                             <select className="form-control z-depth-1" name="ferohely"
                                                 required value={state.seat} onChange={e => setstate({ ...state, seat: e.target.value })}>
-                                                <option>{language === "en" ? ("Please select...") : ("Kérjük válasszon...")}</option>
+                                                <option value="def">{language === "en" ? ("Please select...") : ("Kérjük válasszon...")}</option>
                                                 <option value="1-8">1-8 {language === "en" ? ("people") : ("fő")}</option>
                                                 <option value="9-17">9-17 {language === "en" ? ("people") : ("fő")}</option>
                                                 <option value="18-21">18-21 {language === "en" ? ("people") : ("fő")}</option>
@@ -187,7 +197,7 @@ const Formoffer = () => {
                                         <MDBCol className="form-group px-md-3 px-2">
                                             <label htmlFor="comment">{language === "en" ? ("Short description *") : ("Rövid leírás (hány nap, honnan/hova, utazás jellege) *")}</label>
                                             <textarea className="form-control z-depth-1"
-                                                name="desc" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="4" required></textarea>
+                                                name="desc" value={state.comment} onChange={e => setstate({ ...state, comment: e.target.value })} rows="5" required></textarea>
                                             <small className="form-text text-muted text-center">
                                                 {language === "en" ?
                                                     ("If you find our offer favorable, please order in writing. Sending a request for a quote - and the response to it - is not considered an order!") :
@@ -235,7 +245,7 @@ const Formoffer = () => {
                                             <FormControlLabel
                                                 control={
                                                     <Checkbox color="primary" style={{ color: "black" }} checked={accept}
-                                                        onChange={() => setaccept(!accept)} />
+                                                        onChange={() => { setaccept(!accept); if (accepterror) setaccepterror(false) }} />
                                                 }
                                                 label={language === "en" ? (
                                                     <>I accept the <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacytext font-weight-bolder">
@@ -267,7 +277,7 @@ const Formoffer = () => {
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
-            <Snackbars accepterror={accepterror} setaccepterror={setaccepterror} success={success} setsuccess={setsuccess} error={error} seterror={seterror} />
+            <Snackbars success={success} setsuccess={setsuccess} error={error} seterror={seterror} />
         </>
     )
 }
