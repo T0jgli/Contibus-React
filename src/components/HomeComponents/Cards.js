@@ -5,7 +5,7 @@ import {
 import ArrowDropUp from "@material-ui/icons/ArrowDropUp"
 
 import Modals from './Modals';
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { Fade } from "react-awesome-reveal";
 

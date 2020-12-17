@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from "react-router-dom"
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon } from "mdbreact";
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 const Carousel = () => {

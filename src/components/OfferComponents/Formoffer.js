@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import db from "../../firebase/firebase"
+import db from "../../lib/firebase"
 import firebase from "firebase/app"
 
 import {
@@ -12,7 +12,7 @@ import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 import { Fade } from "react-awesome-reveal";
 
 import Snackbars from '../GlobalComponents/Snackbars';
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 const Formoffer = () => {

@@ -5,7 +5,7 @@ import {
 import { Fade } from "react-awesome-reveal";
 
 import gallery from "../../src/gallery.json"
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 

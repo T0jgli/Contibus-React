@@ -8,7 +8,7 @@ import {
 import { Button, Snackbar, SnackbarContent, Tooltip } from '@material-ui/core';
 
 import Calendar from './Calendar';
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 

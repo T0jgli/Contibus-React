@@ -4,7 +4,7 @@ import { MDBBtn, MDBContainer } from "mdbreact"
 
 import Muzeum from "./Muzeum"
 import Table from "./Table"
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { Fade } from "react-awesome-reveal";
 

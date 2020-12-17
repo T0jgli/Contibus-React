@@ -6,7 +6,7 @@ import Gallery from './GlobalComponents/Gallery'
 import Formoffer from './OfferComponents/Formoffer';
 import { pageVariants } from './GlobalComponents/Initaltransition';
 
-import { selectlanguage } from '../features/AppSlice'
+import { selectlanguage } from '../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { motion } from 'framer-motion';
 import { Helmet } from "react-helmet";

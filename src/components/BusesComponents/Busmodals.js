@@ -4,11 +4,10 @@ import {
     MDBCard, MDBCardFooter, MDBModalHeader
 } from 'mdbreact';
 import { useSelector } from 'react-redux'
-import { selectlanguage } from '../../features/AppSlice';
+import { selectlanguage } from '../../lib/AppSlice';
 
 const Busmodals = ({ data, toggler, settoggler, dataid }) => {
     const language = useSelector(selectlanguage)
-
     let newarr = [...toggler];
     return (
         <>
@@ -19,12 +18,12 @@ const Busmodals = ({ data, toggler, settoggler, dataid }) => {
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
                     <MDBContainer>
-                        <h4 className="text-center m-3">{data.bus}</h4>
-                        {[...Array(data.imgs)].map((e, i) => {
+                        <h4 className="text-center m-3">{data.fields.bus}</h4>
+                        {data.fields.pictures.map((img, i) => {
                             return (
                                 <div key={300 + i}>
                                     <img className="m-4 z-depth-1 img-fluid float-center mx-auto d-block rounded busimg" key={(100 + i)} alt="Kép lesz majd"
-                                        src={"/img/" + data.id + "_img/" + (i + 1) + ".jpg"} />
+                                        src={`https:${img.fields.file.url}`} />
                                     {data.imgs !== (i + 1) && (
                                         <hr key={(200 + i)} />
                                     )}

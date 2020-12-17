@@ -11,7 +11,7 @@ import huLocale from '@fullcalendar/core/locales/hu';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import interactionPlugin from "@fullcalendar/interaction";
 
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 

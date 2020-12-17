@@ -7,7 +7,7 @@ import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 import { Fade } from "react-awesome-reveal";
 
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { Parallax } from 'react-parallax';

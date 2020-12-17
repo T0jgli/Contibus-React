@@ -2,7 +2,7 @@ import React from 'react'
 import ReactGA from 'react-ga'
 import { Helmet } from "react-helmet";
 import { useSelector } from 'react-redux';
-import { selectlanguage } from '../features/AppSlice';
+import { selectlanguage } from '../lib/AppSlice';
 
 function Notfound () {
     ReactGA.pageview(window.location.pathname)

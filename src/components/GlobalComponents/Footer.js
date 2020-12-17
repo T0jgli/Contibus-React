@@ -4,7 +4,7 @@ import {
 } from "mdbreact";
 
 import Lostitems from './Lostitems';
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { Fade } from "react-awesome-reveal";
 

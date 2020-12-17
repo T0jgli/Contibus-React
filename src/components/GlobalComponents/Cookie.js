@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 import { MDBAlert, MDBRow, MDBContainer, MDBBtn } from 'mdbreact'
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 

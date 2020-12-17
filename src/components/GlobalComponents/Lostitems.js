@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import db from "./../../firebase/firebase"
+import db from "../../lib/firebase"
 import firebase from "firebase/app"
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 import {

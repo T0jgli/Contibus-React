@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { selectlanguage } from '../../features/AppSlice';
+import { selectlanguage } from '../../lib/AppSlice';
 
 import { MDBTableBody, MDBTable, MDBTableHead, MDBBtn, MDBBtnGroup } from 'mdbreact';
 import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
@@ -13,24 +13,44 @@ import Datatable from './Datatable';
 import Busmodals from './Busmodals';
 import Fslightboxes from './Fslightboxes';
 import { Tooltip } from '@material-ui/core';
+import { client } from '../../lib/contentful';
 
 const Table = ({ tablazat, settablazat }) => {
     const language = useSelector(selectlanguage)
+    const [busesdata, setbusesdata] = useState(null)
+    const [toggler, settoggler] = useState([])
+    const [ids, setids] = useState([])
 
-    const ids = Array.from({ length: Buses.Buses.length }, (_, i) => i + 1)
-    let idd = 0
-
-    const togglers = Array.from({ length: Buses.Buses.length }, (_, i) => {
-        return (
-            { pict: false }
-        )
-    })
-
-    const [toggler, settoggler] = useState(togglers)
     const [imgtoggler, setimgtoggler] = useState({
         toggler: false,
         slide: 0
     })
+
+    useEffect(() => {
+        const data = []
+        client.getEntries({
+            content_type: "busesData",
+            order: "sys.createdAt"
+        }).then((resp) => {
+            resp.items.map((item, i) => {
+                data.push(item)
+                settoggler(toggler => [...toggler, {
+                    pict: false
+                }])
+                if (i === 0)
+                    setids(ids => [...ids, 1])
+                else {
+                    let idd = i + 1
+                    setids(ids => [...ids, idd])
+                }
+                return null
+            })
+        }).then(() => {
+            setbusesdata(data)
+        })
+    }, [])
+    let idd = 0
+
     return (
         <>
             <Fade triggerOnce direction="down">
@@ -57,8 +77,8 @@ const Table = ({ tablazat, settablazat }) => {
                 </MDBBtnGroup>
             </Fade>
 
-            {tablazat === false ? (
-                Buses.Buses.map((item, index, array) => {
+            {tablazat === false ? busesdata && (
+                busesdata.map((item, index, array) => {
                     if (index % 3 === 0) {
                         idd++;
                         return (
@@ -93,11 +113,11 @@ const Table = ({ tablazat, settablazat }) => {
                             </tr>
                         </MDBTableHead>
                         <MDBTableBody>
-                            {Buses.Buses.map((item, index) => {
+                            {busesdata && busesdata.map((item, index) => {
                                 return (
                                     <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler} settoggler={settoggler}
                                         dataid={ids[index]}
-                                        language={language} toggler={toggler} data={item} key={ids[index]}
+                                        language={language} toggler={toggler} data={item} key={index}
                                     />
                                 )
                             })}
@@ -108,7 +128,7 @@ const Table = ({ tablazat, settablazat }) => {
             )}
             {tablazat && (
                 <>
-                    {Buses.Buses.map((item, index) => {
+                    {busesdata && busesdata.map((item, index) => {
                         return (
                             <Busmodals language={language} settoggler={settoggler} toggler={toggler} data={item} key={(400 + index)} dataid={ids[index]} />
                         )

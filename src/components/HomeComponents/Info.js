@@ -4,7 +4,7 @@ import {
 } from "mdbreact";
 import { Fade } from "react-awesome-reveal";
 
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 const Info = () => {

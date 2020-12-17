@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from "framer-motion";
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 

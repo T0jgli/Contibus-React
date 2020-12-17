@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-import { selectlanguage, setlanguage } from './features/AppSlice'
+import { selectlanguage, setlanguage } from './lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 import './css/print.css'

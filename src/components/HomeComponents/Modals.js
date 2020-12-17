@@ -4,7 +4,7 @@ import {
     MDBModal, MDBModalBody, MDBRow, MDBTable, MDBTableBody, MDBTableHead, MDBCol, MDBCard,
     MDBCardHeader, MDBCardBody, MDBCardFooter, MDBCloseIcon, MDBModalHeader
 } from 'mdbreact';
-import { selectlanguage } from '../../features/AppSlice'
+import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 
