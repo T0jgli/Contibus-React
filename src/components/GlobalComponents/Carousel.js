@@ -20,6 +20,7 @@ const Carousel = () => {
         }
     }
     shuffleArray(carids);
+
     return (
         <>
             <MDBCarousel

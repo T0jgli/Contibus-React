@@ -23,7 +23,7 @@ const Busmodals = ({ data, toggler, settoggler, dataid }) => {
                             return (
                                 <div key={300 + i}>
                                     <img className="m-4 z-depth-1 img-fluid float-center mx-auto d-block rounded busimg" key={(100 + i)} alt="Kép lesz majd"
-                                        src={`https:${img.fields.file.url}`} />
+                                        src={`https:${img.fields.file.url}?&fm=webp&q=80`} />
                                     {data.imgs !== (i + 1) && (
                                         <hr key={(200 + i)} />
                                     )}

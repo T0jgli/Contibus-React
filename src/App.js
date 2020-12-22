@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-import { selectlanguage, setlanguage } from './lib/AppSlice'
+import { selectlanguage, setbusesData, setmuzeumData } from './lib/AppSlice'
 import { useSelector } from 'react-redux'
 
 import './css/print.css'
@@ -17,6 +17,7 @@ import Scrolltotop from './components/GlobalComponents/Scrolltotop';
 import Scrolltopbutton from './components/GlobalComponents/Scrolltopbutton';
 import Cookie from './components/GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
+import SetContentFulData from './lib/SetContentFulData';
 
 function App () {
   const language = useSelector(selectlanguage)
@@ -24,12 +25,22 @@ function App () {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (localStorage.getItem("language") === "en" && language !== "en") {
-      dispatch(setlanguage({ language: "en" }))
-    }
     window.document.documentElement.lang = language
-  }, [dispatch, language])
+  }, [language])
 
+  useEffect(() => {
+    SetContentFulData("busesData", "-fields.oradij").then(data => {
+      dispatch(setbusesData({
+        busesData: data
+      }))
+    })
+
+    SetContentFulData("muzeumdata", "sys.createdAt").then(data => {
+      dispatch(setmuzeumData({
+        muzeumData: data
+      }))
+    })
+  }, [dispatch])
 
   return (
     <>

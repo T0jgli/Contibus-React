@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { MDBBtn, MDBContainer } from "mdbreact"
 
@@ -12,13 +12,7 @@ const Busesbody = () => {
     const language = useSelector(selectlanguage)
 
     const [showmuzeum, setshowmuzeum] = useState(false)
-    const [tablazat, settablazat] = useState(false)
-
-    useEffect(() => {
-        if (localStorage.getItem("defaultBusView") === "table") {
-            settablazat(true)
-        }
-    }, [])
+    const [tablazat, settablazat] = useState(localStorage.getItem("defaultBusView") === "table" ? true : false)
 
     return (
         <>

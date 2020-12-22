@@ -8,7 +8,6 @@ import gallery from "../../src/gallery.json"
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 
-
 const Gallery = () => {
     const language = useSelector(selectlanguage)
 

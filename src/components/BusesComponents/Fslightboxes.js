@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 
 const Fslightboxes = ({ imgtoggler, setimgtoggler, data }) => {
+    const [imgs, setimgs] = useState([])
 
-    const imgs = Array.from({ length: data.Buses.length }, (_, i) => {
-        return (
-            `/img/${data.Buses[i].id}_img/1.jpg`
-        )
-    })
+    useEffect(() => {
+        setimgs(data && Array.from({ length: data.length }, (_, i) => {
+            return (
+                `http:${data[i].fields.pictures[0].fields.file.url}?&fm=webp&q=80`
+            )
+        }))
+    }, [data])
 
     return (
         <>
             {imgtoggler.toggler && (
                 <Lightbox
                     mainSrc={imgs[imgtoggler.slide]}
-                    nextSrc={imgs[(imgtoggler.slide + 1) % imgs.length]}
-                    prevSrc={imgs[(imgtoggler.slide + imgs.length - 1) % imgs.length]}
+                    nextSrc={imgs[(imgtoggler.slide + 1) % data.length]}
+                    prevSrc={imgs[(imgtoggler.slide + data.length - 1) % data.length]}
                     onCloseRequest={() => {
                         setimgtoggler({
                             toggler: false,
@@ -26,17 +29,17 @@ const Fslightboxes = ({ imgtoggler, setimgtoggler, data }) => {
                     onMovePrevRequest={() =>
                         setimgtoggler({
                             toggler: imgtoggler.toggler,
-                            slide: (imgtoggler.slide + imgs.length - 1) % imgs.length
+                            slide: (imgtoggler.slide + data.length - 1) % data.length
                         })
                     }
                     onMoveNextRequest={() =>
                         setimgtoggler({
                             toggler: imgtoggler.toggler,
-                            slide: (imgtoggler.slide + 1) % imgs.length
+                            slide: (imgtoggler.slide + 1) % data.length
                         })
                     }
-                    imageCaption={(imgtoggler.slide + 1) + "/" + data?.Buses.length}
-                    imageTitle={data?.Buses[imgtoggler.slide].bus}
+                    imageCaption={(imgtoggler.slide + 1) + "/" + data.length}
+                    imageTitle={data[imgtoggler.slide].fields.bus}
                 />
             )}
         </>

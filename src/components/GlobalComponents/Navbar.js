@@ -5,35 +5,21 @@ import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBCol, MDBRow
 } from "mdbreact";
-import { Button, Snackbar, SnackbarContent, Tooltip } from '@material-ui/core';
+import { Snackbar, SnackbarContent, Tooltip } from '@material-ui/core';
 
 import Calendar from './Calendar';
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
+import { selectlanguage, setlanguage } from '../../lib/AppSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 const Navbar = () => {
     let location = useLocation();
-
+    const dispatch = useDispatch()
     const language = useSelector(selectlanguage)
 
     const [calendaropen, setcalendaropen] = useState(false)
-    const [counter, setcounter] = useState(3)
     const [langtoast, setlangtoast] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
-
-    const counterinterval = () => {
-        setInterval(() => {
-            setcounter(counter => counter - 1)
-        }, 1000)
-    }
-
-    useEffect(() => {
-        if (counter === 0) {
-            window.location.reload(false)
-        }
-    }, [counter])
-
 
     useEffect(() => {
         if (window.innerWidth < 767) {
@@ -84,14 +70,12 @@ const Navbar = () => {
                                 <MDBCol className="flex-center">
                                     <MDBRow className="">
                                         <div className="img-fluid pr-2">
-                                            <Tooltip title="Hungarian"
-                                                disableHoverListener={language !== "en" ? (true) : (false)}
-                                                disableFocusListener={language !== "en" ? (true) : (false)}
-                                                disableTouchListener={language !== "en" ? (true) : (false)}
-                                            >
-                                                <img width="30px" src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
-                                                    onClick={() => { localStorage.setItem("language", "hu"); setlangtoast(true); counterinterval() }} alt="" />
-                                            </Tooltip>
+                                            <img width="30px" src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                                                onClick={() => {
+                                                    localStorage.removeItem("language")
+                                                    dispatch(setlanguage({ language: "hu" }));
+                                                    setlangtoast(true);
+                                                }} alt="" />
                                         </div>
                                     </MDBRow>
                                 </MDBCol>
@@ -100,14 +84,12 @@ const Navbar = () => {
                                 <MDBCol className="flex-center">
                                     <MDBRow className="">
                                         <div className="img-fluid pr-2">
-                                            <Tooltip title="Angol"
-                                                disableHoverListener={language === "en" ? (true) : (false)}
-                                                disableFocusListener={language === "en" ? (true) : (false)}
-                                                disableTouchListener={language === "en" ? (true) : (false)}
-                                            >
-                                                <img width="30px" src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
-                                                    onClick={() => { localStorage.setItem("language", "en"); setlangtoast(true); counterinterval() }} alt="" />
-                                            </Tooltip>
+                                            <img width="30px" src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
+                                                onClick={() => {
+                                                    localStorage.setItem("language", "en");
+                                                    dispatch(setlanguage({ language: "en" }));
+                                                    setlangtoast(true);
+                                                }} alt="" />
                                         </div>
 
                                     </MDBRow>
@@ -128,10 +110,8 @@ const Navbar = () => {
                 </div>
             </MDBNavbar>
 
-            <Snackbar open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
-                <SnackbarContent message={language === "en" ? ("Language set...") : ("Nyelv sikeresen beállítva...")}
-                    action={<Button variant="contained" className="rounded white-text font-weight-bold" style={{ backgroundColor: "rgba(66, 66, 66, 0.8)", margin: "5px" }}
-                        onClick={() => { window.location.reload(false) }}>{language === "en" ? ("Reload " + counter) : ("Újratöltés " + counter)}</Button>} />
+            <Snackbar autoHideDuration={3000} open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
+                <SnackbarContent message={language === "en" ? ("Language set") : ("Nyelv sikeresen beállítva")} />
             </Snackbar>
 
             <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} setisOpen={setIsOpen} />
