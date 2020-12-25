@@ -14,7 +14,7 @@ const Footer = () => {
 
     return (
         <>
-            <MDBFooter className="font-small z-depth-2 mt-4">
+            <MDBFooter className="font-small z-depth-2">
                 <Fade triggerOnce>
                     <MDBContainer className="text-center text-md-left pt-4">
                         <MDBRow className="pt-4">
@@ -50,7 +50,7 @@ const Footer = () => {
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />contibus@contibus.hu</p>
                                 <p>
-                                    <MDBIcon icon="phone" className="mr-3" />06-30-9349319</p>
+                                    <MDBIcon icon="phone" className="mr-3" />+36 30 934-9319</p>
                                 <p>
                                     <MDBIcon icon="print" className="mr-3" />338-2422</p>
 
@@ -58,7 +58,7 @@ const Footer = () => {
                         </MDBRow>
                         <MDBCol className="mx-auto flex-center mt-2 mb-4" id="footer-social">
                             <a className="fb-ic flag" target="_blank" rel="noopener noreferrer"
-                                href="https://www.facebook.com/pg/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315">
+                                href="https://www.facebook.com/Contibus-Neoline-432462590213055">
                                 <MDBIcon fab icon="facebook-f" size="lg" className="pr-2" />
                             </a>
 
@@ -75,7 +75,7 @@ const Footer = () => {
                             className="fas fa-times">
                         </i>
                     </span>
-                    <a href="https://www.instagram.com/kovalikadam/" rel="noopener noreferrer"
+                    <a style={{ opacity: "0.75" }} href="https://www.instagram.com/kovalikadam/" rel="noopener noreferrer"
                         target="_blank"> tojglee</a>
 
                 </span>

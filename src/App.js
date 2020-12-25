@@ -4,8 +4,6 @@ import { useDispatch } from 'react-redux'
 import { selectlanguage, setbusesData, setmuzeumData } from './lib/AppSlice'
 import { useSelector } from 'react-redux'
 
-import './css/print.css'
-
 import Home from './components/Home'
 import Offer from './components/Offer'
 import Buses from './components/Buses'
@@ -18,6 +16,7 @@ import Scrolltopbutton from './components/GlobalComponents/Scrolltopbutton';
 import Cookie from './components/GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from './lib/SetContentFulData';
+import Snackbars from './components/GlobalComponents/Snackbars';
 
 function App () {
   const language = useSelector(selectlanguage)
@@ -68,8 +67,9 @@ function App () {
         </Switch>
       </AnimatePresence>
 
-      <Cookie />
       <Footer />
+      <Cookie />
+      <Snackbars />
       <div className="d-none d-md-block">
         <Scrolltopbutton />
       </div>

@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation } from "react-router-dom"
 
 import { MDBCarousel, MDBMask, MDBCarouselInner, MDBCarouselItem, MDBView, MDBIcon } from "mdbreact";
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
+import Contactform from './Contactform';
 
 const Carousel = () => {
     let location = useLocation();
     const language = useSelector(selectlanguage)
+    const [contactform, setcontactform] = useState(false)
 
     const carids = ["carr11", "carr22", "carr33"];
 
@@ -46,21 +48,21 @@ const Carousel = () => {
                                             <MDBIcon icon="check" className="px-2" />
                                         </strong>
                                     </p>
-                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated mb-4">
-                                        <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
-                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
-                                        <MDBIcon icon="exclamation" size={"2x"}
-                                            className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                    </h5>) : (null)
+                                    {location.pathname === "/" ? (<>
+                                        <h5 className="font-weight-bold animated mb-4">
+                                            <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                            {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                                                ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
+                                            <MDBIcon icon="exclamation" size={"2x"}
+                                                className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                        </h5>
+                                        <button target="_blank" rel="noopener noreferrer" onClick={() => setcontactform(true)}
+                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-lg-5 mt-1"><span
+                                                className="">{language === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                        </button>
+                                    </>
+                                    ) : (null)
                                     }
-                                    {location.pathname !== "/" ? (null) : (
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
-                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-3"><span
-                                                className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
-                                            <MDBIcon fab icon="facebook-square" />
-                                        </a>
-                                    )}
                                 </div>
                             </MDBMask>
                         </MDBView>
@@ -80,24 +82,22 @@ const Carousel = () => {
                                             <MDBIcon icon="check" className="px-2" />{language === "en" ? ("Standards") : ("Színvonal")}
                                             <MDBIcon icon="check" className="px-2" /></strong>
                                     </p>
-                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated mb-4">
-                                        <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
-                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
-                                        <MDBIcon icon="exclamation" size={"2x"}
-                                            className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-
-                                    </h5>) : (null)
+                                    {location.pathname === "/" ? (
+                                        <>
+                                            <h5 className="font-weight-bold animated mb-4">
+                                                <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                                {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                                                    ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
+                                                <MDBIcon icon="exclamation" size={"2x"}
+                                                    className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                            </h5>
+                                            <button target="_blank" rel="noopener noreferrer" onClick={() => setcontactform(true)}
+                                                className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-lg-5 mt-1"><span
+                                                    className="">{language === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                            </button>
+                                        </>
+                                    ) : (null)
                                     }
-                                    {location.pathname !== "/" ? (null) : (
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
-                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-3"><span
-                                                className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
-                                            <MDBIcon fab icon="facebook-square" />
-                                        </a>
-
-
-                                    )}
                                 </div>
                             </MDBMask>
 
@@ -118,28 +118,29 @@ const Carousel = () => {
                                             <MDBIcon icon="check" className="px-2" />
                                         </strong>
                                     </p>
-                                    {location.pathname === "/" ? (<h5 className="font-weight-bold animated mb-4">
-                                        <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                        {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
-                                            ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
-                                        <MDBIcon icon="exclamation" size={"2x"}
-                                            className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
-                                    </h5>) : (null)
+                                    {location.pathname === "/" ? (<>
+                                        <h5 className="font-weight-bold animated mb-4">
+                                            <MDBIcon icon="exclamation" size={"2x"} className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                            {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                                                ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
+                                            <MDBIcon icon="exclamation" size={"2x"}
+                                                className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                                        </h5>
+                                        <button target="_blank" rel="noopener noreferrer" onClick={() => setcontactform(true)}
+                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-lg-5 mt-1"><span
+                                                className="">{language === "en" ? ("Get in contact with us!") : ("Lépjen kapcsolatba velünk!")}</span>
+                                        </button>
+                                    </>
+                                    ) : (null)
                                     }
-                                    {location.pathname !== "/" ? (null) : (
-                                        <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/Contibus-Neoline-432462590213055"
-                                            className="btn btn-outline-white btn-lg rounded font-weight-bold kartya mt-3"><span
-                                                className="pr-2">{language === "en" ? ("Get in contact with us!") : ("Lépj kapcsolatba velünk!")}</span>
-                                            <MDBIcon fab icon="facebook-square" />
-                                        </a>
-
-                                    )}
                                 </div>
                             </MDBMask>
                         </MDBView>
                     </MDBCarouselItem>
                 </MDBCarouselInner>
             </MDBCarousel>
+            <Contactform contactform={contactform} setcontactform={setcontactform} />
+
         </>
     )
 }

@@ -6,6 +6,7 @@ export const appSlice = createSlice({
     language: localStorage.getItem("language") || "hu",
     busesData: [],
     muzeumData: [],
+    snackbar: {},
   },
   reducers: {
     setlanguage: (state, action) => {
@@ -17,14 +18,18 @@ export const appSlice = createSlice({
     setmuzeumData: (state, action) => {
       state.muzeumData = action.payload.muzeumData;
     },
+    setsnackbar: (state, action) => {
+      state.snackbar = action.payload.snackbar;
+    },
 
   },
 });
 
-export const { setlanguage, setbusesData, setmuzeumData } = appSlice.actions;
+export const { setlanguage, setbusesData, setmuzeumData, setsnackbar } = appSlice.actions;
 
 export const selectlanguage = state => state.app.language;
 export const selectBusesData = state => state.app.busesData;
 export const selectMuzeumData = state => state.app.muzeumData;
+export const selectsnackbar = state => state.app.snackbar;
 
 export default appSlice.reducer;

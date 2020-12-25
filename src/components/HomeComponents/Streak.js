@@ -25,16 +25,16 @@ const Streak = () => {
     }, [])
 
     return (
-        <div className="streak streak-photo streak-long-2 mb-5 z-depth-2">
+        <div className="streak streak-photo streak-long-2">
             <Parallax bgImage={bg} strength={600}>
                 <MDBMask overlay="black-light" className="flex-center">
                     <MDBContainer className="py-5">
                         <Fade triggerOnce direction="down">
-                            <h3 className="text-center mb-5 pb-4 white-text font-weight-bold">
-                                <strong>{language === "en" ? ("Some facts about us") : ("Néhány tény rólunk")}</strong>
+                            <h3 className="text-center mb-5 pb-4 white-text font-weight-bolder">
+                                <span>{language === "en" ? ("Some facts about us") : ("Néhány tény rólunk")}</span>
                             </h3>
                         </Fade>
-                        <Fade triggerOnce direction="up">
+                        <Fade delay={75} triggerOnce direction="up">
                             <MDBRow className="text-center">
                                 <MDBCol md="3" className="mb-2">
                                     <h1 className="white-text mb-1 font-weight-bold">

@@ -22,7 +22,8 @@ const Busmodals = ({ data, toggler, settoggler, dataid }) => {
                         {data.fields.pictures.map((img, i) => {
                             return (
                                 <div key={300 + i}>
-                                    <img className="m-4 z-depth-1 img-fluid float-center mx-auto d-block rounded busimg" key={(100 + i)} alt="Kép lesz majd"
+                                    <img className="m-4 z-depth-1 img-fluid float-center mx-auto d-block rounded busimg" key={(100 + i)}
+                                        alt={`${data.fields.bus} kép ${i + 1}`}
                                         src={`https:${img.fields.file.url}?&fm=webp&q=80`} />
                                     {data.imgs !== (i + 1) && (
                                         <hr key={(200 + i)} />

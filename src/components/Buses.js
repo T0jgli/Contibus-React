@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactGA from 'react-ga'
 
-import "../css/buses.css"
-import '../css/addons/datatables.min.css';
+import "../css/buses.scss"
 
 import Carousel from './GlobalComponents/Carousel';
 import Busesbody from "./BusesComponents/Busesbody"
@@ -25,6 +24,9 @@ const Buses = () => {
       <Busesbody />
       <Helmet>
         <title>{language === "en" ? ("Contibus - Our Buses") : ("Contibus - Autóbuszaink")}</title>
+        <meta property="og:title" content="Contibus - Autóbuszaink" />
+        <meta property="og:locale" content={language === "en" ? ("en-US") : ("hu_HU")} />
+        <meta name="content-language" content={language === "en" ? ("en, english") : ("hu, hun, hungarian")} />
       </Helmet>
 
     </motion.section>

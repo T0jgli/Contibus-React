@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
+import { Helmet } from 'react-helmet';
 
 
 export const pageVariants = {
@@ -59,24 +60,24 @@ const text = {
 
 const InitialTransition = () => {
     const language = useSelector(selectlanguage)
+    const [complete, setcomplete] = useState(false)
     return (
         <>
+            <Helmet bodyAttributes={{
+                class: !complete && "overflow-hidden"
+            }} />
             <motion.div
-                className="position-absolute animdiv d-flex justify-content-center align-items-center w-100 p-0 m-0"
+                className={`position-absolute animdiv ${complete ? ("d-none") : ("d-flex")} justify-content-center align-items-center w-100 p-0 m-0`}
                 style={{ zIndex: "1031", backgroundColor: "black" }}
                 initial="initial"
                 animate="animate"
                 variants={blackBox}
                 onAnimationStart={() => {
                     window.scrollTo(0, 0);
-                    document.body.classList.add("overflow-hidden");
                 }}
                 onAnimationComplete={() => {
-                    document.body.classList.remove("overflow-hidden");
-                    const animdiv = document.querySelector(".animdiv")
-                    animdiv.classList.toggle("d-flex")
-                    animdiv.classList.add("d-none")
                     localStorage.setItem("InitalTransition", false)
+                    setcomplete(true)
                 }
                 }
             >

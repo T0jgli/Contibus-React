@@ -17,11 +17,11 @@ const Busesbody = () => {
     return (
         <>
             <img src="/img/3.jpg" className="img-fluid mx-auto d-none logo" width="220px" id="contibus-logo" alt="logo" />
-            <div className="text-center py-4" id="main" style={{ backgroundColor: "#f7f7f7" }}>
+            <div className="text-center py-4 mb-5" id="main" style={{ backgroundColor: "#f7f7f7" }}>
                 <MDBContainer>
                     <Fade triggerOnce>
                         <section>
-                            <h5 className="font-weight-bold pb-3">{language === "en" ? ("Other informations:") : ("Egyéb tudnivalók:")}</h5>
+                            <h3 className="py-3">{language === "en" ? ("Other informations:") : ("Egyéb tudnivalók:")}</h3>
                             <p className="font-weight-bolder">{language === "en" ?
                                 ("Domestic passenger transport is subject to 27% VAT, international passenger transport is subject to 0% VAT. A minimum of 250 km per day, a minimum of 4 hours must be paid for hourly billing.") :
                                 ("Belföldi személyszállítást 27% ÁFA terheli, nemzetközi személyszállítást 0%-os. Napi minimum 250 km, óradíjas elszámolásnál minimum 4 óra fizetendő.")}</p>
@@ -49,14 +49,14 @@ const Busesbody = () => {
 
             </div>
 
-            <MDBContainer className="text-center mb-5 mt-4" id="buses-container">
-                <hr className="w-25 mt-4 " />
+            <MDBContainer className="text-center my-5 px-lg-0" id="buses-container">
+                <hr className="w-25 mt-5" />
                 <Fade triggerOnce>
                     <MDBBtn color="dark" outline onClick={() => setshowmuzeum(!showmuzeum)} className="my-1 rounded muzeumbtn">
                         {showmuzeum ? language === "en" ? ("« Current buses") : ("« Jelenlegi autóbuszaink") : language === "en" ? ("Autobus museum »") : ("Autóbusz múzeumunk »")}
                     </MDBBtn>
                 </Fade>
-                <hr className="w-25 mb-2" />
+                <hr className="w-25 mb-3" />
                 {showmuzeum ? <Muzeum /> : <Table tablazat={tablazat} settablazat={settablazat} />}
             </MDBContainer>
         </>

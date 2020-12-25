@@ -11,12 +11,12 @@ import ArrowDropUp from '@material-ui/icons/ArrowDropUp';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 import { Fade } from "react-awesome-reveal";
 
-import Snackbars from '../GlobalComponents/Snackbars';
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
+import { selectlanguage, setsnackbar } from '../../lib/AppSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Formoffer = () => {
     const language = useSelector(selectlanguage)
+    const dispatch = useDispatch()
 
     const [state, setstate] = useState({
         name: "",
@@ -34,8 +34,6 @@ const Formoffer = () => {
 
     const [accept, setaccept] = useState(false)
     const [accepterror, setaccepterror] = useState(false)
-    const [success, setsuccess] = useState(false)
-    const [error, seterror] = useState({ state: false, msg: "" })
     const handlesubmit = (e) => {
         e.preventDefault();
         if (accept) {
@@ -72,28 +70,61 @@ const Formoffer = () => {
                         setstate({ ...state, loading: false })
                         if (response.data.status === 'success') {
                             window.scrollTo(0, 0)
-                            setsuccess(true)
+                            dispatch(setsnackbar({
+                                snackbar: {
+                                    open: true,
+                                    type: "success",
+                                    hu: "Sikeresen elküldve! Munkatársunk hamarosan felveszi Önnel a kapcsolatot.",
+                                    en: "Successfully sent! We will contact you shortly.",
+                                }
+                            }))
                             setstate({})
                         } else if (response.data.status === 'fail') {
                             console.log(response.data)
                             window.scrollTo(0, 0)
-                            seterror({ state: true, msg: response.data })
+                            dispatch(setsnackbar({
+                                snackbar: {
+                                    open: true,
+                                    type: "error",
+                                    hu: response.data,
+                                    en: response.data,
+                                }
+                            }))
                             setstate({})
                         }
                     })
                 }
                 else {
-                    seterror({
-                        state: true, msg: language === "en" ? ("Do you really want to get back sooner than you leave?") :
-                            ("Tényleg hamarabb akar visszaérkezni, mint elindulni?")
-                    })
+                    dispatch(setsnackbar({
+                        snackbar: {
+                            open: true,
+                            type: "error",
+                            hu: "Tényleg hamarabb akar visszaérkezni, mint elindulni?",
+                            en: "Do you really want to get back sooner than you leave?",
+                        }
+                    }))
                     setstate({ ...state, indulas: "", erkezes: "" })
                 }
             }
-            else seterror({ state: true, msg: language === "en" ? ("Please select suitable seats!") : ("Kérjük válasszon férőhelyet!") })
+            else
+                dispatch(setsnackbar({
+                    snackbar: {
+                        open: true,
+                        type: "error",
+                        hu: "Kérjük válasszon férőhelyet!",
+                        en: "Please select suitable seats!",
+                    }
+                }))
         }
         else {
-            seterror({ state: true, msg: language === "en" ? ("You need to accept the privacy policy!") : ("El kell fogadnia az adatvédelmi szerződést!") })
+            dispatch(setsnackbar({
+                snackbar: {
+                    open: true,
+                    type: "error",
+                    hu: "El kell fogadnia az adatvédelmi szerződést!",
+                    en: "You need to accept the privacy policy!",
+                }
+            }))
             setaccepterror(true)
         }
     }
@@ -114,12 +145,12 @@ const Formoffer = () => {
                             <form onSubmit={handlesubmit}>
                                 <Fade triggerOnce>
                                     <div className="form-row my-3">
-                                        <MDBCol className="form-group px-md-3 px-2">
+                                        <MDBCol lg="6" className="form-group px-md-3 px-2">
                                             <label htmlFor="name">{language === "en" ? ("Customer name *") : ("Megrendelő neve *")}</label>
                                             <input type="text" name="name"
                                                 className="form-control z-depth-1" required value={state.name} onChange={e => setstate({ ...state, name: e.target.value })} />
                                         </MDBCol>
-                                        <MDBCol className="form-group px-md-3 px-2">
+                                        <MDBCol lg="6" className="form-group px-md-3 px-2">
                                             <label htmlFor="phone">{language === "en" ? ("Phone number *") : ("Telefonszám *")}</label>
                                             <input type="num" name="phone"
                                                 className="form-control z-depth-1" value={state.phone} onChange={e => setstate({ ...state, phone: e.target.value })} required />
@@ -138,12 +169,12 @@ const Formoffer = () => {
                                 </Fade>
                                 <Fade triggerOnce>
                                     <div className="form-row my-3">
-                                        <MDBCol className="form-group px-md-3 px-2">
+                                        <MDBCol lg="6" className="form-group px-md-3 px-2">
                                             <label htmlFor="uticel">{language === "en" ? ("Destination *") : ("Úticél *")}</label>
                                             <input type="text" name="uticel" value={state.uticel} onChange={e => setstate({ ...state, uticel: e.target.value })}
                                                 className="form-control z-depth-1" required />
                                         </MDBCol>
-                                        <MDBCol className="form-group px-md-3 px-2">
+                                        <MDBCol lg="6" className="form-group px-md-3 px-2">
                                             <label htmlFor="km">{language === "en" ? ("Planned budget *") : ("Tervezett költségkeret *")}</label>
                                             <input type="text" name="koltseg" value={state.koltseg} onChange={e => setstate({ ...state, koltseg: e.target.value })}
                                                 className="form-control z-depth-1" required />
@@ -277,7 +308,6 @@ const Formoffer = () => {
                     </MDBCol>
                 </MDBRow>
             </MDBContainer>
-            <Snackbars success={success} setsuccess={setsuccess} error={error} seterror={seterror} />
         </>
     )
 }

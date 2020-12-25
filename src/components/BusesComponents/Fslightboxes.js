@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css';
 
 const Fslightboxes = ({ imgtoggler, setimgtoggler, data }) => {
     const [imgs, setimgs] = useState([])

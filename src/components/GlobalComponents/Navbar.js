@@ -5,11 +5,12 @@ import {
     MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,
     MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBCol, MDBRow
 } from "mdbreact";
-import { Snackbar, SnackbarContent, Tooltip } from '@material-ui/core';
+import { Snackbar, SnackbarContent } from '@material-ui/core';
 
 import Calendar from './Calendar';
 import { selectlanguage, setlanguage } from '../../lib/AppSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import Contactform from './Contactform';
 
 
 const Navbar = () => {
@@ -18,6 +19,7 @@ const Navbar = () => {
     const language = useSelector(selectlanguage)
 
     const [calendaropen, setcalendaropen] = useState(false)
+
     const [langtoast, setlangtoast] = useState(false)
     const [isOpen, setIsOpen] = useState(false)
 
@@ -25,15 +27,15 @@ const Navbar = () => {
         if (window.innerWidth < 767) {
             setIsOpen(false)
         }
-    }, [location])
+    }, [location, language])
 
     return (
         <>
-            <MDBNavbar className="w-100 fadeInDown animated" fixed="top" dark scrolling transparent expand="md">
-                <div className="container px-2 py-1">
-                    <MDBNavbarBrand onClick={() => window.location.reload(false)} style={{ cursor: "pointer" }}>
+            <MDBNavbar className="w-100 animated fadeInDown" fixed="top" dark scrolling transparent expand="md">
+                <div className="container px-0 py-lg-2">
+                    <MDBNavbarBrand onClick={() => window.location.reload(false)} >
                         <MDBIcon icon="bus" />
-                        <strong> ContiBUS</strong>
+                        <strong style={{ cursor: "pointer" }}> ContiBUS</strong>
                     </MDBNavbarBrand>
                     <MDBNavbarToggler onClick={() => setIsOpen(!isOpen)} />
                     <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
@@ -53,7 +55,7 @@ const Navbar = () => {
                             <MDBNavItem>
                                 <MDBDropdown size="lg">
                                     <MDBDropdownToggle className="rounded" nav caret>
-                                        <span><MDBIcon icon="suitcase-rolling" className="pr-1" />{language === "en" ? (" Travels") : (" Utazásaink")} </span>
+                                        <span><MDBIcon icon="suitcase-rolling" className="px-1" />{language === "en" ? (" Travels") : (" Utazásaink")} </span>
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu basic className="rounded z-depth-1 p-0">
                                         <MDBDropdownItem onClick={() => setcalendaropen(!calendaropen)} className="p-4">{language === "en" ? ("Calendar") : ("Naptár")} »
@@ -73,8 +75,9 @@ const Navbar = () => {
                                             <img width="30px" src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
                                                 onClick={() => {
                                                     localStorage.removeItem("language")
+                                                    if (language === "en")
+                                                        setlangtoast(true);
                                                     dispatch(setlanguage({ language: "hu" }));
-                                                    setlangtoast(true);
                                                 }} alt="" />
                                         </div>
                                     </MDBRow>
@@ -87,8 +90,9 @@ const Navbar = () => {
                                             <img width="30px" src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
                                                 onClick={() => {
                                                     localStorage.setItem("language", "en");
+                                                    if (language === "hu")
+                                                        setlangtoast(true);
                                                     dispatch(setlanguage({ language: "en" }));
-                                                    setlangtoast(true);
                                                 }} alt="" />
                                         </div>
 
@@ -96,14 +100,11 @@ const Navbar = () => {
                                 </MDBCol>
                             </MDBNavItem>
                             <MDBNavItem id="ticketbtn" onClick={() => setIsOpen(!isOpen)} className="rounded">
-                                <Tooltip title={language === "en" ? ("Unfortunately we will only have travels in 2021.") :
-                                    ("Sajnos már csak a 2021-es évben lesznek utazásaink.")}>
-                                    <a href="http://kalandozastravel.hu/cgi-bin/view2021" target="_blank" rel="noopener noreferrer"
-                                        className="nav-link border border-light rounded text-center">
-                                        <MDBIcon icon="calendar-check" className="pr-1" />
-                                        {language === "en" ? (" Tickets") : (" Jegyfoglalás")}
-                                    </a>
-                                </Tooltip>
+                                <a href="http://kalandozastravel.hu/cgi-bin/view2021" target="_blank" rel="noopener noreferrer"
+                                    className="nav-link border border-light rounded text-center">
+                                    <MDBIcon icon="calendar-check" className="pr-1" />
+                                    {language === "en" ? (" Tickets") : (" Jegyfoglalás")}
+                                </a>
                             </MDBNavItem>
                         </MDBNavbarNav>
                     </MDBCollapse>
@@ -113,7 +114,6 @@ const Navbar = () => {
             <Snackbar autoHideDuration={3000} open={langtoast} onClose={(event, reason) => { if (reason === "clickaway") { return; }; setlangtoast(false) }}>
                 <SnackbarContent message={language === "en" ? ("Language set") : ("Nyelv sikeresen beállítva")} />
             </Snackbar>
-
             <Calendar setcalendaropen={setcalendaropen} calendaropen={calendaropen} setisOpen={setIsOpen} />
         </>
     )

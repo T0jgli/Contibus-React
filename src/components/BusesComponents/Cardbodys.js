@@ -10,10 +10,10 @@ const Cardbodys = ({ item, what, settablazat, itemid }) => {
     return (
         <>
             {item ? (
-                <MDBCard className="rounded z-depth-1-half kartya muzeumbusz" onClick={() => { setclick(!click) }}>
+                <MDBCard className="rounded kartya muzeumbusz" onClick={() => { setclick(!click) }}>
                     <img src={what === "Muzeum" ? (`https:${item.fields.picture.fields.file.url}?&fm=webp&q=80`) :
                         what === "Table" ? (`https:${item.fields.pictures[0].fields.file.url}?&fm=webp&q=80`) : (null)}
-                        alt="Kép lesz majd" className="img-fluid rounded" />
+                        alt={`${item.fields.bus} ${what === "Muzeum" ? "Múzeum" : ("Busz")}`} className="img-fluid rounded" />
                     <MDBCardBody className={click ? ("rounded text-center muzeumcardbody d-md-block") : ("close text-center muzeumcardbody d-md-block")}>
                         <h4 className='card-title font-weight-bold pb-2 bustitle'>
                             {item.fields.bus}

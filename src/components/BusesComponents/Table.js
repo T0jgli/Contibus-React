@@ -40,10 +40,10 @@ const Table = ({ tablazat, settablazat }) => {
     return (
         <>
             <Fade triggerOnce direction="down">
-                <h3 className="text-center text-muted my-4" id="buses-text">{language === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
+                <h3 className="text-center desctext my-4" id="buses-text">{language === "en" ? ("Our current buses") : ("Jelenlegi autóbuszaink")}</h3>
             </Fade>
             <Fade triggerOnce direction="up">
-                <MDBBtnGroup className="m-2" id="buses-btngroup">
+                <MDBBtnGroup className="my-3" id="buses-btngroup">
                     <MDBBtn disabled={tablazat ? (false) : (true)} color="elegant" style={{ borderRadius: "10px 0 0 10px" }} onClick={() => {
                         settablazat(!tablazat)
                         localStorage.removeItem("defaultBusView")

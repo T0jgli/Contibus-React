@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import db from "../../lib/firebase"
 import firebase from "firebase/app"
-import { selectlanguage } from '../../lib/AppSlice'
-import { useSelector } from 'react-redux'
+import { selectlanguage, setsnackbar } from '../../lib/AppSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 import {
     MDBCol, MDBModal, MDBModalBody, MDBBtn, MDBCard, MDBCardFooter, MDBCardHeader, MDBCardBody, MDBInput, MDBModalHeader
@@ -11,11 +11,9 @@ import {
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
 
-import Snackbars from './Snackbars';
-
-
 const Lostitems = ({ elveszett, setelveszett }) => {
     const language = useSelector(selectlanguage)
+    const dispatch = useDispatch()
 
     const [state, setstate] = useState({
         name: "",
@@ -29,8 +27,6 @@ const Lostitems = ({ elveszett, setelveszett }) => {
         file: null,
         loading: false
     })
-    const [success, setsuccess] = useState(false)
-    const [error, seterror] = useState({ state: false, msg: "" })
     const [accept, setaccept] = useState(false)
     const [accepterror, setaccepterror] = useState(false)
 
@@ -65,20 +61,44 @@ const Lostitems = ({ elveszett, setelveszett }) => {
             }).then((response) => {
                 setstate({ ...state, loading: false })
                 if (response.data.status === 'success') {
-                    setsuccess(true)
+                    dispatch(setsnackbar({
+                        snackbar: {
+                            open: true,
+                            type: "success",
+                            hu: "Sikeresen elküldve! Munkatársunk hamarosan felveszi Önnel a kapcsolatot.",
+                            en: "Successfully sent! We will contact you shortly.",
+                        }
+                    }))
                     setstate({})
                     setelveszett(!elveszett)
                     window.scrollTo(0, 0)
                 } else if (response.data.status === 'fail') {
                     console.log(response.data)
-                    seterror({ state: true, msg: response.data })
+                    dispatch(setsnackbar({
+                        snackbar: {
+                            open: true,
+                            type: "success",
+                            hu: response.data,
+                            en: response.data,
+                        }
+                    }))
                     setstate({})
                     setelveszett(!elveszett)
                     window.scrollTo(0, 0)
                 }
             })
 
-        } else setaccepterror(true)
+        } else {
+            setaccepterror(true)
+            dispatch(setsnackbar({
+                snackbar: {
+                    open: true,
+                    type: "error",
+                    hu: "El kell fogadnia az adatvédelmi szerződést!",
+                    en: "You need to accept the privacy policy!",
+                }
+            }))
+        }
     }
 
     return (
@@ -105,11 +125,11 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                         <MDBCardBody>
                             <form onSubmit={handlesubmit} className="mx-2">
                                 <div className="form-row my-2">
-                                    <MDBCol>
+                                    <MDBCol lg="6">
                                         <MDBInput label={language === "en" ? ("Name *") : ("Utas neve *")}
                                             icon="user" name="name" value={state.name} onChange={e => setstate({ ...state, name: e.target.value })} required />
                                     </MDBCol>
-                                    <MDBCol>
+                                    <MDBCol lg="6">
                                         <MDBInput label={language === "en" ? ("Date of travel *") : ("Utazás dátuma *")}
                                             icon="calendar-week" name="date" value={state.date} onChange={e => setstate({ ...state, date: e.target.value })} required />
                                     </MDBCol>
@@ -128,11 +148,11 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                     </MDBCol>
                                 </div>
                                 <div className="form-row my-2">
-                                    <MDBCol>
+                                    <MDBCol lg="6">
                                         <MDBInput label={language === "en" ? ("Phone number") : ("Telefonszám")}
                                             type="tel" name="phone" value={state.phone} onChange={e => setstate({ ...state, phone: e.target.value })} icon="phone-alt" />
                                     </MDBCol>
-                                    <MDBCol>
+                                    <MDBCol lg="6">
                                         <MDBInput label={language === "en" ? ("Email address *") : ("Email cím *")}
                                             type="email" name="email" value={state.email} onChange={e => setstate({ ...state, email: e.target.value })} icon="envelope" required />
                                     </MDBCol>
@@ -219,7 +239,6 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                     </MDBCardFooter>
                 </MDBCard>
             </MDBModal>
-            <Snackbars accepterror={accepterror} setaccepterror={setaccepterror} success={success} setsuccess={setsuccess} error={error} seterror={seterror} language={language} />
         </>
     )
 }

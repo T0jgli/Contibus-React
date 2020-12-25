@@ -24,6 +24,9 @@ const Offer = () => {
             <Gallery />
             <Helmet>
                 <title>{language === "en" ? ("Contibus - Offer") : ("Contibus - Ajánlatkérés")}</title>
+                <meta property="og:title" content="Contibus - Ajánlatkérés" />
+                <meta property="og:locale" content={language === "en" ? ("en-US") : ("hu_HU")} />
+                <meta name="content-language" content={language === "en" ? ("en, english") : ("hu, hun, hungarian")} />
             </Helmet>
         </motion.div>
     )

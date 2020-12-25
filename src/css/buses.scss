@@ -1,0 +1,120 @@
+//Táblázat
+
+.busestable {
+  thead {
+    @media (max-width: 992px) {
+      display: none;
+      th {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+  tbody {
+    .tablesor {
+      @media (max-width: 992px) {
+        display: flex;
+        flex-flow: column wrap;
+        text-align: center;
+        .middletd {
+          text-align: center;
+        }
+        .keprow {
+          .thumbnailkep {
+            width: 50%;
+            margin-top: 10px;
+            margin-bottom: 5px;
+          }
+          .thumbnailkep:hover {
+            -moz-transform: scale(1.05, 1.05);
+            -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+          }
+        }
+        .dijaktext {
+          text-align: center;
+        }
+      }
+      @media (min-width: 992px) {
+        .middletd {
+          width: 60%;
+        }
+        .dijaktext {
+          text-align: right;
+        }
+        .keprow {
+          width: 20%;
+          .thumbnailkep {
+            width: 75%;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Kártyák
+
+.muzeumbusz {
+  .muzeumcardbody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+    background-color: #fff;
+    transition: all 1s;
+    cursor: pointer;
+    @media (max-width: 767px) and (min-width: 577px) {
+      padding: 0.5rem !important;
+    }
+    @media (max-width: 1200px) and (min-width: 768px) {
+      padding: 1rem !important;
+    }
+    @media (max-width: 1200px) and (min-width: 577px) {
+      .bustitle {
+        font-size: smaller !important;
+      }
+    }
+  }
+  .muzeumcardbody.close {
+    top: 100%;
+    transition: all 1s;
+    -moz-transition: all 1s;
+    -webkit-transition: all 1s;
+    height: 4rem;
+    margin-top: -4rem;
+    border-bottom-left-radius: 0.6rem !important;
+    border-bottom-right-radius: 0.6rem !important;
+    opacity: 0.85;
+    @media (max-width: 767px) and (min-width: 577px) {
+      height: 2rem !important;
+      margin-top: -2rem !important;
+    }
+  }
+}
+.muzeumbtn:hover {
+  -moz-transform: scale(1.09, 1.09);
+  -webkit-transform: scale(1.09, 1.09);
+  transform: scale(1.09, 1.09);
+}
+
+//Egyéb
+
+.ReactModal__Overlay {
+  z-index: 1031 !important;
+}
+
+.ril-caption {
+  justify-content: flex-end !important;
+}
+
+.busimg:hover {
+  opacity: 0.92;
+}
+
+.busimg {
+  transition: 0.5s;
+  -moz-transition: all 0.5s !important;
+  -webkit-transition: all 0.5s !important;
+}

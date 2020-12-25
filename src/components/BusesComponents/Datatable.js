@@ -14,7 +14,7 @@ const Datatable = ({ data, toggler, settoggler, imgtoggler, setimgtoggler, datai
     return (
         <tr className="tablesor">
             <td className="text-center pb-2 pt-2 pt-lg-4 pb-lg-3 keprow">
-                <img alt={"kep" + dataid} onClick={() => { setimgtoggler({ toggler: !imgtoggler.toggler, slide: dataid - 1 }) }}
+                <img alt={`${data.fields.bus} busz`} onClick={() => { setimgtoggler({ toggler: !imgtoggler.toggler, slide: dataid - 1 }) }}
                     className="img img-rounded img-thumbnail z-depth-1 thumbnailkep"
                     style={{ cursor: "pointer" }} src={`https://${data.fields.pictures[0].fields.file.url}?&fm=webp&q=80`} />
             </td>
