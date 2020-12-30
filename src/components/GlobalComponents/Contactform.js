@@ -6,6 +6,7 @@ import {
     MDBCol, MDBModal, MDBModalBody, MDBBtn, MDBCard, MDBCardFooter, MDBCardBody, MDBInput, MDBModalHeader, MDBRow, MDBIcon
 } from "mdbreact";
 import axios from 'axios';
+import ReactGA from 'react-ga'
 
 const Contactform = ({ contactform, setcontactform }) => {
     const language = useSelector(selectlanguage)
@@ -38,6 +39,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                 }))
                 setstate({})
                 setcontactform(!contactform)
+                ReactGA.pageview(window.location.pathname)
                 window.scrollTo(0, 0)
             } else if (response.data.status === 'fail') {
                 console.log(response.data)
@@ -51,6 +53,7 @@ const Contactform = ({ contactform, setcontactform }) => {
                 }))
                 setstate({})
                 setcontactform(!contactform)
+                ReactGA.pageview(window.location.pathname)
                 window.scrollTo(0, 0)
             }
         })
@@ -58,8 +61,16 @@ const Contactform = ({ contactform, setcontactform }) => {
 
     return (
         <>
-            <MDBModal className="lostmodal rounded" fade isOpen={contactform} toggle={() => setcontactform(!contactform)} size="lg">
-                <MDBModalHeader className="rounded contactmodal" titleClass="heading lead font-weight-bolder" toggle={() => setcontactform(!contactform)}>
+            <MDBModal className="lostmodal rounded" fade isOpen={contactform} toggle={() => {
+                setcontactform(!contactform);
+                ReactGA.pageview(window.location.pathname)
+
+            }} size="lg">
+                <MDBModalHeader className="rounded contactmodal" titleClass="heading lead font-weight-bolder" toggle={() => {
+                    setcontactform(!contactform)
+                    ReactGA.pageview(window.location.pathname)
+
+                }}>
                     <MDBIcon icon="envelope" className="px-2" />{language === "en" ? ("Contact form") : ("Kapcsolat")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
@@ -125,8 +136,8 @@ const Contactform = ({ contactform, setcontactform }) => {
                                             </MDBCol>
 
                                         </div>
-                                        <MDBBtn color="dark" type="submit" disabled={state.loading} outline
-                                            className="float-center rounded mx-auto d-block mt-3 mb-3 font-weight-bolder">
+                                        <MDBBtn color="warning" type="submit" disabled={state.loading}
+                                            className="float-center black-text roundedbtn mx-auto d-block mt-3 mb-3 font-weight-bolder">
                                             {state.loading ? (
                                                 <div className="d-flex p-0 m-0 justify-content-center animated zoomIn">
                                                     <div className="spinner-border p-0 m-0" role="status">
@@ -144,7 +155,10 @@ const Contactform = ({ contactform, setcontactform }) => {
                 </MDBModalBody>
                 <MDBCard className="rounded">
                     <MDBCardFooter>
-                        <MDBBtn color="dark" outline className="float-right rounded closetext" onClick={() => setcontactform(!contactform)}>
+                        <MDBBtn color="dark" outline className="float-right roundedbtn closetext" onClick={() => {
+                            setcontactform(!contactform);
+                            ReactGA.pageview(window.location.pathname)
+                        }}>
                             {language === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>

@@ -10,26 +10,11 @@ import { Fade } from "react-awesome-reveal";
 
 import Carddeck from "./Carddeck";
 import Datatable from './Datatable';
-import Busmodals from './Busmodals';
-import Fslightboxes from './Fslightboxes';
-import { useEffect } from 'react';
+import Fslightboxes from '../GlobalComponents/Fslightboxes';
 
 const Table = ({ tablazat, settablazat }) => {
     const language = useSelector(selectlanguage)
     const busesdata = useSelector(selectBusesData)
-    const [toggler, settoggler] = useState()
-
-
-    useEffect(() => {
-        if (busesdata.length > 1) {
-            settoggler(Array.from({ length: busesdata.length }, (_, i) => {
-                return (
-                    { pict: false }
-                )
-            }))
-        }
-
-    }, [busesdata.length])
 
     const [imgtoggler, setimgtoggler] = useState({
         toggler: false,
@@ -70,8 +55,8 @@ const Table = ({ tablazat, settablazat }) => {
                         return (
                             <Fade key={index} triggerOnce>
                                 <Carddeck
-                                    settablazat={settablazat} length={array.length} idd={idd} item={item}
-                                    nextnextitem={array[index + 2]} nextnextitemid={index + 3} nextitemid={index + 2} nextitem={array[index + 1]}
+                                    length={array.length} idd={idd} item={item}
+                                    nextnextitem={array[index + 2]} nextitem={array[index + 1]}
                                     what={"Table"} />
                             </Fade>
                         )
@@ -101,9 +86,9 @@ const Table = ({ tablazat, settablazat }) => {
                         <MDBTableBody>
                             {busesdata.map((item, index) => {
                                 return (
-                                    <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler} settoggler={settoggler}
+                                    <Datatable setimgtoggler={setimgtoggler} imgtoggler={imgtoggler}
                                         dataid={index + 1}
-                                        language={language} toggler={toggler} data={item} key={index}
+                                        language={language} data={item} key={index}
                                     />
                                 )
                             })}
@@ -114,11 +99,11 @@ const Table = ({ tablazat, settablazat }) => {
             )}
             {tablazat && (
                 <>
-                    {busesdata.length > 0 && toggler && busesdata.map((item, index) => {
+                    {/* {busesdata.length > 0 && toggler && busesdata.map((item, index) => {
                         return (
                             <Busmodals language={language} settoggler={settoggler} toggler={toggler} data={item} key={(400 + index)} dataid={index + 1} />
                         )
-                    })}
+                    })} */}
                     <Fslightboxes setimgtoggler={setimgtoggler} data={busesdata} imgtoggler={imgtoggler} />
                 </>
             )}

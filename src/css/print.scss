@@ -7,8 +7,12 @@
     #footer-links,
     #footer-social,
     #buses-btngroup,
-    #buses-container > hr {
+    #buses-container > hr,
+    #formsubmitbtn,
+    #footer-opening,
+    #back-button {
         display: none !important;
+        margin: 0 !important;
     }
     #footer-contact {
         flex: 1 !important;
@@ -40,5 +44,15 @@
     }
     #buses-text {
         margin-bottom: 40px !important;
+    }
+    #buses-container,
+    #offerheader {
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    .buses-others,
+    #offerheader {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
     }
 }

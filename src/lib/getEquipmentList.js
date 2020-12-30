@@ -1,0 +1,33 @@
+export const getEquipmentList = (data) => {
+    let equipmentList = []
+
+    if (data.includes("légkondícionáló"))
+        equipmentList.push("légkondícionáló berendezés")
+    if (data.includes("tv"))
+        equipmentList.push("TV")
+    if (data.includes("dvd"))
+        equipmentList.push("DVD")
+    if (data.includes("toalett"))
+        equipmentList.push("toalett")
+    if (data.includes("dönthető"))
+        equipmentList.push("dönthető ülések")
+    if (data.includes("lábtartó"))
+        equipmentList.push("lábtartó")
+    if (data.includes("bár"))
+        equipmentList.push("mini bár")
+    if (data.includes("audio"))
+        equipmentList.push("audio berendezés")
+    if (data.includes("asztal"))
+        equipmentList.push("asztal")
+    if (data.includes("napfénytető"))
+        equipmentList.push("napfénytető")
+    if (data.includes("síkoffer"))
+        equipmentList.push("síkoffer")
+    if (data.includes("utánfutó"))
+        equipmentList.push("extra utánfutó")
+    if (data.includes("biztonsági felszerelések"))
+        equipmentList.push("extra biztonsági felszerelések")
+    if (data.includes("nemzetközi vizsga"))
+        equipmentList.push("nemzetközi vizsga")
+    return equipmentList
+}

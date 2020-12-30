@@ -7,6 +7,7 @@ import Lostitems from './Lostitems';
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
 import { Fade } from "react-awesome-reveal";
+import ReactGA from 'react-ga'
 
 const Footer = () => {
     const [elveszett, setelveszett] = useState(false)
@@ -14,7 +15,7 @@ const Footer = () => {
 
     return (
         <>
-            <MDBFooter className="font-small z-depth-2">
+            <MDBFooter color="elegant-color-dark" className="font-small z-depth-2">
                 <Fade triggerOnce>
                     <MDBContainer className="text-center text-md-left pt-4">
                         <MDBRow className="pt-4">
@@ -28,7 +29,10 @@ const Footer = () => {
                             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-1" id="footer-links">
                                 <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Others") : ("Egyéb")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
-                                <p onClick={() => setelveszett(!elveszett)} style={{ cursor: "pointer" }}>
+                                <p onClick={() => {
+                                    setelveszett(!elveszett);
+                                    ReactGA.modalview('/lostitems');
+                                }} style={{ cursor: "pointer" }}>
                                     {language === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                                 </p>
                                 <p>
@@ -46,7 +50,7 @@ const Footer = () => {
                                 <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
-                                    <MDBIcon icon="home" className="mr-3" />1075 Budapest, Síp utca 4.</p>
+                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5</p>
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />contibus@contibus.hu</p>
                                 <p>
@@ -54,6 +58,18 @@ const Footer = () => {
                                 <p>
                                     <MDBIcon icon="print" className="mr-3" />338-2422</p>
 
+                            </MDBCol>
+                        </MDBRow>
+                        <MDBRow className="mx-auto d-flex my-4">
+                            <MDBCol className="mx-auto text-center" id="footer-opening">
+                                <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Our Office") : ("Irodánk")}</h6>
+                                <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
+                                <p className="pb-2">1075 Budapest, Síp utca 4.</p>
+                                <p>{language === "en" ? ("From Monday to Friday") : ("Hétfőtől Péntekig")}: <span className="font-weight-bolder">9:00 - 17:00</span>
+                                </p>
+                                <p>{language === "en" ? ("Saturday, Sunday: ") : ("Szombat, vasárnap: ")}
+                                    <span className="font-weight-bolder">{language === "en" ? ("Closed") : ("Zárva")} </span>
+                                </p>
                             </MDBCol>
                         </MDBRow>
                         <MDBCol className="mx-auto flex-center mt-2 mb-4" id="footer-social">

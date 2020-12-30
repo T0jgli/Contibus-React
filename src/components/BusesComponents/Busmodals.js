@@ -16,16 +16,19 @@ const Busmodals = ({ data, toggler, settoggler, dataid }) => {
                     toggle={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }}>
                     {language === "en" ? ("Pictures") : ("Képek")}
                 </MDBModalHeader>
-                <MDBModalBody className="p-0">
+                <MDBModalBody className="px-3">
                     <MDBContainer>
                         <h4 className="text-center m-3">{data.fields.bus}</h4>
                         {data.fields.pictures.map((img, i) => {
                             return (
                                 <div key={300 + i}>
-                                    <img className="m-4 z-depth-1 img-fluid float-center mx-auto d-block rounded busimg" key={(100 + i)}
-                                        alt={`${data.fields.bus} kép ${i + 1}`}
-                                        src={`https:${img.fields.file.url}?&fm=webp&q=80`} />
-                                    {data.imgs !== (i + 1) && (
+                                    <a href={`https:${img.fields.file.url}?&fm=webp&q=80`} rel="noopener noreferrer" target="_blank">
+                                        <img className="m-4 z-depth-1 img-fluid float-center mx-auto d-block rounded busimg" key={(100 + i)}
+                                            alt={`${data.fields.bus} kép ${i + 1}`}
+                                            src={`https:${img.fields.file.url}?&fm=webp&q=80`} />
+                                    </a>
+
+                                    {data.fields.pictures.length !== (i + 1) && (
                                         <hr key={(200 + i)} />
                                     )}
                                 </div>
@@ -35,7 +38,7 @@ const Busmodals = ({ data, toggler, settoggler, dataid }) => {
                 </MDBModalBody>
                 <MDBCard className="rounded">
                     <MDBCardFooter>
-                        <MDBBtn color="dark" outline className="float-right rounded" onClick={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }}>
+                        <MDBBtn color="dark" outline className="float-right roundedbtn" onClick={() => { newarr[dataid - 1].pict = !newarr[dataid - 1].pict; settoggler(newarr) }}>
                             {language === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>

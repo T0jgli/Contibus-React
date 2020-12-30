@@ -10,6 +10,7 @@ import {
 } from "mdbreact";
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import { Checkbox, FormControlLabel, FormGroup } from '@material-ui/core';
+import ReactGA from 'react-ga'
 
 const Lostitems = ({ elveszett, setelveszett }) => {
     const language = useSelector(selectlanguage)
@@ -71,6 +72,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                     }))
                     setstate({})
                     setelveszett(!elveszett)
+                    ReactGA.pageview(window.location.pathname)
                     window.scrollTo(0, 0)
                 } else if (response.data.status === 'fail') {
                     console.log(response.data)
@@ -84,6 +86,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                     }))
                     setstate({})
                     setelveszett(!elveszett)
+                    ReactGA.pageview(window.location.pathname)
                     window.scrollTo(0, 0)
                 }
             })
@@ -103,8 +106,14 @@ const Lostitems = ({ elveszett, setelveszett }) => {
 
     return (
         <>
-            <MDBModal cascading className="lostmodal rounded" fade modalStyle="danger" isOpen={elveszett} toggle={() => setelveszett(!elveszett)} size="lg">
-                <MDBModalHeader className="rounded" titleClass="heading lead font-weight-bolder" toggle={() => setelveszett(!elveszett)}>
+            <MDBModal cascading className="lostmodal rounded" fade modalStyle="warning" isOpen={elveszett} toggle={() => {
+                setelveszett(!elveszett)
+                ReactGA.pageview(window.location.pathname)
+            }} size="lg">
+                <MDBModalHeader className="rounded" titleClass="heading lead font-weight-bolder" toggle={() => {
+                    setelveszett(!elveszett)
+                    ReactGA.pageview(window.location.pathname)
+                }}>
                     {language === "en" ? ("Lost items") : ("Elvesztett tárgyak")}
                 </MDBModalHeader>
                 <MDBModalBody className="p-0">
@@ -218,7 +227,7 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                                         />
                                     </FormGroup>
                                 </div>
-                                <MDBBtn color="danger" type="submit" disabled={state.loading} outline className="float-center rounded mx-auto d-block mt-3 mb-3 font-weight-bolder">
+                                <MDBBtn color="warning" type="submit" disabled={state.loading} className="float-center black-text roundedbtn mx-auto d-block mt-3 mb-3 font-weight-bolder">
                                     {state.loading ? (
                                         <div className="d-flex p-0 m-0 justify-content-center animated zoomIn">
                                             <div className="spinner-border p-0 m-0" role="status">
@@ -233,7 +242,10 @@ const Lostitems = ({ elveszett, setelveszett }) => {
                 </MDBModalBody>
                 <MDBCard className="rounded">
                     <MDBCardFooter>
-                        <MDBBtn color="danger" outline className="float-right rounded closetext" onClick={() => setelveszett(!elveszett)}>
+                        <MDBBtn color="warning" outline className="float-right roundedbtn closetext" onClick={() => {
+                            setelveszett(!elveszett);
+                            ReactGA.pageview(window.location.pathname)
+                        }}>
                             {language === "en" ? ("Close") : ("Bezárás")}
                         </MDBBtn>
                     </MDBCardFooter>

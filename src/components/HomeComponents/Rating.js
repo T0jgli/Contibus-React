@@ -104,7 +104,11 @@ const Rating = () => {
                         value={value}
                         precision={1}
                         onChange={(event, newValue) => {
-                            localStorage.setItem("Feedback", newValue)
+                            if (newValue === null) {
+                                localStorage.removeItem("Feedback")
+                            }
+                            else
+                                localStorage.setItem("Feedback", newValue)
                             setValue(newValue);
                             setpopover({ popover: true, anchorEl: event.currentTarget })
                         }}
@@ -135,7 +139,7 @@ const Rating = () => {
                                         onChange={(e) => settextareavalue(e.target.value)} />
                                 </MDBCardBody>
                                 <MDBCardFooter className="p-0 justify-content-between d-flex">
-                                    <MDBBtn onClick={SendFeedback} outline color="dark" className="rounded ml-3 font-weight-bold" size="sm">
+                                    <MDBBtn onClick={SendFeedback} color="warning" className="roundedbtn black-text ml-3 font-weight-bold" size="sm">
                                         {language === "en" ? ("Send") : ("Küldés")}
                                     </MDBBtn>
                                     <Tooltip title={language === "en" ? ("The feedback will not be sent.") : ("Az értékelés nem lesz elküldve.")}>

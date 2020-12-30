@@ -1,17 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import Lightbox from 'react-image-lightbox';
 
-const Fslightboxes = ({ imgtoggler, setimgtoggler, data }) => {
+const Fslightboxes = ({ imgtoggler, setimgtoggler, data, name, gallery }) => {
     const [imgs, setimgs] = useState([])
-
     useEffect(() => {
-        setimgs(data && Array.from({ length: data.length }, (_, i) => {
-            return (
-                `http:${data[i].fields.pictures[0].fields.file.url}?&fm=webp&q=80`
-            )
-        }))
-    }, [data])
+        if (gallery) {
+            setimgs(data)
+        }
+        else if (name) {
+            if (data.length > 0)
+                setimgs(
+                    data.map((pict) => (
+                        `https://${pict.fields.file.url}?&fm=webp&q=80`
+                    )))
+        }
+        else {
+            setimgs(data && Array.from({ length: data.length }, (_, i) => {
+                return (
+                    `http:${data[i].fields.pictures[0].fields.file.url}?&fm=webp&q=80`
+                )
+            }))
+        }
 
+    }, [data, name])
     return (
         <>
             {imgtoggler.toggler && (
@@ -37,8 +48,8 @@ const Fslightboxes = ({ imgtoggler, setimgtoggler, data }) => {
                             slide: (imgtoggler.slide + 1) % data.length
                         })
                     }
-                    imageCaption={(imgtoggler.slide + 1) + "/" + data.length}
-                    imageTitle={data[imgtoggler.slide].fields.bus}
+                    imageCaption={!gallery && (imgtoggler.slide + 1) + "/" + data.length}
+                    imageTitle={!gallery && !Boolean(name) ? data[imgtoggler.slide].fields.bus : name}
                 />
             )}
         </>

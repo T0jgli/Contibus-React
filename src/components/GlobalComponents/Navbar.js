@@ -10,11 +10,10 @@ import { Snackbar, SnackbarContent } from '@material-ui/core';
 import Calendar from './Calendar';
 import { selectlanguage, setlanguage } from '../../lib/AppSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import Contactform from './Contactform';
-
+import ReactGA from 'react-ga'
 
 const Navbar = () => {
-    let location = useLocation();
+    const { pathname } = useLocation();
     const dispatch = useDispatch()
     const language = useSelector(selectlanguage)
 
@@ -27,11 +26,11 @@ const Navbar = () => {
         if (window.innerWidth < 767) {
             setIsOpen(false)
         }
-    }, [location, language])
+    }, [pathname, language])
 
     return (
         <>
-            <MDBNavbar className="w-100 animated fadeInDown" fixed="top" dark scrolling transparent expand="md">
+            <MDBNavbar className="w-100 animated fadeInDown" fixed="top" color="elegant-color-dark" dark scrolling transparent expand="md">
                 <div className="container px-0 py-lg-2">
                     <MDBNavbarBrand onClick={() => window.location.reload(false)} >
                         <MDBIcon icon="bus" />
@@ -40,25 +39,28 @@ const Navbar = () => {
                     <MDBNavbarToggler onClick={() => setIsOpen(!isOpen)} />
                     <MDBCollapse id="navbarCollapse3" isOpen={isOpen} navbar>
                         <MDBNavbarNav left>
-                            <MDBNavItem active={location.pathname === "" ? (true) : location.pathname === "/" ? (true) : (false)}>
+                            <MDBNavItem active={pathname === "" ? (true) : pathname === "/" ? (true) : (false)}>
                                 <MDBNavLink to="/" className="rounded">
                                     {language === "en" ? ("Home") : ("Kezdőlap")}</MDBNavLink>
                             </MDBNavItem>
-                            <MDBNavItem active={location.pathname === "/offer" ? (true) : (false)}>
+                            <MDBNavItem active={pathname === "/offer" ? (true) : (false)}>
                                 <MDBNavLink to="/offer" className="rounded">
                                     {language === "en" ? ("Offer request") : ("Ajánlatkérés")}</MDBNavLink>
                             </MDBNavItem>
-                            <MDBNavItem active={location.pathname === "/buses" ? (true) : (false)}>
+                            <MDBNavItem active={pathname.includes("bus") ? (true) : (false)}>
                                 <MDBNavLink to="/buses" className="rounded">
                                     {language === "en" ? ("Our buses") : ("Autóbuszok")}</MDBNavLink>
                             </MDBNavItem>
                             <MDBNavItem>
                                 <MDBDropdown size="lg">
                                     <MDBDropdownToggle className="rounded" nav caret>
-                                        <span><MDBIcon icon="suitcase-rolling" className="px-1" />{language === "en" ? (" Travels") : (" Utazásaink")} </span>
+                                        <span><MDBIcon icon="suitcase-rolling" className="px-lg-1 pr-1" />{language === "en" ? (" Travels") : (" Utazásaink")} </span>
                                     </MDBDropdownToggle>
                                     <MDBDropdownMenu basic className="rounded z-depth-1 p-0">
-                                        <MDBDropdownItem onClick={() => setcalendaropen(!calendaropen)} className="p-4">{language === "en" ? ("Calendar") : ("Naptár")} »
+                                        <MDBDropdownItem onClick={() => {
+                                            setcalendaropen(!calendaropen);
+                                            ReactGA.modalview('/calendar');
+                                        }} className="p-4">{language === "en" ? ("Calendar") : ("Naptár")} »
                                         </MDBDropdownItem>
                                         <MDBDropdownItem divider></MDBDropdownItem>
                                         <MDBDropdownItem href="https://www.facebook.com/Neoline-Kalandoz%C3%A1s-Utaz%C3%A1si-Iroda-184037444980315/events"
@@ -68,37 +70,40 @@ const Navbar = () => {
                             </MDBNavItem>
                         </MDBNavbarNav>
                         <MDBNavbarNav className="nav-flex-icons" right>
-                            <MDBNavItem>
-                                <MDBCol className="flex-center">
-                                    <MDBRow className="">
-                                        <div className="img-fluid pr-2">
-                                            <img width="30px" src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
-                                                onClick={() => {
-                                                    localStorage.removeItem("language")
-                                                    if (language === "en")
-                                                        setlangtoast(true);
-                                                    dispatch(setlanguage({ language: "hu" }));
-                                                }} alt="" />
-                                        </div>
-                                    </MDBRow>
-                                </MDBCol>
-                            </MDBNavItem>
-                            <MDBNavItem>
-                                <MDBCol className="flex-center">
-                                    <MDBRow className="">
-                                        <div className="img-fluid pr-2">
-                                            <img width="30px" src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
-                                                onClick={() => {
-                                                    localStorage.setItem("language", "en");
-                                                    if (language === "hu")
-                                                        setlangtoast(true);
-                                                    dispatch(setlanguage({ language: "en" }));
-                                                }} alt="" />
-                                        </div>
+                            <div className="d-flex">
+                                <MDBNavItem>
+                                    <MDBCol className="flex-center">
+                                        <MDBRow className="">
+                                            <div className="img-fluid pr-2">
+                                                <img width="30px" src="/img/hu.png" className={language !== "en" ? ("flag activelanguage") : ("flag notactivelang")} id="huicon"
+                                                    onClick={() => {
+                                                        localStorage.removeItem("language")
+                                                        if (language === "en")
+                                                            setlangtoast(true);
+                                                        dispatch(setlanguage({ language: "hu" }));
+                                                    }} alt="" />
+                                            </div>
+                                        </MDBRow>
+                                    </MDBCol>
+                                </MDBNavItem>
+                                <MDBNavItem>
+                                    <MDBCol className="flex-center">
+                                        <MDBRow className="">
+                                            <div className="img-fluid pr-2">
+                                                <img width="30px" src="/img/uk.png" className={language === "en" ? ("flag activelanguage") : ("flag notactivelang")} id="engicon"
+                                                    onClick={() => {
+                                                        localStorage.setItem("language", "en");
+                                                        if (language === "hu")
+                                                            setlangtoast(true);
+                                                        dispatch(setlanguage({ language: "en" }));
+                                                    }} alt="" />
+                                            </div>
 
-                                    </MDBRow>
-                                </MDBCol>
-                            </MDBNavItem>
+                                        </MDBRow>
+                                    </MDBCol>
+                                </MDBNavItem>
+                            </div>
+
                             <MDBNavItem id="ticketbtn" onClick={() => setIsOpen(!isOpen)} className="rounded">
                                 <a href="http://kalandozastravel.hu/cgi-bin/view2021" target="_blank" rel="noopener noreferrer"
                                     className="nav-link border border-light rounded text-center">

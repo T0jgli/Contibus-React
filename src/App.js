@@ -17,10 +17,15 @@ import Cookie from './components/GlobalComponents/Cookie';
 import { AnimatePresence } from 'framer-motion';
 import SetContentFulData from './lib/SetContentFulData';
 import Snackbars from './components/GlobalComponents/Snackbars';
+import { Crawler } from "es6-crawler-detect"
+import OneBus from './components/OneBus';
+
+const CrawlerDetector = new Crawler()
+const userAgentString = navigator.userAgent;
 
 function App () {
   const language = useSelector(selectlanguage)
-  const location = useLocation()
+  const { pathname } = useLocation()
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -43,12 +48,12 @@ function App () {
 
   return (
     <>
-      {localStorage.getItem("InitalTransition") !== "false" && (<InitialTransition />)}
+      {localStorage.getItem("InitalTransition") !== "false" && !CrawlerDetector.isCrawler(userAgentString) && (<InitialTransition />)}
       <Scrolltotop />
       <Navbar />
 
       <AnimatePresence exitBeforeEnter>
-        <Switch key={location.pathname}>
+        <Switch key={pathname}>
           <Route path="/" exact component={() =>
             <Home />
           } />
@@ -59,6 +64,10 @@ function App () {
 
           <Route path="/buses" component={() =>
             <Buses />
+          } />
+
+          <Route path="/bus/:bus" children={() =>
+            <OneBus />
           } />
 
           <Route component={() =>

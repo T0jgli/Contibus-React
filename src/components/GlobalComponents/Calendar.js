@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    MDBModal, MDBCard, MDBModalHeader, MDBBtn, MDBModalBody, MDBRow, MDBContainer, MDBCardFooter, MDBCol, MDBCardBody, MDBAlert
+    MDBModal, MDBCard, MDBModalHeader, MDBBtn, MDBModalBody, MDBRow, MDBContainer, MDBCardFooter, MDBCol, MDBCardBody
 } from "mdbreact";
 
 import FullCalendar from '@fullcalendar/react'
@@ -13,15 +13,23 @@ import interactionPlugin from "@fullcalendar/interaction";
 
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
+import ReactGA from 'react-ga'
 
 
 const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
     const language = useSelector(selectlanguage)
 
     return (
-        <MDBModal fade isOpen={calendaropen} toggle={() => setcalendaropen(!calendaropen)} size="lg" className="rounded">
+        <MDBModal fade isOpen={calendaropen} toggle={() => {
+            setcalendaropen(!calendaropen);
+            ReactGA.pageview(window.location.pathname)
+        }} size="lg" className="rounded">
             <MDBModalHeader className="rounded calendar" titleClass="heading lead font-weight-bolder"
-                toggle={() => { setcalendaropen(!calendaropen); setisOpen(false) }}>
+                toggle={() => {
+                    setcalendaropen(!calendaropen);
+                    setisOpen(false);
+                    ReactGA.pageview(window.location.pathname)
+                }}>
                 {language === "en" ? ("Calendar") : ("Naptár")}
             </MDBModalHeader>
             <MDBModalBody className="p-0">
@@ -30,17 +38,6 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
                         <MDBCol>
                             <MDBCard>
                                 <MDBCardBody className="px-4">
-                                    <MDBAlert color="warning" className="mb-4 rounded">
-                                        <p className="text-muted text-center m-0">
-                                            <span className="font-weight-bolder d-block">
-                                                Kedves Utasaink!
-                                            </span> Az újabb korlátozások bevezetései miatt a novemberi és december eleji utazásokat sajnos nem tudjuk elindítani!
-                                        Ezeket az utazásokat későbbi időpontokban megvalósítjuk (2021), melyek megtalálhatóak a <a className="text-muted" id="kalandozastravel"
-                                                href="http://kalandozastravel.hu/cgi-bin/view2021" rel="noopener noreferrer">kalandozastravel.hu</a> honlapon.
-                                        Akinek volt ezekben az időpontokban foglalása, e-mailban tájékoztatjuk.
-                                    </p>
-                                    </MDBAlert>
-
                                     <FullCalendar plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin, listplugin, googleCalendarPlugin]}
                                         headerToolbar={
                                             {
@@ -83,8 +80,10 @@ const Calendar = ({ setcalendaropen, calendaropen, setisOpen }) => {
             </MDBModalBody>
             <MDBCard className="rounded">
                 <MDBCardFooter>
-                    <MDBBtn color="dark" outline className="float-right rounded" onClick={() => {
+                    <MDBBtn color="dark" outline className="float-right roundedbtn" onClick={() => {
                         setcalendaropen(!calendaropen)
+                        ReactGA.pageview(window.location.pathname)
+
                         if (window.innerWidth < 767)
                             setisOpen(false)
                     }}>

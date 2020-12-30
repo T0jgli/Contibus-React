@@ -26,7 +26,7 @@ const Cookie = () => {
                             A weblap további böngészésével elfogadja az
                                 <a target="_blank" href="/files/adatvedelmi_nyilatkozat.pdf" className="privacycookietext font-weight-bolder"> adatvédelmi tájékoztatót</a>.
                             </span>)}</p>
-                    <MDBBtn color="dark-green" size="md" className="font-weight-bolder rounded acceptcookies d-block" onClick={() => {
+                    <MDBBtn style={{ color: "black" }} color="warning" size="md" className="font-weight-bolder roundedbtn acceptcookies d-block" onClick={() => {
                         setshow(false)
                         localStorage.setItem("EnableCookies", "true")
                     }}>

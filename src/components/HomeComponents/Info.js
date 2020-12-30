@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    MDBContainer, MDBRow, MDBCol
+    MDBContainer, MDBRow, MDBCol, MDBAlert, MDBIcon
 } from "mdbreact";
 import { Fade } from "react-awesome-reveal";
 
@@ -12,7 +12,17 @@ const Info = () => {
 
     return (
         <MDBContainer>
-            <MDBRow className="pt-5 px-lg-0 px-2">
+            <Fade triggerOnce>
+                <MDBAlert color="dark" className="rounded mt-5 text-center">
+                    <MDBIcon icon="exclamation" className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                    {language === "en" ? ("In this given situation we would like to ask our customers to wear a mask during the administration") :
+                        ("Egymás iránti bizalom és a helyzetre való tekintettel kérnénk mindenkit, hogy a személyes ügyintézés ideje alatt maszkot viseljenek")}
+                    <MDBIcon icon="exclamation"
+                        className=" pb-2 pt-xl-0 pb-xl-0 px-2" style={{ color: "#d50000" }} />
+                </MDBAlert>
+            </Fade>
+
+            <MDBRow className="pt-5 mt-2 px-lg-0 px-2">
                 <MDBCol md="6" className="mb-4">
                     <Fade triggerOnce>
                         <img src="/img/3.jpg" className="img-fluid mx-auto d-block logo" alt="Contibus logo" />
@@ -21,7 +31,7 @@ const Info = () => {
                 <MDBCol md="6" className="mb-4 px-0">
                     <Fade delay={200} triggerOnce>
                         <section>
-                            <h2 className="mb-3">{language === "en" ? ("Who we are?") : ("Kik is vagyunk mi?")}</h2>
+                            <h2 className="mb-3">{language === "en" ? ("Who are we?") : ("Kik vagyunk mi?")}</h2>
                             <hr />
                             <p className="m-0">{language === "en" ? ("The company has been dealing passenger traffic since 1992.") :
                                 ("Cégünk 1992 óta foglalkozik személyszállítással.")}</p>

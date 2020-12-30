@@ -24,11 +24,11 @@
             width: 50%;
             margin-top: 10px;
             margin-bottom: 5px;
-          }
-          .thumbnailkep:hover {
-            -moz-transform: scale(1.05, 1.05);
-            -webkit-transform: scale(1.05, 1.05);
-            transform: scale(1.05, 1.05);
+            &:hover {
+              -moz-transform: scale(1.05, 1.05);
+              -webkit-transform: scale(1.05, 1.05);
+              transform: scale(1.05, 1.05);
+            }
           }
         }
         .dijaktext {
@@ -46,7 +46,17 @@
           width: 20%;
           .thumbnailkep {
             width: 75%;
+            &:hover {
+              -moz-transform: scale(1.05, 1.05);
+              -webkit-transform: scale(1.05, 1.05);
+              transform: scale(1.05, 1.05);
+            }
           }
+        }
+      }
+      #morebtn {
+        svg {
+          font-size: 1.75rem !important;
         }
       }
     }
@@ -109,12 +119,33 @@
   justify-content: flex-end !important;
 }
 
-.busimg:hover {
-  opacity: 0.92;
-}
+.onebus__container {
+  .buspict {
+    width: 78%;
+    min-width: 280px;
+    transition: 0.5s;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+  .onebus__detailscontainer {
+    h2 {
+      letter-spacing: 0.75px;
+    }
+    .MuiSvgIcon-root {
+      color: #fb3 !important;
+    }
+  }
+  .otherpictures {
+    min-width: 280px;
 
-.busimg {
-  transition: 0.5s;
-  -moz-transition: all 0.5s !important;
-  -webkit-transition: all 0.5s !important;
+    img {
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 }

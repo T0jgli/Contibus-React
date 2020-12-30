@@ -7,7 +7,7 @@ import { Fade } from "react-awesome-reveal";
 import gallery from "../../src/gallery.json"
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
-import Gallerylightbox from './Gallerylightbox';
+import Fslightboxes from './Fslightboxes';
 
 const Gallery = () => {
     const language = useSelector(selectlanguage)
@@ -67,7 +67,7 @@ const Gallery = () => {
                     </MDBCarousel>
                 </MDBCol>
             </MDBRow>
-            <Gallerylightbox gallery={gallery} galleryopen={galleryopen} setgalleryopen={setgalleryopen} />
+            <Fslightboxes gallery data={gallery} imgtoggler={galleryopen} setimgtoggler={setgalleryopen} />
         </>
     )
 }

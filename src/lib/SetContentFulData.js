@@ -1,4 +1,9 @@
-import { client } from "./contentful"
+import * as contentful from "contentful"
+
+const client = contentful.createClient({
+    space: process.env.REACT_APP_CONTENTFUL_SPACEID,
+    accessToken: process.env.REACT_APP_CONTENTFUL_ACCESTOKEN
+})
 
 const SetContentFulData = (type, order) => {
     return client.getEntries({

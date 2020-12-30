@@ -2,15 +2,16 @@ import React, { useState } from 'react'
 import { MDBBtn, MDBCard, MDBCardBody } from "mdbreact"
 import { selectlanguage } from '../../lib/AppSlice'
 import { useSelector } from 'react-redux'
-import NumberFormat from 'react-number-format'
+import { useHistory } from 'react-router-dom'
 
-const Cardbodys = ({ item, what, settablazat, itemid }) => {
+const Cardbodys = ({ item, what }) => {
     const language = useSelector(selectlanguage)
     const [click, setclick] = useState(false)
+    const history = useHistory()
     return (
         <>
             {item ? (
-                <MDBCard className="rounded kartya muzeumbusz" onClick={() => { setclick(!click) }}>
+                <MDBCard className="rounded my-4 my-lg-0 kartya muzeumbusz" onClick={() => { setclick(!click) }}>
                     <img src={what === "Muzeum" ? (`https:${item.fields.picture.fields.file.url}?&fm=webp&q=80`) :
                         what === "Table" ? (`https:${item.fields.pictures[0].fields.file.url}?&fm=webp&q=80`) : (null)}
                         alt={`${item.fields.bus} ${what === "Muzeum" ? "Múzeum" : ("Busz")}`} className="img-fluid rounded" />
@@ -18,20 +19,16 @@ const Cardbodys = ({ item, what, settablazat, itemid }) => {
                         <h4 className='card-title font-weight-bold pb-2 bustitle'>
                             {item.fields.bus}
                         </h4>
-                        <p className='card-text mt-3'>
+                        <p className={`card-text mt-3 ${what !== "Muzeum" && ("d-lg-inline d-sm-none")}`}>
                             {item.fields.title}
                         </p>
-                        {what === "Muzeum" ? (<p className='card-text d-lg-inline d-md-none'>{item.fields.desc}</p>) :
+                        {what === "Muzeum" ? (<p className='card-text d-sm-none d-md-inline'>{item.fields.desc}</p>) :
                             (<div className="card-text font-weight-bolder">
-                                <NumberFormat className="m-1 p-0"
-                                    suffix=" Ft / km" prefix={language === "en" ? ("Km charge: ") : ("Km díj: ")} value={item.fields.kmdij} displayType="text" />
-                                <br />
-                                <NumberFormat className="m-1 p-0 pt-1"
-                                    suffix={language === "en" ? (" Ft / hour") : (" Ft / óra")} prefix={language === "en" ? ("Hourly rate: ") : ("Óradíj: ")}
-                                    thousandSeparator=" " value={item.fields.oradij} displayType="text" />
-                                <br />
-                                <MDBBtn color="dark" className="rounded mt-3 muzeumbtn" outline
-                                    onClick={() => settablazat(true)}>{language === "en" ? ("More »") : ("Bővebben »")} </MDBBtn></div>)}
+                                <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mt-lg-5 muzeumbtn"
+                                    onClick={() => { history.push(`/bus/${item.fields.id.replaceAll(/\s+/g, "-")}`) }}>
+                                    {language === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
+                                </MDBBtn>
+                            </div>)}
                     </MDBCardBody>
                 </MDBCard>
 

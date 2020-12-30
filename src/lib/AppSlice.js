@@ -21,7 +21,6 @@ export const appSlice = createSlice({
     setsnackbar: (state, action) => {
       state.snackbar = action.payload.snackbar;
     },
-
   },
 });
 
@@ -31,5 +30,6 @@ export const selectlanguage = state => state.app.language;
 export const selectBusesData = state => state.app.busesData;
 export const selectMuzeumData = state => state.app.muzeumData;
 export const selectsnackbar = state => state.app.snackbar;
+export const selectselectedbus = state => state.app.selectedbus;
 
 export default appSlice.reducer;
