@@ -38,7 +38,8 @@
   },
   "scripts": {
     "start": "set PORT=3001 && react-scripts start",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build && firebase deploy",
+    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "build & deploy": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build && firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -24,7 +24,7 @@ const Cardbodys = ({ item, what }) => {
                         </p>
                         {what === "Muzeum" ? (<p className='card-text d-sm-none d-md-inline'>{item.fields.desc}</p>) :
                             (<div className="card-text font-weight-bolder">
-                                <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mt-lg-5 muzeumbtn"
+                                <MDBBtn color="warning" className="roundedbtn black-text mt-5 mt-sm-3 mx-auto mt-lg-5 muzeumbtn"
                                     onClick={() => { history.push(`/bus/${item.fields.id.replaceAll(/\s+/g, "-")}`) }}>
                                     {language === "en" ? ("More ") : ("Bővebben ")}<span className="d-sm-none d-md-inline">»</span>
                                 </MDBBtn>

@@ -33,7 +33,7 @@ const Cards = () => {
                             <MDBCard style={{ background: "transparent", boxShadow: "none" }} className="rounded mb-4 kartya h-100 w-100">
                                 <MDBView className="rounded overlay zoom z-depth-1 waves-effect waves-light">
                                     <MDBCardImage src="/img/artablazat.png" alt="Ártáblázat kép" waves />
-                                    <a href="/files/artablazat.doc" download>
+                                    <a href="/files/artablazat.docx" download>
                                         <MDBMask overlay="black-light" className="flex-center">
                                             <p className="white-text"><ArrowDropUp /></p>
                                         </MDBMask>

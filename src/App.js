@@ -79,7 +79,7 @@ function App () {
       <Footer />
       <Cookie />
       <Snackbars />
-      <div className="d-none d-md-block">
+      <div className="d-none d-sm-block">
         <Scrolltopbutton />
       </div>
     </>

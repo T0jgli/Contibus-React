@@ -39,7 +39,7 @@ const Footer = () => {
                                     <a href="/files/utazasi-szerzodes-2020.pdf" target="_blank">{language === "en" ? ("Terms and Conditions") : ("Szerződési feltételek")}</a>
                                 </p>
                                 <p>
-                                    <a href="#!">{language === "en" ? ("Order form") : ("Megrendelőlap")}</a>
+                                    <a href="/files/megrendelolap.docx">{language === "en" ? ("Order form") : ("Megrendelőlap")}</a>
                                 </p>
                                 <p>
                                     <a href="#!">{language === "en" ? ("Baggage regulations") : ("Poggyász szabályzat")}</a>
@@ -50,7 +50,8 @@ const Footer = () => {
                                 <h6 className="text-uppercase font-weight-bold">{language === "en" ? ("Contact") : ("Kapcsolat")}</h6>
                                 <hr className="warning-color accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
                                 <p>
-                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5</p>
+                                    <MDBIcon icon="home" className="mr-3" />1088 Budapest, Szentkirályi utca 5
+                                    <span style={{ opacity: "0.8" }}>{language === "en" ? (" (HQ)") : (" (székhely)")}</span></p>
                                 <p>
                                     <MDBIcon icon="envelope" className="mr-3" />contibus@contibus.hu</p>
                                 <p>
